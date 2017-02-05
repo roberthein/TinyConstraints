@@ -17,7 +17,7 @@
 - [X] Set constraint priorities upon creation.
 
 ## Examples
-
+### Edges
 Attaching a view to its superview with `NSLayoutConstraint`:
 ```swift
 NSLayoutConstraint.activate([
@@ -37,7 +37,7 @@ or:
 ```swift
 view.edges(to: superview, insets: UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 0))
 ```
-
+### Center
 Constraining the center of a view to its superview with `NSLayoutConstraint`:
 ```swift
 NSLayoutConstraint.activate([
