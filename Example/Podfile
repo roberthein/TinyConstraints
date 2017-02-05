@@ -1,0 +1,5 @@
+use_frameworks!
+
+target 'TinyConstraints_Example' do
+  pod 'TinyConstraints', :path => '../'
+end
