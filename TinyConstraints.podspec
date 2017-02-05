@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.author             = { 'Robert-Hein Hooijmans' => 'rh.hooijmans@gmail.com' }
   s.social_media_url   = 'https://twitter.com/roberthein'
   s.source             = { :git => 'https://github.com/roberthein/TinyConstraints.git', :tag => s.version.to_s }
+  s.source_files       = 'TinyConstraints/Classes/**/*.{swift}'
 end
