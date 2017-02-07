@@ -9,7 +9,6 @@
 import UIKit
 
 class PageIndicator: UIView {
-    
     var count: Int = 0
     var indicatorViews: [UIView] = []
     
@@ -17,31 +16,19 @@ class PageIndicator: UIView {
         self.init()
         self.count = count
         
-        var previous: UIView?
-        var offset: CGFloat = 0
-        
-        for i in 0..<count {
-            
-            let view = UIView()
-            view.translatesAutoresizingMaskIntoConstraints = false
-            view.backgroundColor = .rgb(240, 240, 240)
-            view.clipsToBounds = true
-            view.layer.cornerRadius = 5
-            addSubview(view)
-            
-            view.size(CGSize(width: 10, height: 10))
-            view.top(to: self)
-            view.left(to: previous ?? self, previous?.rightAnchor ?? self.leftAnchor, offset: offset)
-            view.bottom(to: self)
-            
-            if i == count - 1 {
-                view.right(to: self)
-            }
-            
-            offset = 5
-            indicatorViews.append(view)
-            previous = view
+        (0..<count).forEach { _ in
+            indicatorViews.append({
+                let view = UIView()
+                view.translatesAutoresizingMaskIntoConstraints = false
+                view.backgroundColor = .rgb(240, 240, 240)
+                view.clipsToBounds = true
+                view.layer.cornerRadius = 5
+                return view
+                }()
+            )
         }
+        
+        stack(views: indicatorViews, direction: .leftToRight, width: 20, height: 20, spacing: 10)
     }
     
     var selected: Int = 0 {

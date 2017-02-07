@@ -45,22 +45,7 @@ class ViewController: UIViewController {
         scrollView.addSubview(contentView)
         contentView.edges(to: scrollView)
         contentView.height(to: scrollView)
-        
-        var previous: UIView?
-        
-        for example in examples {
-            example.translatesAutoresizingMaskIntoConstraints = false
-            contentView.addSubview(example)
-            
-            example.top(to: contentView)
-            example.bottom(to: contentView)
-            example.left(to: previous ?? contentView, previous?.rightAnchor ?? contentView.leftAnchor)
-            example.width(UIScreen.main.bounds.width)
-            
-            previous = example
-        }
-        
-        previous?.right(to: contentView)
+        contentView.stack(views: examples, direction: .leftToRight, width: UIScreen.main.bounds.width)
         
         indicator = PageIndicator(count: examples.count)
         indicator.translatesAutoresizingMaskIntoConstraints = false
