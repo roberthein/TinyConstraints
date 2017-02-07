@@ -4,7 +4,7 @@
 
 **tl;dr** *Nothing but sugar.*
 
-**Tiny Constraints** is some syntactic sugar that makes NSLayoutConstraint sweeter for human use.
+**Tiny Constraints** is the syntactic sugar that makes Auto Layout sweeter for human use.
 
 ![](Art/gifs/tc_03.gif)![](Art/gifs/tc_02.gif)![](Art/gifs/tc_01.gif)
 
@@ -15,6 +15,7 @@
 - [X] 100% compatible with Auto Layout.
 - [X] Optionally store your constraints.
 - [X] Set constraint priorities upon creation.
+- [X] Stack views together with one line of code.
 
 ## Examples
 ### Edges
@@ -108,7 +109,13 @@ UIViewPropertyAnimator(duration: 1, dampingRatio: 0.4) {
     }.startAnimation()
 ```
 
-Find these examples and more in the `Example Project`.
+### Stack
+Stack provides a way of constraining views together and to their shared superview. Just call `stack` on the superview.
+```swift
+superview.stack(views: [logo, titleLabel, descriptionLabel], direction: .topToBottom, spacing: 10)
+```
+
+#####Find these examples and more in the *Example Project*.
 
 ## Installation
 
