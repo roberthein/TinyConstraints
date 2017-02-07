@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name         = 'TinyConstraints'
-  s.version      = '1.0.0'
+  s.version      = '1.1.0'
   s.platform     = :ios, '10.0'
   s.ios.deployment_target = '9.0'
-  s.summary      = 'Syntactic sugar that makes NSLayoutConstraint sweeter for human use.'
+  s.summary      = 'Nothing but sugar.'
   s.description  = <<-DESC
-    Tiny Constraints is some syntactic sugar that makes NSLayoutConstraint sweeter for human use.
+    Tiny Constraints is the syntactic sugar that makes NSLayoutConstraint sweeter for human use.
   DESC
   s.homepage           = 'https://github.com/roberthein/TinyConstraints'
   s.license            = { :type => 'MIT', :file => 'LICENSE' }
