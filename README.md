@@ -6,7 +6,7 @@
 
 **Tiny Constraints** is the syntactic sugar that makes Auto Layout sweeter for human use.
 
-![](Art/gifs/tc_03.gif)![](Art/gifs/tc_02.gif)![](Art/gifs/tc_01.gif)
+![](Art/gifs/tc_03.gif)![](Art/gifs/tc_01.gif)![](Art/gifs/tc_02.gif)
 
 ## Features
 
@@ -110,9 +110,10 @@ UIViewPropertyAnimator(duration: 1, dampingRatio: 0.4) {
 ```
 
 ### Stack
-Stack provides a way of constraining views together and to their shared superview. Just call `stack` on the superview.
+Stack provides a way of constraining views together in a superview.
 ```swift
-superview.stack(views: [logo, titleLabel, descriptionLabel], direction: .topToBottom, spacing: 10)
+let views = [logo, title, description]
+superview.stack(views, axis: .vertical, spacing: 10)
 ```
 
 #####Find these examples and more in the *Example Project*.
