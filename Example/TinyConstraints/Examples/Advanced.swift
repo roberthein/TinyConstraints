@@ -6,6 +6,7 @@ class Advanced: UIView {
     var lastSubview: UIView?
     let margin: CGFloat = 20
     var counter = 0
+    var heights: Constraints = []
     
     lazy var container: Container = {
         let container = Container()
@@ -32,8 +33,8 @@ class Advanced: UIView {
         arrow.left(to: container, offset: margin)
         arrow.right(to: container, offset: -margin)
         layoutIfNeeded()
-        arrow.height(to: lastSubview ?? container, priority: UILayoutPriorityDefaultLow)
-        arrow.height(min: 100, max: 220)
+        heights.append(arrow.height(to: lastSubview ?? container, priority: UILayoutPriorityDefaultLow))
+        heights.append(contentsOf: arrow.height(min: 100, max: 220))
         
         lastBottomConstraint?.isActive = false
         lastBottomConstraint = arrow.bottom(lessThan: container, offset: -margin)
@@ -44,17 +45,28 @@ class Advanced: UIView {
 
 extension Advanced: Updatable {
     
+    func collapse() {
+        heights.forEach { $0.constant = 0 }
+        counter = 0
+        UIViewPropertyAnimator(duration: 0.8, dampingRatio: 0.7) {
+            self.container.subviews.forEach { $0.alpha = 0 }
+            }.startAnimation()
+    }
+    
     func reset() {
         container.subviews.forEach { $0.removeFromSuperview() }
+        heights.removeAll()
         lastSubview = nil
         lastBottomConstraint = nil
-        counter = 0
     }
     
     func update() {
         if counter >= UIColor.gradient.count {
-            reset()
+            collapse()
         } else {
+            if counter == 0 {
+                reset()
+            }
             appendSubview()
         }
         

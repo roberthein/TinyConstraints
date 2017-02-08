@@ -28,7 +28,7 @@ class PageIndicator: UIView {
             )
         }
         
-        stack(views: indicatorViews, direction: .leftToRight, width: 20, height: 20, spacing: 10)
+        stack(indicatorViews, axis: .horizontal, width: 20, height: 20, spacing: 10)
     }
     
     var selected: Int = 0 {
