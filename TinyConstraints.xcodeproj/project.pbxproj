@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2DD987001E4DB973002F80D6 /* TinyConstraints.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DD986FE1E4DB973002F80D6 /* TinyConstraints.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2DD9870D1E4DBB6A002F80D6 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 2DD987071E4DBB6A002F80D6 /* .gitkeep */; };
 		2DD9870E1E4DBB6A002F80D6 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 2DD987091E4DBB6A002F80D6 /* .gitkeep */; };
 		2DD9870F1E4DBB6A002F80D6 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870A1E4DBB6A002F80D6 /* Constraints.swift */; };
 		2DD987101E4DBB6A002F80D6 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870B1E4DBB6A002F80D6 /* Stack.swift */; };
@@ -19,7 +18,6 @@
 		2DD986FB1E4DB973002F80D6 /* TinyConstraints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyConstraints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DD986FE1E4DB973002F80D6 /* TinyConstraints.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinyConstraints.h; sourceTree = "<group>"; };
 		2DD986FF1E4DB973002F80D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2DD987071E4DBB6A002F80D6 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		2DD987091E4DBB6A002F80D6 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		2DD9870A1E4DBB6A002F80D6 /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		2DD9870B1E4DBB6A002F80D6 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
@@ -56,20 +54,11 @@
 		2DD986FD1E4DB973002F80D6 /* TinyConstraints */ = {
 			isa = PBXGroup;
 			children = (
-				2DD987061E4DBB6A002F80D6 /* Assets */,
 				2DD987081E4DBB6A002F80D6 /* Classes */,
 				2DD986FE1E4DB973002F80D6 /* TinyConstraints.h */,
 				2DD986FF1E4DB973002F80D6 /* Info.plist */,
 			);
 			path = TinyConstraints;
-			sourceTree = "<group>";
-		};
-		2DD987061E4DBB6A002F80D6 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				2DD987071E4DBB6A002F80D6 /* .gitkeep */,
-			);
-			path = Assets;
 			sourceTree = "<group>";
 		};
 		2DD987081E4DBB6A002F80D6 /* Classes */ = {
@@ -153,7 +142,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DD9870D1E4DBB6A002F80D6 /* .gitkeep in Resources */,
 				2DD9870E1E4DBB6A002F80D6 /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,7 +203,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -262,7 +250,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
