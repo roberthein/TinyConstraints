@@ -120,11 +120,22 @@ superview.stack(views, axis: .vertical, spacing: 10)
 
 ## Installation
 
+### CocoaPods
+
 TinyConstraints is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod "TinyConstraints"
+```
+
+### Carthage
+
+TinyConstraints is available through [Carthage](https://github.com/Carthage/Carthage). To install
+it, simply add the following line to your Cartfile:
+
+```
+github "roberthein/TinyConstraints"
 ```
 
 ## Suggestions or feedback?
