@@ -24,7 +24,7 @@
 
 import UIKit
 
-public extension UIView {
+public extension LayoutAnchorProvider {
     
     @discardableResult
     public func center(in anchorProvider: LayoutAnchorProvider, offset: CGPoint = .zero, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraints {
