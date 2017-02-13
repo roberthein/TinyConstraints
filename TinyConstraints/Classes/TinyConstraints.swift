@@ -78,7 +78,7 @@ public extension UIView {
     }
     
     @discardableResult
-    public func width(to view: UIView, _ dimension: NSLayoutDimension? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+    public func width(of view: UIView, _ dimension: NSLayoutDimension? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
         let constraint = widthAnchor.constraint(equalTo: dimension ?? view.widthAnchor, constant: offset).with(priority)
         constraint.isActive = isActive
         return constraint
@@ -111,7 +111,7 @@ public extension UIView {
     }
     
     @discardableResult
-    public func height(to view: UIView, _ dimension: NSLayoutDimension? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+    public func height(of view: UIView, _ dimension: NSLayoutDimension? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
         let constraint = heightAnchor.constraint(equalTo: dimension ?? view.heightAnchor, constant: offset).with(priority)
         constraint.isActive = isActive
         return constraint
