@@ -142,7 +142,13 @@ public extension UIView {
         constraint.isActive = isActive
         return constraint
     }
-    
+  
+    public func ahead(of view: UIView, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+      let constraint = trailingAnchor.constraint(equalTo: anchor ?? view.leadingAnchor, constant: offset).with(priority)
+      constraint.isActive = isActive
+      return constraint
+    }
+  
     @discardableResult
     public func left(to view: UIView, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
         let constraint = leftAnchor.constraint(equalTo: anchor ?? view.leftAnchor, constant: offset).with(priority)
@@ -156,14 +162,33 @@ public extension UIView {
         constraint.isActive = isActive
         return constraint
     }
-    
+  
+    @discardableResult
+    public func after(_ view: UIView, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+      let constraint = leadingAnchor.constraint(equalTo: anchor ?? view.trailingAnchor, constant: offset).with(priority)
+      constraint.isActive = isActive
+      return constraint
+    }
+  
     @discardableResult
     public func right(to view: UIView, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
         let constraint = rightAnchor.constraint(equalTo: anchor ?? view.rightAnchor, constant: offset).with(priority)
         constraint.isActive = isActive
         return constraint
     }
-    
+  
+    public func right(of view: UIView, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+      let constraint = rightAnchor.constraint(equalTo: anchor ?? view.leftAnchor, constant: offset).with(priority)
+      constraint.isActive = isActive
+      return constraint
+    }
+  
+    public func left(of view: UIView, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+      let constraint = leftAnchor.constraint(equalTo: anchor ?? view.rightAnchor, constant: offset).with(priority)
+      constraint.isActive = isActive
+      return constraint
+    }
+  
     @discardableResult
     public func top(to view: UIView, _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
         let constraint = topAnchor.constraint(equalTo: anchor ?? view.topAnchor, constant: offset).with(priority)
@@ -205,4 +230,18 @@ public extension UIView {
         constraint.isActive = isActive
         return constraint
     }
+  
+    @discardableResult
+    public func below(of view: UIView, _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+      let constraint = topAnchor.constraint(equalTo: anchor ?? view.bottomAnchor, constant: offset).with(priority)
+      constraint.isActive = isActive
+      return constraint
+    }
+  
+    @discardableResult
+    public func above(of view: UIView, _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+      let constraint = bottomAnchor.constraint(equalTo: anchor ?? view.topAnchor, constant: offset).with(priority)
+      constraint.isActive = isActive
+      return constraint
+  }
 }
