@@ -95,7 +95,7 @@ oldConstraints.deActivate()
 constraints.activate()
 UIViewPropertyAnimator(duration: 1, dampingRatio: 0.4) {
     self.layoutIfNeeded()
-    }.startAnimation()
+}.startAnimation()
 ```
 
 ### Animating Constraint Constants
@@ -106,7 +106,7 @@ let height = view.height(100)
 height.constant = 200
 UIViewPropertyAnimator(duration: 1, dampingRatio: 0.4) {
     self.layoutIfNeeded()
-    }.startAnimation()
+}.startAnimation()
 ```
 
 ### Stack
