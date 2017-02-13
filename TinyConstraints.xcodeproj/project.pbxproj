@@ -15,6 +15,8 @@
 		8410D8F51E507931003AEA65 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870B1E4DBB6A002F80D6 /* Stack.swift */; };
 		8410D8F61E507931003AEA65 /* TinyConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */; };
 		8410D8F71E50793D003AEA65 /* TinyConstraints.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DD986FE1E4DB973002F80D6 /* TinyConstraints.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A995EC3A1E523A2900892C63 /* LayoutAnchorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A995EC391E523A2900892C63 /* LayoutAnchorProvider.swift */; };
+		A995EC3E1E523C5600892C63 /* LayoutAnchorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A995EC391E523A2900892C63 /* LayoutAnchorProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,7 @@
 		2DD9870B1E4DBB6A002F80D6 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinyConstraints.swift; sourceTree = "<group>"; };
 		8410D8EC1E5078C3003AEA65 /* TinyConstraints_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyConstraints_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A995EC391E523A2900892C63 /* LayoutAnchorProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutAnchorProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +83,7 @@
 				2DD9870A1E4DBB6A002F80D6 /* Constraints.swift */,
 				2DD9870B1E4DBB6A002F80D6 /* Stack.swift */,
 				2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */,
+				A995EC391E523A2900892C63 /* LayoutAnchorProvider.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -202,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DD987111E4DBB6A002F80D6 /* TinyConstraints.swift in Sources */,
+				A995EC3A1E523A2900892C63 /* LayoutAnchorProvider.swift in Sources */,
 				2DD987101E4DBB6A002F80D6 /* Stack.swift in Sources */,
 				2DD9870F1E4DBB6A002F80D6 /* Constraints.swift in Sources */,
 			);
@@ -212,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8410D8F41E507931003AEA65 /* Constraints.swift in Sources */,
+				A995EC3E1E523C5600892C63 /* LayoutAnchorProvider.swift in Sources */,
 				8410D8F51E507931003AEA65 /* Stack.swift in Sources */,
 				8410D8F61E507931003AEA65 /* TinyConstraints.swift in Sources */,
 			);
@@ -429,6 +435,7 @@
 				8410D8F21E5078C3003AEA65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

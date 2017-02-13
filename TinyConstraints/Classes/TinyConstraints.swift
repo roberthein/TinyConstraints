@@ -27,10 +27,10 @@ import UIKit
 public extension UIView {
     
     @discardableResult
-    public func center(in view: UIView, offset: CGPoint = .zero, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraints {
+    public func center(in anchorProvider: LayoutAnchorProvider, offset: CGPoint = .zero, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraints {
         let constraints = [
-            centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: offset.x).with(priority),
-            centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: offset.y).with(priority)
+            centerXAnchor.constraint(equalTo: anchorProvider.centerXAnchor, constant: offset.x).with(priority),
+            centerYAnchor.constraint(equalTo: anchorProvider.centerYAnchor, constant: offset.y).with(priority)
         ]
         
         if isActive {
@@ -41,12 +41,12 @@ public extension UIView {
     }
     
     @discardableResult
-    public func edges(to view: UIView, insets: UIEdgeInsets = .zero, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraints {
+    public func edges(to anchorProvider: LayoutAnchorProvider, insets: UIEdgeInsets = .zero, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraints {
         let constraints = [
-            topAnchor.constraint(equalTo: view.topAnchor, constant: insets.top).with(priority),
-            leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: insets.left).with(priority),
-            bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: insets.bottom).with(priority),
-            trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: insets.right).with(priority)
+            topAnchor.constraint(equalTo: anchorProvider.topAnchor, constant: insets.top).with(priority),
+            leadingAnchor.constraint(equalTo: anchorProvider.leadingAnchor, constant: insets.left).with(priority),
+            bottomAnchor.constraint(equalTo: anchorProvider.bottomAnchor, constant: insets.bottom).with(priority),
+            trailingAnchor.constraint(equalTo: anchorProvider.trailingAnchor, constant: insets.right).with(priority)
         ]
         
         if isActive {
@@ -78,8 +78,8 @@ public extension UIView {
     }
     
     @discardableResult
-    public func width(to view: UIView, _ dimension: NSLayoutDimension? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
-        let constraint = widthAnchor.constraint(equalTo: dimension ?? view.widthAnchor, constant: offset).with(priority)
+    public func width(to anchorProvider: LayoutAnchorProvider, _ dimension: NSLayoutDimension? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+        let constraint = widthAnchor.constraint(equalTo: dimension ?? anchorProvider.widthAnchor, constant: offset).with(priority)
         constraint.isActive = isActive
         return constraint
     }
@@ -111,8 +111,8 @@ public extension UIView {
     }
     
     @discardableResult
-    public func height(to view: UIView, _ dimension: NSLayoutDimension? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
-        let constraint = heightAnchor.constraint(equalTo: dimension ?? view.heightAnchor, constant: offset).with(priority)
+    public func height(to anchorProvider: LayoutAnchorProvider, _ dimension: NSLayoutDimension? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+        let constraint = heightAnchor.constraint(equalTo: dimension ?? anchorProvider.heightAnchor, constant: offset).with(priority)
         constraint.isActive = isActive
         return constraint
     }
@@ -137,71 +137,71 @@ public extension UIView {
     }
     
     @discardableResult
-    public func leading(to view: UIView, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
-        let constraint = leadingAnchor.constraint(equalTo: anchor ?? view.leadingAnchor, constant: offset).with(priority)
+    public func leading(to anchorProvider: LayoutAnchorProvider, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+        let constraint = leadingAnchor.constraint(equalTo: anchor ?? anchorProvider.leadingAnchor, constant: offset).with(priority)
         constraint.isActive = isActive
         return constraint
     }
     
     @discardableResult
-    public func left(to view: UIView, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
-        let constraint = leftAnchor.constraint(equalTo: anchor ?? view.leftAnchor, constant: offset).with(priority)
+    public func left(to anchorProvider: LayoutAnchorProvider, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+        let constraint = leftAnchor.constraint(equalTo: anchor ?? anchorProvider.leftAnchor, constant: offset).with(priority)
         constraint.isActive = isActive
         return constraint
     }
     
     @discardableResult
-    public func trailing(to view: UIView, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
-        let constraint = trailingAnchor.constraint(equalTo: anchor ?? view.trailingAnchor, constant: offset).with(priority)
+    public func trailing(to anchorProvider: LayoutAnchorProvider, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+        let constraint = trailingAnchor.constraint(equalTo: anchor ?? anchorProvider.trailingAnchor, constant: offset).with(priority)
         constraint.isActive = isActive
         return constraint
     }
     
     @discardableResult
-    public func right(to view: UIView, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
-        let constraint = rightAnchor.constraint(equalTo: anchor ?? view.rightAnchor, constant: offset).with(priority)
+    public func right(to anchorProvider: LayoutAnchorProvider, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+        let constraint = rightAnchor.constraint(equalTo: anchor ?? anchorProvider.rightAnchor, constant: offset).with(priority)
         constraint.isActive = isActive
         return constraint
     }
     
     @discardableResult
-    public func top(to view: UIView, _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
-        let constraint = topAnchor.constraint(equalTo: anchor ?? view.topAnchor, constant: offset).with(priority)
+    public func top(to anchorProvider: LayoutAnchorProvider, _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+        let constraint = topAnchor.constraint(equalTo: anchor ?? anchorProvider.topAnchor, constant: offset).with(priority)
         constraint.isActive = isActive
         return constraint
     }
     
     @discardableResult
-    public func bottom(to view: UIView, _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
-        let constraint = bottomAnchor.constraint(equalTo: anchor ?? view.bottomAnchor, constant: offset).with(priority)
+    public func bottom(to anchorProvider: LayoutAnchorProvider, _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+        let constraint = bottomAnchor.constraint(equalTo: anchor ?? anchorProvider.bottomAnchor, constant: offset).with(priority)
         constraint.isActive = isActive
         return constraint
     }
     
     @discardableResult
-    public func bottom(lessThan view: UIView, _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
-        let constraint = bottomAnchor.constraint(lessThanOrEqualTo: anchor ?? view.bottomAnchor, constant: offset).with(priority)
+    public func bottom(lessThan anchorProvider: LayoutAnchorProvider, _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+        let constraint = bottomAnchor.constraint(lessThanOrEqualTo: anchor ?? anchorProvider.bottomAnchor, constant: offset).with(priority)
         constraint.isActive = isActive
         return constraint
     }
     
     @discardableResult
-    public func bottom(greaterThan view: UIView, _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
-        let constraint = bottomAnchor.constraint(greaterThanOrEqualTo: anchor ?? view.bottomAnchor, constant: offset).with(priority)
+    public func bottom(greaterThan anchorProvider: LayoutAnchorProvider, _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+        let constraint = bottomAnchor.constraint(greaterThanOrEqualTo: anchor ?? anchorProvider.bottomAnchor, constant: offset).with(priority)
         constraint.isActive = isActive
         return constraint
     }
     
     @discardableResult
-    public func centerX(to view: UIView, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
-        let constraint = centerXAnchor.constraint(equalTo: anchor ?? view.centerXAnchor, constant: offset).with(priority)
+    public func centerX(to anchorProvider: LayoutAnchorProvider, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+        let constraint = centerXAnchor.constraint(equalTo: anchor ?? anchorProvider.centerXAnchor, constant: offset).with(priority)
         constraint.isActive = isActive
         return constraint
     }
     
     @discardableResult
-    public func centerY(to view: UIView, _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
-        let constraint = centerYAnchor.constraint(equalTo: anchor ?? view.centerYAnchor, constant: offset).with(priority)
+    public func centerY(to anchorProvider: LayoutAnchorProvider, _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+        let constraint = centerYAnchor.constraint(equalTo: anchor ?? anchorProvider.centerYAnchor, constant: offset).with(priority)
         constraint.isActive = isActive
         return constraint
     }
