@@ -78,8 +78,19 @@ public extension UIView {
     }
     
     @discardableResult
-    public func width(to view: UIView, _ dimension: NSLayoutDimension? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
-        let constraint = widthAnchor.constraint(equalTo: dimension ?? view.widthAnchor, constant: offset).with(priority)
+    public func width(to view: UIView, _ dimension: NSLayoutDimension? = nil, offset: CGFloat = 0, multiplier: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+        var constraint: Constraint
+
+        if offset != 0 && multiplier != 0 {
+            constraint = widthAnchor.constraint(equalTo: dimension ?? view.widthAnchor, multiplier: multiplier, constant: offset).with(priority)
+        }
+        else if multiplier != 0 {
+            constraint = widthAnchor.constraint(equalTo: dimension ?? view.widthAnchor, multiplier: multiplier).with(priority)
+        }
+        else {
+            constraint = widthAnchor.constraint(equalTo: dimension ?? view.widthAnchor, constant: offset).with(priority)
+        }
+
         constraint.isActive = isActive
         return constraint
     }
@@ -111,8 +122,19 @@ public extension UIView {
     }
     
     @discardableResult
-    public func height(to view: UIView, _ dimension: NSLayoutDimension? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
-        let constraint = heightAnchor.constraint(equalTo: dimension ?? view.heightAnchor, constant: offset).with(priority)
+    public func height(to view: UIView, _ dimension: NSLayoutDimension? = nil, offset: CGFloat = 0, multiplier: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+        var constraint: Constraint
+
+        if offset != 0 && multiplier != 0 {
+            constraint = heightAnchor.constraint(equalTo: dimension ?? view.heightAnchor, multiplier: multiplier, constant: offset).with(priority)
+        }
+        else if multiplier != 0 {
+            constraint = heightAnchor.constraint(equalTo: dimension ?? view.heightAnchor, multiplier: multiplier).with(priority)
+        }
+        else {
+            constraint = heightAnchor.constraint(equalTo: dimension ?? view.heightAnchor, constant: offset).with(priority)
+        }
+
         constraint.isActive = isActive
         return constraint
     }
