@@ -144,7 +144,7 @@ public extension Constrainable {
     }
     
     @discardableResult
-    public func left(to view: Constrainable, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: UILayoutPriority = UILayoutPriorityDefaultHigh, isActive: Bool = true) -> Constraint {
+    public func left(to view: Constrainable, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: ConstraintPriority = .high, isActive: Bool = true) -> Constraint {
         let constraint = leftAnchor.constraint(equalTo: anchor ?? view.leftAnchor, constant: offset).with(priority)
         constraint.isActive = isActive
         return constraint
