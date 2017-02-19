@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DD7AA441E599FD800509EBC /* Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD7AA431E599FD800509EBC /* Constrainable.swift */; };
+		2DD7AA451E59A08100509EBC /* Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD7AA431E599FD800509EBC /* Constrainable.swift */; };
 		2DD987001E4DB973002F80D6 /* TinyConstraints.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DD986FE1E4DB973002F80D6 /* TinyConstraints.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2DD9870F1E4DBB6A002F80D6 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870A1E4DBB6A002F80D6 /* Constraints.swift */; };
 		2DD987101E4DBB6A002F80D6 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870B1E4DBB6A002F80D6 /* Stack.swift */; };
@@ -18,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2DD7AA431E599FD800509EBC /* Constrainable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constrainable.swift; sourceTree = "<group>"; };
 		2DD986FB1E4DB973002F80D6 /* TinyConstraints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyConstraints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DD986FE1E4DB973002F80D6 /* TinyConstraints.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinyConstraints.h; sourceTree = "<group>"; };
 		2DD986FF1E4DB973002F80D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,6 +83,7 @@
 				2DD9870A1E4DBB6A002F80D6 /* Constraints.swift */,
 				2DD9870B1E4DBB6A002F80D6 /* Stack.swift */,
 				2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */,
+				2DD7AA431E599FD800509EBC /* Constrainable.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -204,6 +208,7 @@
 				2DD987111E4DBB6A002F80D6 /* TinyConstraints.swift in Sources */,
 				2DD987101E4DBB6A002F80D6 /* Stack.swift in Sources */,
 				2DD9870F1E4DBB6A002F80D6 /* Constraints.swift in Sources */,
+				2DD7AA441E599FD800509EBC /* Constrainable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +219,7 @@
 				8410D8F41E507931003AEA65 /* Constraints.swift in Sources */,
 				8410D8F51E507931003AEA65 /* Stack.swift in Sources */,
 				8410D8F61E507931003AEA65 /* TinyConstraints.swift in Sources */,
+				2DD7AA451E59A08100509EBC /* Constrainable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +435,7 @@
 				8410D8F21E5078C3003AEA65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
