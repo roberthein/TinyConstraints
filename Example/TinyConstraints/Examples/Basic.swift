@@ -16,7 +16,7 @@ class Basic: UIView {
         addSubview(container)
         container.width(320)
         container.height(min: 420)
-        container.height(440, priority: UILayoutPriorityDefaultLow)
+        container.height(440, priority: .low)
         container.center(in: self)
         
         var row = -1
