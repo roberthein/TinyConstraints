@@ -19,15 +19,15 @@ class Advanced: UIView {
         addSubview(container)
         container.width(310)
         container.height(min: 310)
-        container.height(320, priority: .low)
+        container.height(310, priority: .low)
         container.center(in: self)
     }
     
     func appendSubview() {
         
         let arrow = ArrowView(color: UIColor.gradient[safe: counter], orientation: .vertical)
-        arrow.setHugging(.low, for: .horizontal)
-        arrow.setCompressionResistance(.high, for: .horizontal)
+        arrow.setHugging(.low, for: .vertical)
+        arrow.setCompressionResistance(.high, for: .vertical)
         container.addSubview(arrow)
         
         arrow.top(to: lastSubview ?? container, lastSubview?.bottomAnchor ?? container.topAnchor, offset: margin)
