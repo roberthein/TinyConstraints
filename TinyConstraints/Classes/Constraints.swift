@@ -26,6 +26,18 @@ import UIKit
 
 public typealias Constraint = NSLayoutConstraint
 public typealias Constraints = [Constraint]
+public typealias ConstraintAxis = UILayoutConstraintAxis
+
+public enum ConstraintPriority: UILayoutPriority {
+    case required = 1000
+    case high = 750
+    case low = 250
+    case fittingSize = 50
+    
+    public var value: UILayoutPriority {
+        return rawValue
+    }
+}
 
 public extension Collection where Iterator.Element == Constraint {
     
@@ -46,8 +58,8 @@ public extension Collection where Iterator.Element == Constraint {
 
 public extension Constraint {
     
-    func with(_ p: UILayoutPriority) -> Self {
-        priority = p
+    func with(_ p: ConstraintPriority) -> Self {
+        priority = p.value
         return self
     }
 }

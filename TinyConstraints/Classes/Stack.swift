@@ -24,15 +24,10 @@
 
 import UIKit
 
-public enum StackAxis {
-    case horizontal
-    case vertical
-}
-
 public extension UIView {
     
     @discardableResult
-    public func stack(_ views: [UIView], axis: StackAxis = .vertical, width: CGFloat? = nil, height: CGFloat? = nil, spacing: CGFloat = 0) -> Constraints {
+    public func stack(_ views: [UIView], axis: ConstraintAxis = .vertical, width: CGFloat? = nil, height: CGFloat? = nil, spacing: CGFloat = 0) -> Constraints {
         
         var offset: CGFloat = 0
         var previous: UIView?
