@@ -19,6 +19,7 @@ class Advanced: UIView {
         addSubview(container)
         container.width(310)
         container.height(min: 310)
+        container.height(320, priority: UILayoutPriorityDefaultLow)
         container.center(in: self)
     }
     
