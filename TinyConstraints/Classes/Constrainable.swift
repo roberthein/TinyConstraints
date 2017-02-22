@@ -21,10 +21,18 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //    THE SOFTWARE.
 
-import UIKit
+#if os(OSX)
+	import AppKit
+	
+	public typealias LayoutGuide = NSLayoutGuide
+#else
+	import UIKit
+	
+	public typealias LayoutGuide = UILayoutGuide
+#endif
 
-extension UIView: Constrainable {}
-extension UILayoutGuide: Constrainable {}
+extension View: Constrainable {}
+extension LayoutGuide: Constrainable {}
 
 public protocol Constrainable {
     var topAnchor: NSLayoutYAxisAnchor { get }

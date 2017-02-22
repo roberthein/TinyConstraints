@@ -22,15 +22,23 @@
 //    THE SOFTWARE.
 //
 
-import UIKit
+#if os(OSX)
+	import AppKit
+	
+	public typealias View = NSView
+#else
+	import UIKit
+	
+	public typealias View = UIView
+#endif
 
-public extension UIView {
+public extension View {
     
     @discardableResult
-    public func stack(_ views: [UIView], axis: ConstraintAxis = .vertical, width: CGFloat? = nil, height: CGFloat? = nil, spacing: CGFloat = 0) -> Constraints {
+    public func stack(_ views: [View], axis: ConstraintAxis = .vertical, width: CGFloat? = nil, height: CGFloat? = nil, spacing: CGFloat = 0) -> Constraints {
         
         var offset: CGFloat = 0
-        var previous: UIView?
+        var previous: View?
         var constraints: Constraints = []
         
         for view in views {
@@ -63,7 +71,7 @@ public extension UIView {
             if let height = height {
                 constraints.append(view.height(height))
             }
-            
+			
             offset = spacing
             previous = view
         }
