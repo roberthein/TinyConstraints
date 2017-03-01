@@ -23,20 +23,13 @@
 //
 
 #if os(OSX)
-	import AppKit
+    import AppKit
 #else
-	import UIKit
+    import UIKit
 #endif
 
 public typealias Constraint = NSLayoutConstraint
 public typealias Constraints = [Constraint]
-#if os(OSX)
-	public typealias ConstraintAxis = NSLayoutConstraintOrientation
-	public typealias LayoutPriority = NSLayoutPriority
-#else
-	public typealias ConstraintAxis = UILayoutConstraintAxis
-	public typealias LayoutPriority = UILayoutPriority
-#endif
 
 public enum ConstraintPriority: LayoutPriority {
     case required = 1000

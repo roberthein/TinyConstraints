@@ -23,15 +23,9 @@
 //
 
 #if os(OSX)
-	import AppKit
-	
-	extension EdgeInsets {
-		static var zero = NSEdgeInsetsZero
-	}
+    import AppKit
 #else
-	import UIKit
-	
-	public typealias EdgeInsets = UIEdgeInsets
+    import UIKit
 #endif
 
 public extension Constrainable {

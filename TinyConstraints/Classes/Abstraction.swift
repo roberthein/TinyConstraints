@@ -21,26 +21,26 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //    THE SOFTWARE.
 
+import Foundation
+
 #if os(OSX)
     import AppKit
+    
+    public typealias View = NSView
+    public typealias LayoutGuide = NSLayoutGuide
+    public typealias ConstraintAxis = NSLayoutConstraintOrientation
+    public typealias LayoutPriority = NSLayoutPriority
+    
+    extension EdgeInsets {
+        static var zero = NSEdgeInsetsZero
+    }
 #else
     import UIKit
+    
+    public typealias View = UIView
+    public typealias LayoutGuide = UILayoutGuide
+    public typealias ConstraintAxis = UILayoutConstraintAxis
+    public typealias LayoutPriority = UILayoutPriority
+    
+    public typealias EdgeInsets = UIEdgeInsets
 #endif
-
-extension View: Constrainable {}
-extension LayoutGuide: Constrainable {}
-
-public protocol Constrainable {
-    var topAnchor: NSLayoutYAxisAnchor { get }
-    var bottomAnchor: NSLayoutYAxisAnchor { get }
-    var leftAnchor: NSLayoutXAxisAnchor { get }
-    var rightAnchor: NSLayoutXAxisAnchor { get }
-    var leadingAnchor: NSLayoutXAxisAnchor { get }
-    var trailingAnchor: NSLayoutXAxisAnchor { get }
-    
-    var centerXAnchor: NSLayoutXAxisAnchor { get }
-    var centerYAnchor: NSLayoutYAxisAnchor { get }
-    
-    var widthAnchor: NSLayoutDimension { get }
-    var heightAnchor: NSLayoutDimension { get }
-}

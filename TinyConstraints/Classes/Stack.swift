@@ -23,13 +23,9 @@
 //
 
 #if os(OSX)
-	import AppKit
-	
-	public typealias View = NSView
+    import AppKit
 #else
-	import UIKit
-	
-	public typealias View = UIView
+    import UIKit
 #endif
 
 public extension View {
