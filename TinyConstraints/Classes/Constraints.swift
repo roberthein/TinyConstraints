@@ -22,19 +22,22 @@
 //    THE SOFTWARE.
 //
 
-import UIKit
+#if os(OSX)
+    import AppKit
+#else
+    import UIKit
+#endif
 
 public typealias Constraint = NSLayoutConstraint
 public typealias Constraints = [Constraint]
-public typealias ConstraintAxis = UILayoutConstraintAxis
 
-public enum ConstraintPriority: UILayoutPriority {
+public enum ConstraintPriority: LayoutPriority {
     case required = 1000
     case high = 750
     case low = 250
     case fittingSize = 50
     
-    public var value: UILayoutPriority {
+    public var value: LayoutPriority {
         return rawValue
     }
 }

@@ -22,7 +22,11 @@
 //    THE SOFTWARE.
 //
 
-import UIKit
+#if os(OSX)
+    import AppKit
+#else
+    import UIKit
+#endif
 
 public extension Constrainable {
     
@@ -41,7 +45,7 @@ public extension Constrainable {
     }
     
     @discardableResult
-    public func edges(to view: Constrainable, insets: UIEdgeInsets = .zero, priority: ConstraintPriority = .high, isActive: Bool = true) -> Constraints {
+    public func edges(to view: Constrainable, insets: EdgeInsets = .zero, priority: ConstraintPriority = .high, isActive: Bool = true) -> Constraints {
         let constraints = [
             topAnchor.constraint(equalTo: view.topAnchor, constant: insets.top).with(priority),
             leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: insets.left).with(priority),
@@ -207,8 +211,7 @@ public extension Constrainable {
     }
 }
 
-public extension UIView {
-    
+public extension View {
     public func setHugging(_ priority: ConstraintPriority, for axis: ConstraintAxis) {
         setContentHuggingPriority(priority.value, for: axis)
     }

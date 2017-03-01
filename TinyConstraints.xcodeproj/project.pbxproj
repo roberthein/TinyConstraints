@@ -13,10 +13,18 @@
 		2DD9870F1E4DBB6A002F80D6 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870A1E4DBB6A002F80D6 /* Constraints.swift */; };
 		2DD987101E4DBB6A002F80D6 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870B1E4DBB6A002F80D6 /* Stack.swift */; };
 		2DD987111E4DBB6A002F80D6 /* TinyConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */; };
+		746BBE811E5D7C9D007BE10D /* TinyConstraints_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 746BBE7F1E5D7C9D007BE10D /* TinyConstraints_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		746BBE851E5D7CA7007BE10D /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870A1E4DBB6A002F80D6 /* Constraints.swift */; };
+		746BBE861E5D7CAB007BE10D /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870B1E4DBB6A002F80D6 /* Stack.swift */; };
+		746BBE871E5D7CAE007BE10D /* Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD7AA431E599FD800509EBC /* Constrainable.swift */; };
+		746BBE881E5D7CB3007BE10D /* TinyConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */; };
 		8410D8F41E507931003AEA65 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870A1E4DBB6A002F80D6 /* Constraints.swift */; };
 		8410D8F51E507931003AEA65 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870B1E4DBB6A002F80D6 /* Stack.swift */; };
 		8410D8F61E507931003AEA65 /* TinyConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */; };
 		8410D8F71E50793D003AEA65 /* TinyConstraints.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DD986FE1E4DB973002F80D6 /* TinyConstraints.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9D467D11E6777CA00C331FA /* Abstraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D467D01E6777CA00C331FA /* Abstraction.swift */; };
+		A9D467D21E6777DB00C331FA /* Abstraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D467D01E6777CA00C331FA /* Abstraction.swift */; };
+		A9D467D31E6777DC00C331FA /* Abstraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D467D01E6777CA00C331FA /* Abstraction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,11 +36,22 @@
 		2DD9870A1E4DBB6A002F80D6 /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		2DD9870B1E4DBB6A002F80D6 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinyConstraints.swift; sourceTree = "<group>"; };
+		746BBE7D1E5D7C9D007BE10D /* TinyConstraints_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyConstraints_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		746BBE7F1E5D7C9D007BE10D /* TinyConstraints_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinyConstraints_macOS.h; sourceTree = "<group>"; };
+		746BBE801E5D7C9D007BE10D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8410D8EC1E5078C3003AEA65 /* TinyConstraints_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyConstraints_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9D467D01E6777CA00C331FA /* Abstraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Abstraction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2DD986F71E4DB973002F80D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		746BBE791E5D7C9D007BE10D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -53,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				2DD986FD1E4DB973002F80D6 /* TinyConstraints */,
+				746BBE7E1E5D7C9D007BE10D /* TinyConstraints_macOS */,
 				2DD986FC1E4DB973002F80D6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,6 +82,7 @@
 			children = (
 				2DD986FB1E4DB973002F80D6 /* TinyConstraints.framework */,
 				8410D8EC1E5078C3003AEA65 /* TinyConstraints_tvOS.framework */,
+				746BBE7D1E5D7C9D007BE10D /* TinyConstraints_macOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -80,12 +101,22 @@
 			isa = PBXGroup;
 			children = (
 				2DD987091E4DBB6A002F80D6 /* .gitkeep */,
+				A9D467D01E6777CA00C331FA /* Abstraction.swift */,
+				2DD7AA431E599FD800509EBC /* Constrainable.swift */,
 				2DD9870A1E4DBB6A002F80D6 /* Constraints.swift */,
 				2DD9870B1E4DBB6A002F80D6 /* Stack.swift */,
 				2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */,
-				2DD7AA431E599FD800509EBC /* Constrainable.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		746BBE7E1E5D7C9D007BE10D /* TinyConstraints_macOS */ = {
+			isa = PBXGroup;
+			children = (
+				746BBE7F1E5D7C9D007BE10D /* TinyConstraints_macOS.h */,
+				746BBE801E5D7C9D007BE10D /* Info.plist */,
+			);
+			path = TinyConstraints_macOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +127,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DD987001E4DB973002F80D6 /* TinyConstraints.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		746BBE7A1E5D7C9D007BE10D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				746BBE811E5D7C9D007BE10D /* TinyConstraints_macOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +165,24 @@
 			name = TinyConstraints;
 			productName = TinyConstraints;
 			productReference = 2DD986FB1E4DB973002F80D6 /* TinyConstraints.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		746BBE7C1E5D7C9D007BE10D /* TinyConstraints_macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 746BBE841E5D7C9D007BE10D /* Build configuration list for PBXNativeTarget "TinyConstraints_macOS" */;
+			buildPhases = (
+				746BBE781E5D7C9D007BE10D /* Sources */,
+				746BBE791E5D7C9D007BE10D /* Frameworks */,
+				746BBE7A1E5D7C9D007BE10D /* Headers */,
+				746BBE7B1E5D7C9D007BE10D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TinyConstraints_macOS;
+			productName = TinyConstraints_macOS;
+			productReference = 746BBE7D1E5D7C9D007BE10D /* TinyConstraints_macOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		8410D8EB1E5078C3003AEA65 /* TinyConstraints_tvOS */ = {
@@ -159,6 +216,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Manual;
 					};
+					746BBE7C1E5D7C9D007BE10D = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 7TD9A665TC;
+						ProvisioningStyle = Automatic;
+					};
 					8410D8EB1E5078C3003AEA65 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Manual;
@@ -179,12 +241,20 @@
 			targets = (
 				2DD986FA1E4DB973002F80D6 /* TinyConstraints */,
 				8410D8EB1E5078C3003AEA65 /* TinyConstraints_tvOS */,
+				746BBE7C1E5D7C9D007BE10D /* TinyConstraints_macOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2DD986F91E4DB973002F80D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		746BBE7B1E5D7C9D007BE10D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -209,6 +279,19 @@
 				2DD987101E4DBB6A002F80D6 /* Stack.swift in Sources */,
 				2DD9870F1E4DBB6A002F80D6 /* Constraints.swift in Sources */,
 				2DD7AA441E599FD800509EBC /* Constrainable.swift in Sources */,
+				A9D467D11E6777CA00C331FA /* Abstraction.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		746BBE781E5D7C9D007BE10D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				746BBE881E5D7CB3007BE10D /* TinyConstraints.swift in Sources */,
+				746BBE871E5D7CAE007BE10D /* Constrainable.swift in Sources */,
+				746BBE861E5D7CAB007BE10D /* Stack.swift in Sources */,
+				746BBE851E5D7CA7007BE10D /* Constraints.swift in Sources */,
+				A9D467D31E6777DC00C331FA /* Abstraction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +303,7 @@
 				8410D8F51E507931003AEA65 /* Stack.swift in Sources */,
 				8410D8F61E507931003AEA65 /* TinyConstraints.swift in Sources */,
 				2DD7AA451E59A08100509EBC /* Constrainable.swift in Sources */,
+				A9D467D21E6777DB00C331FA /* Abstraction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +447,52 @@
 			};
 			name = Release;
 		};
+		746BBE821E5D7C9D007BE10D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7TD9A665TC;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = TinyConstraints_macOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.devian.TinyConstraints-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		746BBE831E5D7C9D007BE10D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7TD9A665TC;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = TinyConstraints_macOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.devian.TinyConstraints-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		8410D8F11E5078C3003AEA65 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -424,6 +554,15 @@
 			buildConfigurations = (
 				2DD987041E4DB973002F80D6 /* Debug */,
 				2DD987051E4DB973002F80D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		746BBE841E5D7C9D007BE10D /* Build configuration list for PBXNativeTarget "TinyConstraints_macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				746BBE821E5D7C9D007BE10D /* Debug */,
+				746BBE831E5D7C9D007BE10D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
