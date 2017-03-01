@@ -62,8 +62,8 @@ view.center(in: superview, offset: CGPoint(x: 10, y: 10))
 
 `Tiny Constraints` gives you convenient and tiny typealiases for handling constraints.
 
-- Constraint = NSLayoutConstraint
-- Constraints = [NSLayoutConstraint]
+- `Constraint` = `NSLayoutConstraint`
+- `Constraints` = `[NSLayoutConstraint]`
 
 ### Equal and Unequal Anchors
 This constraints the `top-anchor` of the view to the `top-anchor` of the superview.
