@@ -73,6 +73,20 @@ public extension Constrainable {
         
         return constraints
     }
+
+    @discardableResult
+    public func origin(_ point: CGPoint, inView view: Constrainable, priority: ConstraintPriority = .high, isActive: Bool = true) -> Constraints {
+        let constraints = [
+                leftAnchor.constraint(equalTo: view.leftAnchor, constant: point.x).with(priority),
+                topAnchor.constraint(equalTo: view.topAnchor, constant: point.y).with(priority)
+        ]
+
+        if isActive {
+            Constraint.activate(constraints)
+        }
+
+        return constraints
+    }
     
     @discardableResult
     public func width(_ width: CGFloat, priority: ConstraintPriority = .high, isActive: Bool = true) -> Constraint {
