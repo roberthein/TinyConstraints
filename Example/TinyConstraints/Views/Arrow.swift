@@ -105,8 +105,7 @@ class Arrow: UIView {
             addSubview(up)
             
             up.size(size)
-            up.top(to: self)
-            up.left(to: self)
+            up.origin(to: self)
             
             let down = UIView()
             down.translatesAutoresizingMaskIntoConstraints = false
