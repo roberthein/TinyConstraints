@@ -116,7 +116,7 @@ let views = [logo, title, description]
 superview.stack(views, axis: .vertical, spacing: 10)
 ```
 
-#####Find these examples and more in the *Example Project*.
+##### Find these examples and more in the *Example Project*.
 
 ## Installation
 
