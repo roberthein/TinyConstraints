@@ -57,7 +57,6 @@ or:
 view.center(in: superview, offset: CGPoint(x: 10, y: 10))
 ```
 
-## Basic Use
 ### Typealiases
 
 `Tiny Constraints` gives you convenient and tiny typealiases for handling constraints.
@@ -74,6 +73,12 @@ view.top(to: superview)
 This constraints the `top-anchor` of `firstView` to the `bottom-anchor` of `secondView`.
 ```swift
 firstView.topToBottom(of: secondView)
+```
+
+### Relation and Priority
+For almost all constraints you can set the `relation` and `priority` properties. The default relation is `.equal` and the default priority is `.required`.
+```swift
+container.width(150, relation: .equalOrLess, priority: .high)
 ```
 
 ### Storing Constraints
