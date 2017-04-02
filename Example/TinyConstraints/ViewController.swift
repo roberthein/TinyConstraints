@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         
         scrollView.addSubview(contentView)
         contentView.edges(to: scrollView)
-        contentView.height(to: scrollView)
+        contentView.height(to: scrollView, priority: .high)
         contentView.stack(examples, axis: .horizontal, width: UIScreen.main.bounds.width)
         
         indicator = PageIndicator(count: examples.count)

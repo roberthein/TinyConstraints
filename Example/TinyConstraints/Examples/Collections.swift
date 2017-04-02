@@ -38,16 +38,31 @@ class Collections: UIView {
             switch state {
             case .first:
                 stateColor[state.rawValue] = UIColor.gradient[safe: 0]
-                states[state.rawValue] = [subview.left(to: container, offset: 20), subview.top(to: container, offset: 20), subview.width(100), subview.height(100)]
+                states[state.rawValue] = [
+                    subview.left(to: container, offset: 20, isActive: false),
+                    subview.top(to: container, offset: 20, isActive: false),
+                    subview.width(100, isActive: false),
+                    subview.height(100, isActive: false)
+                ]
             case .second:
                 stateColor[state.rawValue] = UIColor.gradient[safe: 1]
-                states[state.rawValue] = [subview.centerX(to: container), subview.centerY(to: container), subview.width(200), subview.height(200)]
+                states[state.rawValue] = [
+                    subview.centerX(to: container, isActive: false),
+                    subview.centerY(to: container, isActive: false),
+                    subview.width(200, isActive: false),
+                    subview.height(200, isActive: false)
+                ]
             case .third:
                 stateColor[state.rawValue] = UIColor.gradient[safe: 2]
-                states[state.rawValue] = subview.edges(to: container, insets: UIEdgeInsets(top: 20, left: 20, bottom: -20, right: -20))
+                states[state.rawValue] = subview.edges(to: container, insets: UIEdgeInsets(top: 20, left: 20, bottom: -20, right: -20), isActive: false)
             case .fourth:
                 stateColor[state.rawValue] = UIColor.gradient[safe: 3]
-                states[state.rawValue] = [subview.top(to: container, offset: 20), subview.bottom(to: container, offset: -20), subview.right(to: container, offset: -20), subview.width(100)]
+                states[state.rawValue] = [
+                    subview.top(to: container, offset: 20, isActive: false),
+                    subview.bottom(to: container, offset: -20, isActive: false),
+                    subview.right(to: container, offset: -20, isActive: false),
+                    subview.width(100, priority: .high, isActive: false)
+                ]
             }
         }
         
