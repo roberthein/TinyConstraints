@@ -57,10 +57,10 @@ class Arrow: UIView {
             line.clipsToBounds = true
             addSubview(line)
             
-            line.left(to: up, up.rightAnchor)
+            line.leftToRight(of: up)
             line.height(size.height)
             line.centerY(to: self)
-            line.right(to: down, down.leftAnchor)
+            line.rightToLeft(of: down)
         case .vertical:
             let up = UIView()
             up.translatesAutoresizingMaskIntoConstraints = false
@@ -92,10 +92,10 @@ class Arrow: UIView {
             line.clipsToBounds = true
             addSubview(line)
             
-            line.top(to: up, up.bottomAnchor)
+            line.topToBottom(of: up)
             line.width(size.width)
             line.centerX(to: self)
-            line.bottom(to: down, down.topAnchor)
+            line.bottomToTop(of: down)
         case .diagonal:
             let up = UIView()
             up.translatesAutoresizingMaskIntoConstraints = false
