@@ -31,6 +31,12 @@
 public typealias Constraint = NSLayoutConstraint
 public typealias Constraints = [Constraint]
 
+public enum ConstraintRelation: Int {
+    case equal = 0
+    case equalOrLess = -1
+    case equalOrGreater = 1
+}
+
 public enum ConstraintPriority: LayoutPriority {
     case required = 1000
     case high = 750
@@ -63,6 +69,14 @@ public extension Constraint {
     
     func with(_ p: ConstraintPriority) -> Self {
         priority = p.value
+        return self
+    }
+}
+
+public extension Constraint {
+    
+    func set(active: Bool) -> Self {
+        isActive = active
         return self
     }
 }
