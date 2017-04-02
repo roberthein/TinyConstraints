@@ -57,6 +57,8 @@ or:
 view.center(in: superview, offset: CGPoint(x: 10, y: 10))
 ```
 
+## Basic Use
+
 ### Typealiases
 
 `TinyConstraints` gives you convenient and tiny typealiases for handling constraints.
