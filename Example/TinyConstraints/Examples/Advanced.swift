@@ -38,7 +38,7 @@ class Advanced: UIView {
         heights.append(contentsOf: arrow.height(min: 100, max: 220, priority: .high))
         
         lastBottomConstraint?.isActive = false
-        lastBottomConstraint = arrow.bottom(lessThan: container, offset: -margin)
+        lastBottomConstraint = arrow.bottom(to: container, offset: -margin, relation: .equalOrLess)
         lastSubview = arrow
         counter += 1
     }
