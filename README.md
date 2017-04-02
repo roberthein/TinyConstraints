@@ -1,10 +1,10 @@
 <p align="center">
-    <img src="Art/logo.png" width="890" alt="Tiny Constraints"/>
+    <img src="Art/logo.png" width="890" alt="TinyConstraints"/>
 </p>
 
 **tl;dr** *Nothing but sugar.*
 
-**Tiny Constraints** is the syntactic sugar that makes Auto Layout sweeter for human use.
+**TinyConstraints** is the syntactic sugar that makes Auto Layout sweeter for human use.
 
 ![](Art/gifs/tc_03.gif)![](Art/gifs/tc_01.gif)![](Art/gifs/tc_02.gif)
 
@@ -29,7 +29,7 @@ NSLayoutConstraint.activate([
 ])
 ```
 
-with `Tiny Constraints`:
+with `TinyConstraints`:
 ```swift
 view.edges(to: superview)
 ```
@@ -47,7 +47,7 @@ NSLayoutConstraint.activate([
 ])
 ```
 
-with `Tiny Constraints`:
+with `TinyConstraints`:
 ```swift
 view.center(in: superview)
 ```
@@ -59,7 +59,7 @@ view.center(in: superview, offset: CGPoint(x: 10, y: 10))
 
 ### Typealiases
 
-`Tiny Constraints` gives you convenient and tiny typealiases for handling constraints.
+`TinyConstraints` gives you convenient and tiny typealiases for handling constraints.
 
 - `Constraint` = `NSLayoutConstraint`
 - `Constraints` = `[NSLayoutConstraint]`
@@ -88,7 +88,7 @@ let constraints = view.size(CGSize(width: 100, height: 100), isActive: false)
 ```
 
 ### Activation and Deactivation
-Besides the default `NSLayoutConstraint` activation, `Tiny Constraints` also provides a way to activate *a set* of constraints.
+Besides the default `NSLayoutConstraint` activation, `TinyConstraints` also provides a way to activate *a set* of constraints.
 ```swift
 constraints.activate()
 ```
