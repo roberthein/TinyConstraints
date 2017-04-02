@@ -71,9 +71,9 @@ This constraints the `top-anchor` of the view to the `top-anchor` of the supervi
 view.top(to: superview)
 ```
 
-This constraints the `top-anchor` of the view to the `bottom-anchor` of the superview.
+This constraints the `top-anchor` of `firstView` to the `bottom-anchor` of `secondView`.
 ```swift
-view.top(to: superview, superview.bottomAnchor)
+firstView.topToBottom(of: secondView)
 ```
 
 ### Storing Constraints
