@@ -99,12 +99,12 @@ public extension Constrainable {
     }
     
     @discardableResult
-    public func width(to view: Constrainable, _ dimension: NSLayoutDimension? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
+    public func width(to view: Constrainable, _ dimension: NSLayoutDimension? = nil, multiplier: CGFloat = 1, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
         
         switch relation {
-        case .equal: return widthAnchor.constraint(equalTo: dimension ?? view.widthAnchor, constant: offset).with(priority).set(active: isActive)
-        case .equalOrLess: return widthAnchor.constraint(lessThanOrEqualTo: dimension ?? view.widthAnchor, constant: offset).with(priority).set(active: isActive)
-        case .equalOrGreater: return widthAnchor.constraint(greaterThanOrEqualTo: dimension ?? view.widthAnchor, constant: offset).with(priority).set(active: isActive)
+        case .equal: return widthAnchor.constraint(equalTo: dimension ?? view.widthAnchor, multiplier: multiplier, constant: offset).with(priority).set(active: isActive)
+        case .equalOrLess: return widthAnchor.constraint(lessThanOrEqualTo: dimension ?? view.widthAnchor, multiplier: multiplier, constant: offset).with(priority).set(active: isActive)
+        case .equalOrGreater: return widthAnchor.constraint(greaterThanOrEqualTo: dimension ?? view.widthAnchor, multiplier: multiplier, constant: offset).with(priority).set(active: isActive)
         }
     }
     
@@ -138,12 +138,12 @@ public extension Constrainable {
     }
     
     @discardableResult
-    public func height(to view: Constrainable, _ dimension: NSLayoutDimension? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
+    public func height(to view: Constrainable, _ dimension: NSLayoutDimension? = nil, multiplier: CGFloat = 1, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
         
         switch relation {
-        case .equal: return heightAnchor.constraint(equalTo: dimension ?? view.heightAnchor, constant: offset).with(priority).set(active: isActive)
-        case .equalOrLess: return heightAnchor.constraint(lessThanOrEqualTo: dimension ?? view.heightAnchor, constant: offset).with(priority).set(active: isActive)
-        case .equalOrGreater: return heightAnchor.constraint(greaterThanOrEqualTo: dimension ?? view.heightAnchor, constant: offset).with(priority).set(active: isActive)
+        case .equal: return heightAnchor.constraint(equalTo: dimension ?? view.heightAnchor, multiplier: multiplier, constant: offset).with(priority).set(active: isActive)
+        case .equalOrLess: return heightAnchor.constraint(lessThanOrEqualTo: dimension ?? view.heightAnchor, multiplier: multiplier, constant: offset).with(priority).set(active: isActive)
+        case .equalOrGreater: return heightAnchor.constraint(greaterThanOrEqualTo: dimension ?? view.heightAnchor, multiplier: multiplier, constant: offset).with(priority).set(active: isActive)
         }
     }
     
