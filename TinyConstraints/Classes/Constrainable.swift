@@ -26,13 +26,9 @@
     
     extension View: Constrainable {
         
-        public func prepareForLayoutIfNeeded(with view: Constrainable? = nil) {
+        public func prepareForLayoutIfNeeded() {
             
             translatesAutoresizingMaskIntoConstraints = false
-            
-            if let view = view as? NSView {
-                view.translatesAutoresizingMaskIntoConstraints = false
-            }
         }
     }
 #else
@@ -40,13 +36,9 @@
     
     extension View: Constrainable {
         
-        public func prepareForLayoutIfNeeded(with view: Constrainable? = nil) {
+        public func prepareForLayoutIfNeeded() {
             
             translatesAutoresizingMaskIntoConstraints = false
-            
-            if let view = view as? UIView {
-                view.translatesAutoresizingMaskIntoConstraints = false
-            }
         }
     }
 #endif
@@ -54,7 +46,7 @@
 
 
 extension LayoutGuide: Constrainable {
-    public func prepareForLayoutIfNeeded(with view: Constrainable?) {}
+    public func prepareForLayoutIfNeeded() {}
 }
 
 public protocol Constrainable {
@@ -71,5 +63,5 @@ public protocol Constrainable {
     var widthAnchor: NSLayoutDimension { get }
     var heightAnchor: NSLayoutDimension { get }
 
-    func prepareForLayoutIfNeeded(with view: Constrainable?)
+    func prepareForLayoutIfNeeded()
 }
