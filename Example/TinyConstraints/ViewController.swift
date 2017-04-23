@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.alwaysBounceHorizontal = true
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
@@ -25,7 +24,6 @@ class ViewController: UIViewController {
     
     lazy var contentView: UIView = {
         let contentView = UIView()
-        contentView.translatesAutoresizingMaskIntoConstraints = false
         return contentView
     }()
     
@@ -48,7 +46,6 @@ class ViewController: UIViewController {
         contentView.stack(examples, axis: .horizontal, width: UIScreen.main.bounds.width)
         
         indicator = PageIndicator(count: examples.count)
-        indicator.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(indicator)
         
         indicator.centerX(to: view)

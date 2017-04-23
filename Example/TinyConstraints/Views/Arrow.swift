@@ -28,7 +28,6 @@ class Arrow: UIView {
         switch orientation {
         case .horizontal:
             let up = UIView()
-            up.translatesAutoresizingMaskIntoConstraints = false
             up.layer.drawLine(from: CGPoint(x: size.width, y: size.height), to: CGPoint(x: 0, y: size.height / 2), color: .white)
             up.layer.drawLine(from: CGPoint(x: 0, y: size.height / 2), to: CGPoint(x: size.width, y: 0), color: .white)
             up.layer.drawLine(from: CGPoint(x: 0, y: size.height / 2), to: CGPoint(x: size.height, y: size.height / 2), color: .white)
@@ -40,7 +39,6 @@ class Arrow: UIView {
             up.bottom(to: self)
             
             let down = UIView()
-            down.translatesAutoresizingMaskIntoConstraints = false
             down.layer.drawLine(from: CGPoint(x: 0, y: size.height), to: CGPoint(x: size.width, y: size.height / 2), color: .white)
             down.layer.drawLine(from: CGPoint(x: size.width, y: size.height / 2), to: CGPoint(x: 0, y: 0), color: .white)
             down.layer.drawLine(from: CGPoint(x: size.width, y: size.height / 2), to: CGPoint(x: -size.height + 5, y: size.height / 2), color: .white)
@@ -52,7 +50,6 @@ class Arrow: UIView {
             down.bottom(to: self)
             
             let line = UIView()
-            line.translatesAutoresizingMaskIntoConstraints = false
             line.layer.drawLine(from: CGPoint(x: 0, y: size.height / 2), to: CGPoint(x: 320, y: size.height / 2), color: .white, dashed: true)
             line.clipsToBounds = true
             addSubview(line)
@@ -63,7 +60,6 @@ class Arrow: UIView {
             line.rightToLeft(of: down)
         case .vertical:
             let up = UIView()
-            up.translatesAutoresizingMaskIntoConstraints = false
             up.layer.drawLine(from: CGPoint(x: 0, y: size.height), to: CGPoint(x: size.width / 2, y: 0), color: .white)
             up.layer.drawLine(from: CGPoint(x: size.width / 2, y: 0), to: CGPoint(x: size.width, y: size.height), color: .white)
             up.layer.drawLine(from: CGPoint(x: size.width / 2, y: 0), to: CGPoint(x: size.width / 2, y: size.width), color: .white)
@@ -75,7 +71,6 @@ class Arrow: UIView {
             up.right(to: self)
             
             let down = UIView()
-            down.translatesAutoresizingMaskIntoConstraints = false
             down.layer.drawLine(from: CGPoint(x: 0, y: 0), to: CGPoint(x: size.width / 2, y: size.height), color: .white)
             down.layer.drawLine(from: CGPoint(x: size.width / 2, y: size.height), to: CGPoint(x: size.width, y: 0), color: .white)
             down.layer.drawLine(from: CGPoint(x: size.width / 2, y: size.height), to: CGPoint(x: size.width / 2, y: -size.width + 5), color: .white)
@@ -87,7 +82,6 @@ class Arrow: UIView {
             down.right(to: self)
             
             let line = UIView()
-            line.translatesAutoresizingMaskIntoConstraints = false
             line.layer.drawLine(from: CGPoint(x: size.width / 2, y: 0), to: CGPoint(x: size.width / 2, y: 300), color: .white, dashed: true)
             line.clipsToBounds = true
             addSubview(line)
@@ -98,7 +92,6 @@ class Arrow: UIView {
             line.bottomToTop(of: down)
         case .diagonal:
             let up = UIView()
-            up.translatesAutoresizingMaskIntoConstraints = false
             up.layer.drawLine(from: CGPoint(x: 0, y: size.height), to: CGPoint(x: 0, y: 0), color: .white)
             up.layer.drawLine(from: CGPoint(x: 0, y: 0), to: CGPoint(x: size.width, y: 0), color: .white)
             up.layer.drawLine(from: CGPoint(x: 0, y: 0), to: CGPoint(x: size.width, y: size.height), color: .white)
@@ -108,7 +101,6 @@ class Arrow: UIView {
             up.origin(to: self)
             
             let down = UIView()
-            down.translatesAutoresizingMaskIntoConstraints = false
             down.layer.drawLine(from: CGPoint(x: 0, y: size.height), to: CGPoint(x: size.width, y: size.height), color: .white)
             down.layer.drawLine(from: CGPoint(x: size.width, y: size.height), to: CGPoint(x: size.width, y: 0), color: .white)
             down.layer.drawLine(from: CGPoint(x: size.width, y: size.height), to: CGPoint(x: 0, y: 0), color: .white)
@@ -119,7 +111,6 @@ class Arrow: UIView {
             down.right(to: self)
             
             let line = UIView()
-            line.translatesAutoresizingMaskIntoConstraints = false
             line.layer.drawLine(from: CGPoint(x: 0, y: 0), to: CGPoint(x: 300, y: 300), color: .white, dashed: true)
             line.clipsToBounds = true
             addSubview(line)

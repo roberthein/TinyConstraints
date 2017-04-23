@@ -19,7 +19,6 @@ class PageIndicator: UIView {
         (0..<count).forEach { _ in
             indicatorViews.append({
                 let view = UIView()
-                view.translatesAutoresizingMaskIntoConstraints = false
                 view.backgroundColor = .rgb(240, 240, 240)
                 view.clipsToBounds = true
                 view.layer.cornerRadius = 5

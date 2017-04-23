@@ -6,13 +6,11 @@ class ArrowView: UIView {
     convenience init(color: UIColor?, orientation: Orientation) {
         self.init(frame: .zero)
         
-        translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = color
         layer.cornerRadius = 10
         clipsToBounds = true
         
         let arrow = Arrow(for: orientation)
-        arrow.translatesAutoresizingMaskIntoConstraints = false
         addSubview(arrow)
         
         switch orientation {
