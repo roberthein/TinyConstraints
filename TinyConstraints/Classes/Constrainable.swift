@@ -23,12 +23,39 @@
 
 #if os(OSX)
     import AppKit
+    
+    extension View: Constrainable {
+        
+        public func prepareForLayoutIfNeeded(with view: Constrainable? = nil) {
+            
+            translatesAutoresizingMaskIntoConstraints = false
+            
+            if let view = view as? NSView {
+                view.translatesAutoresizingMaskIntoConstraints = false
+            }
+        }
+    }
 #else
     import UIKit
+    
+    extension View: Constrainable {
+        
+        public func prepareForLayoutIfNeeded(with view: Constrainable? = nil) {
+            
+            translatesAutoresizingMaskIntoConstraints = false
+            
+            if let view = view as? UIView {
+                view.translatesAutoresizingMaskIntoConstraints = false
+            }
+        }
+    }
 #endif
 
-extension View: Constrainable {}
-extension LayoutGuide: Constrainable {}
+
+
+extension LayoutGuide: Constrainable {
+    public func prepareForLayoutIfNeeded(with view: Constrainable?) {}
+}
 
 public protocol Constrainable {
     var topAnchor: NSLayoutYAxisAnchor { get }
@@ -43,4 +70,6 @@ public protocol Constrainable {
     
     var widthAnchor: NSLayoutDimension { get }
     var heightAnchor: NSLayoutDimension { get }
+
+    func prepareForLayoutIfNeeded(with view: Constrainable?)
 }

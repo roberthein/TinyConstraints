@@ -32,6 +32,8 @@ public extension Constrainable {
     
     @discardableResult
     public func center(in view: Constrainable, offset: CGPoint = .zero, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraints {
+        prepareForLayoutIfNeeded(with: view)
+        
         let constraints = [
             centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: offset.x).with(priority),
             centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: offset.y).with(priority)
@@ -46,6 +48,8 @@ public extension Constrainable {
     
     @discardableResult
     public func edges(to view: Constrainable, insets: EdgeInsets = .zero, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraints {
+        prepareForLayoutIfNeeded(with: view)
+        
         let constraints = [
             topAnchor.constraint(equalTo: view.topAnchor, constant: insets.top).with(priority),
             leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: insets.left).with(priority),
@@ -62,6 +66,8 @@ public extension Constrainable {
     
     @discardableResult
     public func size(_ size: CGSize, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraints {
+        prepareForLayoutIfNeeded(with: nil)
+        
         let constraints = [
             widthAnchor.constraint(equalToConstant: size.width).with(priority),
             heightAnchor.constraint(equalToConstant: size.height).with(priority)
@@ -76,6 +82,8 @@ public extension Constrainable {
     
     @discardableResult
     public func origin(to view: Constrainable, insets: CGVector = .zero, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraints {
+        prepareForLayoutIfNeeded(with: view)
+        
         let constraints = [
             leftAnchor.constraint(equalTo: view.leftAnchor, constant: insets.dx).with(priority),
             topAnchor.constraint(equalTo: view.topAnchor, constant: insets.dy).with(priority)
@@ -90,6 +98,7 @@ public extension Constrainable {
     
     @discardableResult
     public func width(_ width: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
+        prepareForLayoutIfNeeded(with: nil)
         
         switch relation {
         case .equal: return widthAnchor.constraint(equalToConstant: width).with(priority).set(active: isActive)
@@ -100,6 +109,7 @@ public extension Constrainable {
     
     @discardableResult
     public func width(to view: Constrainable, _ dimension: NSLayoutDimension? = nil, multiplier: CGFloat = 1, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
+        prepareForLayoutIfNeeded(with: view)
         
         switch relation {
         case .equal: return widthAnchor.constraint(equalTo: dimension ?? view.widthAnchor, multiplier: multiplier, constant: offset).with(priority).set(active: isActive)
@@ -110,6 +120,8 @@ public extension Constrainable {
     
     @discardableResult
     public func width(min: CGFloat? = nil, max: CGFloat? = nil, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraints {
+        prepareForLayoutIfNeeded(with: nil)
+        
         var constraints: Constraints = []
         
         if let min = min {
@@ -129,6 +141,7 @@ public extension Constrainable {
     
     @discardableResult
     public func height(_ height: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
+        prepareForLayoutIfNeeded(with: nil)
         
         switch relation {
         case .equal: return heightAnchor.constraint(equalToConstant: height).with(priority).set(active: isActive)
@@ -139,6 +152,7 @@ public extension Constrainable {
     
     @discardableResult
     public func height(to view: Constrainable, _ dimension: NSLayoutDimension? = nil, multiplier: CGFloat = 1, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
+        prepareForLayoutIfNeeded(with: view)
         
         switch relation {
         case .equal: return heightAnchor.constraint(equalTo: dimension ?? view.heightAnchor, multiplier: multiplier, constant: offset).with(priority).set(active: isActive)
@@ -149,6 +163,8 @@ public extension Constrainable {
     
     @discardableResult
     public func height(min: CGFloat? = nil, max: CGFloat? = nil, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraints {
+        prepareForLayoutIfNeeded(with: nil)
+        
         var constraints: Constraints = []
         
         if let min = min {
@@ -168,11 +184,13 @@ public extension Constrainable {
     
     @discardableResult
     public func leadingToTrailing(of view: Constrainable, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
+        prepareForLayoutIfNeeded(with: view)
         return leading(to: view, view.trailingAnchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
     }
     
     @discardableResult
     public func leading(to view: Constrainable, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
+        prepareForLayoutIfNeeded(with: view)
         
         switch relation {
         case .equal: return leadingAnchor.constraint(equalTo: anchor ?? view.leadingAnchor, constant: offset).with(priority).set(active: isActive)
@@ -183,11 +201,13 @@ public extension Constrainable {
     
     @discardableResult
     public func leftToRight(of view: Constrainable, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
+        prepareForLayoutIfNeeded(with: view)
         return left(to: view, view.rightAnchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
     }
     
     @discardableResult
     public func left(to view: Constrainable, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
+        prepareForLayoutIfNeeded(with: view)
         
         switch relation {
         case .equal: return leftAnchor.constraint(equalTo: anchor ?? view.leftAnchor, constant: offset).with(priority).set(active: isActive)
@@ -198,11 +218,13 @@ public extension Constrainable {
     
     @discardableResult
     public func trailingToLeading(of view: Constrainable, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
+        prepareForLayoutIfNeeded(with: view)
         return trailing(to: view, view.leadingAnchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
     }
     
     @discardableResult
     public func trailing(to view: Constrainable, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
+        prepareForLayoutIfNeeded(with: view)
         
         switch relation {
         case .equal: return trailingAnchor.constraint(equalTo: anchor ?? view.trailingAnchor, constant: offset).with(priority).set(active: isActive)
@@ -213,11 +235,13 @@ public extension Constrainable {
     
     @discardableResult
     public func rightToLeft(of view: Constrainable, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
+        prepareForLayoutIfNeeded(with: view)
         return right(to: view, view.leftAnchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
     }
     
     @discardableResult
     public func right(to view: Constrainable, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
+        prepareForLayoutIfNeeded(with: view)
         
         switch relation {
         case .equal: return rightAnchor.constraint(equalTo: anchor ?? view.rightAnchor, constant: offset).with(priority).set(active: isActive)
@@ -228,11 +252,13 @@ public extension Constrainable {
     
     @discardableResult
     public func topToBottom(of view: Constrainable, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
+        prepareForLayoutIfNeeded(with: view)
         return top(to: view, view.bottomAnchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
     }
     
     @discardableResult
     public func top(to view: Constrainable, _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
+        prepareForLayoutIfNeeded(with: view)
         
         switch relation {
         case .equal: return topAnchor.constraint(equalTo: anchor ?? view.topAnchor, constant: offset).with(priority).set(active: isActive)
@@ -243,11 +269,13 @@ public extension Constrainable {
     
     @discardableResult
     public func bottomToTop(of view: Constrainable, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
+        prepareForLayoutIfNeeded(with: view)
         return bottom(to: view, view.topAnchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
     }
     
     @discardableResult
     public func bottom(to view: Constrainable, _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
+        prepareForLayoutIfNeeded(with: view)
         
         switch relation {
         case .equal: return bottomAnchor.constraint(equalTo: anchor ?? view.bottomAnchor, constant: offset).with(priority).set(active: isActive)
@@ -258,6 +286,8 @@ public extension Constrainable {
     
     @discardableResult
     public func centerX(to view: Constrainable, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
+        prepareForLayoutIfNeeded(with: view)
+        
         let constraint = centerXAnchor.constraint(equalTo: anchor ?? view.centerXAnchor, constant: offset).with(priority)
         constraint.isActive = isActive
         return constraint
@@ -265,6 +295,8 @@ public extension Constrainable {
     
     @discardableResult
     public func centerY(to view: Constrainable, _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, priority: ConstraintPriority = .required, isActive: Bool = true) -> Constraint {
+        prepareForLayoutIfNeeded(with: view)
+        
         let constraint = centerYAnchor.constraint(equalTo: anchor ?? view.centerYAnchor, constant: offset).with(priority)
         constraint.isActive = isActive
         return constraint
