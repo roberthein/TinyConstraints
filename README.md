@@ -16,6 +16,7 @@
 - [X] Optionally store your constraints.
 - [X] Set constraint priorities upon creation.
 - [X] Stack views together with one line of code.
+- [X] No need to set `translatesAutoresizingMaskIntoConstraints` because `TinyConstraints` does it for you.
 
 ## Examples
 ### Edges
