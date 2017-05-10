@@ -42,9 +42,8 @@
         }
         
         public func addAsSubview(to view: Constrainable,withEdges directions: [ConstraintDirection]) {
-            if let view = view as? UIView {
-                view.addSubview(self)
-            }
+            guard let view = view as? UIView else {return}
+            view.addSubview(self)
             edges(to: view, with: directions)
         }
         
@@ -53,9 +52,8 @@
         }
         
         public func addSubview(to view: Constrainable, withEdges directions: [ConstraintDirection]) {
-            if let view = view as? UIView {
-                addSubview(view)
-            }
+            guard let view = view as? UIView else {return}
+            addSubview(view)
             view.edges(to: self, with: directions)
         }
         
