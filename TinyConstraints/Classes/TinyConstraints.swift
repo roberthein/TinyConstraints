@@ -29,22 +29,66 @@
 #endif
 
 public enum ConstraintDirection {
-    case top
-    case right
-    case left
-    case leading
-    case trailing
-    case bottom
-    case leadingToTrailing
-    case trailingToLeading
-    case leftToRight
-    case rightToLeft
-    case topToBottom
-    case bottomToTop
-    case centerX
-    case centerY
+    case topWith(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
+    public static var top: ConstraintDirection {
+        return topWith(offset: 0, relation: .equal, priority: .high)
+    }
+    case bottomWith(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
+    public static var bottom: ConstraintDirection {
+        return bottomWith(offset: 0, relation: .equal, priority: .high)
+    }
+    case leftWith(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
+    public static var left: ConstraintDirection {
+        return leftWith(offset: 0, relation: .equal, priority: .high)
+    }
+    case rightWith(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
+    public static var right: ConstraintDirection {
+        return rightWith(offset: 0, relation: .equal, priority: .high)
+    }
+    case leadingWith(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
+    public static var leading: ConstraintDirection {
+        return leadingWith(offset: 0, relation: .equal, priority: .high)
+    }
+    case trailingWith(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
+    public static var trailing: ConstraintDirection {
+        return trailingWith(offset: 0, relation: .equal, priority: .high)
+    }
+    case leadingToTrailingWith(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
+    public static var leadingToTrailing: ConstraintDirection {
+        return leadingToTrailingWith(offset: 0, relation: .equal, priority: .high)
+    }
+    case trailingToLeadingWith(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
+    public static var trailingToLeading: ConstraintDirection {
+        return trailingToLeadingWith(offset: 0, relation: .equal, priority: .high)
+    }
+    case leftToRightWith(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
+    public static var leftToRight: ConstraintDirection {
+        return leftToRightWith(offset: 0, relation: .equal, priority: .high)
+    }
+    case rightToLeftWith(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
+    public static var rightToLeft: ConstraintDirection {
+        return rightToLeftWith(offset: 0, relation: .equal, priority: .high)
+    }
+    case topToBottomWith(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
+    public static var topToBottom: ConstraintDirection {
+        return topToBottomWith(offset: 0, relation: .equal, priority: .high)
+    }
+    case bottomToTopWith(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
+    public static var bottomToTop: ConstraintDirection {
+        return bottomToTopWith(offset: 0, relation: .equal, priority: .high)
+    }
+    case centerXWith(offset: CGFloat, priority: ConstraintPriority)
+    public static var centerX: ConstraintDirection {
+        return centerXWith(offset: 0, priority: .high)
+    }
+    case centerYWith(offset: CGFloat, priority: ConstraintPriority)
+    public static var centerY: ConstraintDirection {
+        return centerYWith(offset: 0, priority: .high)
+    }
     case height(heightPoints: CGFloat)
     case width(widthPoints: CGFloat)
+    case heightWith(heightPoints: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
+    case widthWith(widthPoints: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
 }
 
 public extension Constrainable {
@@ -82,43 +126,48 @@ public extension Constrainable {
         
         return constraints
     }
+    
     @discardableResult
     public func edges(_ directions: [ConstraintDirection], to view: Constrainable) -> Constraints {
         var constraints = [Constraint]()
         for direction in directions {
             switch direction {
-            case .top:
-                constraints.append(top(to: view))
-            case .bottom:
-                constraints.append(bottom(to: view))
-            case .left:
-                constraints.append(left(to: view))
-            case .right:
-                constraints.append(right(to: view))
-            case .leading:
-                constraints.append(leading(to: view))
-            case .trailing:
-                constraints.append(trailing(to: view))
-            case .leadingToTrailing:
-                constraints.append(leadingToTrailing(of: view))
-            case .trailingToLeading:
-                constraints.append(trailingToLeading(of: view))
-            case .leftToRight:
-                constraints.append(leftToRight(of: view))
-            case .rightToLeft:
-                constraints.append(rightToLeft(of: view))
-            case .topToBottom:
-                constraints.append(topToBottom(of: view))
-            case .bottomToTop:
-                constraints.append(bottomToTop(of: view))
-            case .centerX:
-                constraints.append(centerX(to: view))
-            case .centerY:
-                constraints.append(centerY(to: view))
+            case .topWith(let offset, let relation, let priority):
+                constraints.append(top(to: view, offset: offset, relation: relation, priority: priority, isActive: true))
+            case .bottomWith(let offset, let relation, let priority):
+                constraints.append(bottom(to: view, offset: offset, relation: relation, priority: priority, isActive: true))
+            case .leftWith(let offset, let relation, let priority):
+                constraints.append(left(to: view, offset: offset, relation: relation, priority: priority, isActive: true))
+            case .rightWith(let offset, let relation, let priority):
+                constraints.append(right(to: view, offset: offset, relation: relation, priority: priority, isActive: true))
+            case .leadingWith(let offset, let relation, let priority):
+                constraints.append(leading(to: view, offset: offset, relation: relation, priority: priority, isActive: true))
+            case .trailingWith(let offset, let relation, let priority):
+                constraints.append(trailing(to: view, offset: offset, relation: relation, priority: priority, isActive: true))
+            case .leadingToTrailingWith(let offset, let relation, let priority):
+                constraints.append(leadingToTrailing(of: view, offset: offset, relation: relation, priority: priority, isActive: true))
+            case .trailingToLeadingWith(let offset, let relation, let priority):
+                constraints.append(trailingToLeading(of: view, offset: offset, relation: relation, priority: priority, isActive: true))
+            case .leftToRightWith(let offset, let relation, let priority):
+                constraints.append(leftToRight(of: view, offset: offset, relation: relation, priority: priority, isActive: true))
+            case .rightToLeftWith(let offset, let relation, let priority):
+                constraints.append(rightToLeft(of: view, offset: offset, relation: relation, priority: priority, isActive: true))
+            case .topToBottomWith(let offset, let relation, let priority):
+                constraints.append(topToBottom(of: view, offset: offset, relation: relation, priority: priority, isActive: true))
+            case .bottomToTopWith(let offset, let relation, let priority):
+                constraints.append(bottomToTop(of: view, offset: offset, relation: relation, priority: priority, isActive: true))
+            case .centerXWith(let offset, let priority):
+                constraints.append(centerX(to: view, offset: offset, priority: priority, isActive: true))
+            case .centerYWith(let offset, let priority):
+                constraints.append(centerY(to: view, offset: offset, priority: priority, isActive: true))
             case .height(let heightPoints):
                 constraints.append(height(heightPoints))
             case .width(let widthPoints):
                 constraints.append(width(widthPoints))
+            case .heightWith(let heightPoints, let relation, let priority):
+                constraints.append(height(heightPoints, relation: relation, priority: priority, isActive: true))
+            case .widthWith(let heightPoints, let relation, let priority):
+                constraints.append(width(heightPoints, relation: relation, priority: priority, isActive: true))
             }
         }
         return constraints
