@@ -83,7 +83,7 @@ public extension Constrainable {
         return constraints
     }
     @discardableResult
-    public func edges(to view: Constrainable, with directions: [ConstraintDirection]) -> Constraints {
+    public func edges(_ directions: [ConstraintDirection], to view: Constrainable) -> Constraints {
         var constraints = [Constraint]()
         for direction in directions {
             switch direction {
