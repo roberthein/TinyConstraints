@@ -40,6 +40,29 @@
             
             translatesAutoresizingMaskIntoConstraints = false
         }
+        
+        public func addAsSubview(to view: Constrainable,withEdges directions: [ConstraintDirection]) {
+            if let view = view as? UIView {
+                view.addSubview(self)
+            }
+            edges(to: view, with: directions)
+        }
+        
+        public func addAsSubviewWithEdges(to view: Constrainable) {
+            addAsSubview(to: view, withEdges: [.top, .bottom, .leading, .trailing])
+        }
+        
+        public func addSubview(to view: Constrainable, withEdges directions: [ConstraintDirection]) {
+            if let view = view as? UIView {
+                addSubview(view)
+            }
+            view.edges(to: self, with: directions)
+        }
+        
+        public func addSubviewWithEdges(to view: Constrainable) {
+            addSubview(to: view, withEdges: [.top, .bottom, .leading, .trailing])
+        }
+        
     }
 #endif
 
@@ -62,6 +85,6 @@ public protocol Constrainable {
     
     var widthAnchor: NSLayoutDimension { get }
     var heightAnchor: NSLayoutDimension { get }
-
+    
     func prepareForLayoutIfNeeded()
 }

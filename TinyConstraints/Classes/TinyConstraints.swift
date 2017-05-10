@@ -28,6 +28,25 @@
     import UIKit
 #endif
 
+public enum ConstraintDirection {
+    case top
+    case right
+    case left
+    case leading
+    case trailing
+    case bottom
+    case leadingToTrailing
+    case trailingToLeading
+    case leftToRight
+    case rightToLeft
+    case topToBottom
+    case bottomToTop
+    case centerX
+    case centerY
+    case height(heightPoints: CGFloat)
+    case width(widthPoints: CGFloat)
+}
+
 public extension Constrainable {
     
     @discardableResult
@@ -61,6 +80,47 @@ public extension Constrainable {
             Constraint.activate(constraints)
         }
         
+        return constraints
+    }
+    @discardableResult
+    public func edges(to view: Constrainable, with directions: [ConstraintDirection]) -> Constraints {
+        var constraints = [Constraint]()
+        for direction in directions {
+            switch direction {
+            case .top:
+                constraints.append(top(to: view))
+            case .bottom:
+                constraints.append(bottom(to: view))
+            case .left:
+                constraints.append(left(to: view))
+            case .right:
+                constraints.append(right(to: view))
+            case .leading:
+                constraints.append(leading(to: view))
+            case .trailing:
+                constraints.append(trailing(to: view))
+            case .leadingToTrailing:
+                constraints.append(leadingToTrailing(of: view))
+            case .trailingToLeading:
+                constraints.append(trailingToLeading(of: view))
+            case .leftToRight:
+                constraints.append(leftToRight(of: view))
+            case .rightToLeft:
+                constraints.append(rightToLeft(of: view))
+            case .topToBottom:
+                constraints.append(topToBottom(of: view))
+            case .bottomToTop:
+                constraints.append(bottomToTop(of: view))
+            case .centerX:
+                constraints.append(centerX(to: view))
+            case .centerY:
+                constraints.append(centerY(to: view))
+            case .height(let heightPoints):
+                constraints.append(height(heightPoints))
+            case .width(let widthPoints):
+                constraints.append(width(widthPoints))
+            }
+        }
         return constraints
     }
     
@@ -301,6 +361,8 @@ public extension Constrainable {
         constraint.isActive = isActive
         return constraint
     }
+    
+    
 }
 
 public extension View {
