@@ -47,44 +47,44 @@
 
 extension View {
     
-    public func addAsSubview(to view: Constrainable,withEdges directions: [ConstraintDirection]) {
+    public func addAsSubview(withEdges directions: [ConstraintDirection], to view: Constrainable) {
         guard let view = view as? UIView else {return}
         view.addSubview(self)
         edges(directions, to: view)
     }
     
-    public func addAsSubviewWithEdges(to view: Constrainable) {
-        addAsSubview(to: view, withEdges: [.top, .bottom, .leading, .trailing])
+    public func addAsSubviewWitEdges(to view: Constrainable) {
+        addAsSubview(withEdges: [.top, .bottom, .leading, .trailing], to: view)
     }
     
-    func insertAsSubview(to view: Constrainable, withEdges directions: [ConstraintDirection], at index: Int) {
+    public func insertAsSubview(withEdges directions: [ConstraintDirection], to view: Constrainable,  at index: Int) {
         guard let view = view as? UIView else {return}
         view.insertSubview(self, at: index)
         edges(directions, to: view)
     }
     
-    func insertAsSubviewWithEdges(to view: Constrainable, at index: Int) {
-        insertAsSubview(to: view, withEdges: [.top, .bottom, .leading, .trailing], at: index)
+    public func insertAsSubviewWithEdges(to view: Constrainable, at index: Int) {
+        insertAsSubview(withEdges: [.top, .bottom, .leading, .trailing], to: view, at: index)
     }
     
-    public func addSubview(to view: Constrainable, withEdges directions: [ConstraintDirection]) {
+    public func addSubview(withEdges directions: [ConstraintDirection], to view: Constrainable) {
         guard let view = view as? UIView else {return}
         addSubview(view)
         view.edges(directions, to: self)
     }
     
     public func addSubviewWithEdges(to view: Constrainable) {
-        addSubview(to: view, withEdges: [.top, .bottom, .leading, .trailing])
+        addSubview(withEdges: [.top, .bottom, .leading, .trailing], to: view)
     }
     
-    func insertSubview(to view: Constrainable, withEdges directions: [ConstraintDirection], at index: Int) {
+    public func insertSubview(withEdges directions: [ConstraintDirection], to view: Constrainable, at index: Int) {
         guard let view = view as? UIView else {return}
         insertSubview(view, at: index)
         view.edges(directions, to: self)
     }
     
-    func insertSubviewWithEdges(to view: Constrainable, at index: Int) {
-        insertSubview(to: view, withEdges: [.top, .bottom, .leading, .trailing], at: index)
+    public func insertSubviewWithEdges(to view: Constrainable, at index: Int) {
+        insertSubview(withEdges: [.top, .bottom, .leading, .trailing], to: view, at: index)
     }
 }
 
