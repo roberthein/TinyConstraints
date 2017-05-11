@@ -33,7 +33,7 @@ public enum ConstraintDirection {
     public static var top: ConstraintDirection {
         return .topConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func top(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
+    public static func top(_ offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .topConstraint(offset: offset, relation: relation, priority: priority)
     }
     
@@ -41,7 +41,7 @@ public enum ConstraintDirection {
     public static var bottom: ConstraintDirection {
         return .bottomConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func bottom(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
+    public static func bottom(_ offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .bottomConstraint(offset: offset, relation: relation, priority: priority)
     }
     
@@ -49,7 +49,7 @@ public enum ConstraintDirection {
     public static var left: ConstraintDirection {
         return .leftConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func left(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
+    public static func left(_ offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .leftConstraint(offset: offset, relation: relation, priority: priority)
     }
     
@@ -57,7 +57,7 @@ public enum ConstraintDirection {
     public static var right: ConstraintDirection {
         return .rightConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func right(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
+    public static func right(_ offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .rightConstraint(offset: offset, relation: relation, priority: priority)
     }
     
@@ -65,7 +65,7 @@ public enum ConstraintDirection {
     public static var leading: ConstraintDirection {
         return .leadingConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func leading(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
+    public static func leading(_ offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .leadingConstraint(offset: offset, relation: relation, priority: priority)
     }
     
@@ -73,7 +73,7 @@ public enum ConstraintDirection {
     public static var trailing: ConstraintDirection {
         return .trailingConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func trailing(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
+    public static func trailing(_ offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .trailingConstraint(offset: offset, relation: relation, priority: priority)
     }
     
@@ -81,7 +81,7 @@ public enum ConstraintDirection {
     public static var leadingToTrailing: ConstraintDirection {
         return .leadingToTrailingConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func leadingToTrailing(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
+    public static func leadingToTrailing(_ offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .leadingToTrailingConstraint(offset: offset, relation: relation, priority: priority)
     }
     
@@ -89,7 +89,7 @@ public enum ConstraintDirection {
     public static var trailingToLeading: ConstraintDirection {
         return trailingToLeadingConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func trailingToLeading(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
+    public static func trailingToLeading(_ offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .trailingToLeadingConstraint(offset: offset, relation: relation, priority: priority)
     }
     
@@ -97,7 +97,7 @@ public enum ConstraintDirection {
     public static var leftToRight: ConstraintDirection {
         return leftToRightConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func leftToRight(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
+    public static func leftToRight(_ offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .leftToRightConstraint(offset: offset, relation: relation, priority: priority)
     }
     
@@ -105,7 +105,7 @@ public enum ConstraintDirection {
     public static var rightToLeft: ConstraintDirection {
         return rightToLeftConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func rightToLeft(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
+    public static func rightToLeft(_ offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .rightToLeftConstraint(offset: offset, relation: relation, priority: priority)
     }
     
@@ -113,7 +113,7 @@ public enum ConstraintDirection {
     public static var topToBottom: ConstraintDirection {
         return topToBottomConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func topToBottom(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
+    public static func topToBottom(_ offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .topToBottomConstraint(offset: offset, relation: relation, priority: priority)
     }
     
@@ -121,7 +121,7 @@ public enum ConstraintDirection {
     public static var bottomToTop: ConstraintDirection {
         return bottomToTopConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func bottomToTop(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
+    public static func bottomToTop(_ offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .bottomToTopConstraint(offset: offset, relation: relation, priority: priority)
     }
     
@@ -129,7 +129,7 @@ public enum ConstraintDirection {
     public static var centerX: ConstraintDirection {
         return centerXConstraint(offset: 0, priority: .required)
     }
-    public static func centerX(offset: CGFloat, priority: ConstraintPriority = .required) -> ConstraintDirection {
+    public static func centerX(_ offset: CGFloat, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .centerXConstraint(offset: offset, priority: priority)
     }
     
@@ -137,7 +137,7 @@ public enum ConstraintDirection {
     public static var centerY: ConstraintDirection {
         return centerYConstraint(offset: 0, priority: .required)
     }
-    public static func centerY(offset: CGFloat, priority: ConstraintPriority = .required) -> ConstraintDirection {
+    public static func centerY(_ offset: CGFloat, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .centerYConstraint(offset: offset, priority: priority)
     }
     
