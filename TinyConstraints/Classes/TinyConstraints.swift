@@ -31,123 +31,123 @@
 public enum ConstraintDirection {
     case topConstraint(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
     public static var top: ConstraintDirection {
-        return .topConstraint(offset: 0, relation: .equal, priority: .high)
+        return .topConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func top(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .high) -> ConstraintDirection {
+    public static func top(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .topConstraint(offset: offset, relation: relation, priority: priority)
     }
     
     case bottomConstraint(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
     public static var bottom: ConstraintDirection {
-        return .bottomConstraint(offset: 0, relation: .equal, priority: .high)
+        return .bottomConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func bottom(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .high) -> ConstraintDirection {
+    public static func bottom(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .bottomConstraint(offset: offset, relation: relation, priority: priority)
     }
     
     case leftConstraint(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
     public static var left: ConstraintDirection {
-        return .leftConstraint(offset: 0, relation: .equal, priority: .high)
+        return .leftConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func left(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .high) -> ConstraintDirection {
+    public static func left(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .leftConstraint(offset: offset, relation: relation, priority: priority)
     }
     
     case rightConstraint(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
     public static var right: ConstraintDirection {
-        return .rightConstraint(offset: 0, relation: .equal, priority: .high)
+        return .rightConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func right(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .high) -> ConstraintDirection {
+    public static func right(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .rightConstraint(offset: offset, relation: relation, priority: priority)
     }
     
     case leadingConstraint(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
     public static var leading: ConstraintDirection {
-        return .leadingConstraint(offset: 0, relation: .equal, priority: .high)
+        return .leadingConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func leading(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .high) -> ConstraintDirection {
+    public static func leading(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .leadingConstraint(offset: offset, relation: relation, priority: priority)
     }
     
     case trailingConstraint(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
     public static var trailing: ConstraintDirection {
-        return .trailingConstraint(offset: 0, relation: .equal, priority: .high)
+        return .trailingConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func trailing(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .high) -> ConstraintDirection {
+    public static func trailing(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .trailingConstraint(offset: offset, relation: relation, priority: priority)
     }
     
     case leadingToTrailingConstraint(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
     public static var leadingToTrailing: ConstraintDirection {
-        return .leadingToTrailingConstraint(offset: 0, relation: .equal, priority: .high)
+        return .leadingToTrailingConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func leadingToTrailing(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .high) -> ConstraintDirection {
+    public static func leadingToTrailing(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .leadingToTrailingConstraint(offset: offset, relation: relation, priority: priority)
     }
     
     case trailingToLeadingConstraint(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
     public static var trailingToLeading: ConstraintDirection {
-        return trailingToLeadingConstraint(offset: 0, relation: .equal, priority: .high)
+        return trailingToLeadingConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func trailingToLeading(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .high) -> ConstraintDirection {
+    public static func trailingToLeading(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .trailingToLeadingConstraint(offset: offset, relation: relation, priority: priority)
     }
     
     case leftToRightConstraint(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
     public static var leftToRight: ConstraintDirection {
-        return leftToRightConstraint(offset: 0, relation: .equal, priority: .high)
+        return leftToRightConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func leftToRight(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .high) -> ConstraintDirection {
+    public static func leftToRight(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .leftToRightConstraint(offset: offset, relation: relation, priority: priority)
     }
     
     case rightToLeftConstraint(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
     public static var rightToLeft: ConstraintDirection {
-        return rightToLeftConstraint(offset: 0, relation: .equal, priority: .high)
+        return rightToLeftConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func rightToLeft(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .high) -> ConstraintDirection {
+    public static func rightToLeft(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .rightToLeftConstraint(offset: offset, relation: relation, priority: priority)
     }
     
     case topToBottomConstraint(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
     public static var topToBottom: ConstraintDirection {
-        return topToBottomConstraint(offset: 0, relation: .equal, priority: .high)
+        return topToBottomConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func topToBottom(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .high) -> ConstraintDirection {
+    public static func topToBottom(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .topToBottomConstraint(offset: offset, relation: relation, priority: priority)
     }
     
     case bottomToTopConstraint(offset: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
     public static var bottomToTop: ConstraintDirection {
-        return bottomToTopConstraint(offset: 0, relation: .equal, priority: .high)
+        return bottomToTopConstraint(offset: 0, relation: .equal, priority: .required)
     }
-    public static func bottomToTop(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .high) -> ConstraintDirection {
+    public static func bottomToTop(offset: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .bottomToTopConstraint(offset: offset, relation: relation, priority: priority)
     }
     
     case centerXConstraint(offset: CGFloat, priority: ConstraintPriority)
     public static var centerX: ConstraintDirection {
-        return centerXConstraint(offset: 0, priority: .high)
+        return centerXConstraint(offset: 0, priority: .required)
     }
-    public static func centerX(offset: CGFloat, priority: ConstraintPriority = .high) -> ConstraintDirection {
+    public static func centerX(offset: CGFloat, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .centerXConstraint(offset: offset, priority: priority)
     }
     
     case centerYConstraint(offset: CGFloat, priority: ConstraintPriority)
     public static var centerY: ConstraintDirection {
-        return centerYConstraint(offset: 0, priority: .high)
+        return centerYConstraint(offset: 0, priority: .required)
     }
-    public static func centerY(offset: CGFloat, priority: ConstraintPriority = .high) -> ConstraintDirection {
+    public static func centerY(offset: CGFloat, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .centerYConstraint(offset: offset, priority: priority)
     }
     
     case heightConstraint(heightPoints: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
-    public static func height(_ height: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .high) -> ConstraintDirection {
+    public static func height(_ height: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .heightConstraint(heightPoints: height, relation: relation, priority: priority)
     }
     
     case widthConstraint(widthPoints: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
-    public static func width(_ width: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .high) -> ConstraintDirection {
+    public static func width(_ width: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .widthConstraint(widthPoints: width, relation: relation, priority: priority)
     }
 }
