@@ -145,11 +145,21 @@ public enum ConstraintDirection {
     public static func height(_ height: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .heightConstraint(heightPoints: height, relation: relation, priority: priority)
     }
+    case heightConstraintToView(view: Constrainable, relation: ConstraintRelation, priority: ConstraintPriority)
+    public static func height(_ view: Constrainable, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
+        return .heightConstraintToView(view: view, relation: relation, priority: priority)
+    }
     
     case widthConstraint(widthPoints: CGFloat, relation: ConstraintRelation, priority: ConstraintPriority)
     public static func width(_ width: CGFloat, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
         return .widthConstraint(widthPoints: width, relation: relation, priority: priority)
     }
+    
+    case widthConstraintToView(view: Constrainable, relation: ConstraintRelation, priority: ConstraintPriority)
+    public static func width(_ view: Constrainable, relation: ConstraintRelation = .equal, priority: ConstraintPriority = .required) -> ConstraintDirection {
+        return .widthConstraintToView(view: view, relation: relation, priority: priority)
+    }
+    
 }
 
 public extension Constrainable {
