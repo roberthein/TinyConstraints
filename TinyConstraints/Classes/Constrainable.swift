@@ -30,6 +30,7 @@
             
             translatesAutoresizingMaskIntoConstraints = false
         }
+
     }
 #else
     import UIKit
@@ -40,9 +41,93 @@
             
             translatesAutoresizingMaskIntoConstraints = false
         }
+        
     }
 #endif
 
+extension View {
+    
+    func addAsSubview(withEdges directions: [ConstraintDirection], to view: Constrainable) {
+        guard let view = view as? View else {return}
+        view.addSubview(self)
+        edges(directions, to: view)
+    }
+    
+    func addAsSubviewWitEdges(to view: Constrainable) {
+        addAsSubview(withEdges: [.top, .bottom, .leading, .trailing], to: view)
+    }
+    
+    func insertAsSubview(withEdges directions: [ConstraintDirection], to view: Constrainable,  at index: Int) {
+        guard let view = view as? View else {return}
+        view.insertSubview(self, at: index)
+        edges(directions, to: view)
+    }
+    
+    func insertAsSubviewWithEdges(to view: Constrainable, at index: Int) {
+        insertAsSubview(withEdges: [.top, .bottom, .leading, .trailing], to: view, at: index)
+    }
+    
+    func insertAsSubview(withEdges directions: [ConstraintDirection], to view: Constrainable,  belowSubview subview: View) {
+        guard let view = view as? View else {return}
+        view.insertSubview(self, belowSubview: subview)
+        edges(directions, to: view)
+    }
+    
+    func insertAsSubviewWithEdges(to view: Constrainable, belowSubview subview: View) {
+        insertAsSubview(withEdges: [.top, .bottom, .leading, .trailing], to: view, belowSubview: subview)
+    }
+    
+    func insertAsSubview(withEdges directions: [ConstraintDirection], to view: Constrainable,  aboveSubview subview: View) {
+        guard let view = view as? View else {return}
+        view.insertSubview(self, aboveSubview: subview)
+        edges(directions, to: view)
+    }
+    
+    func insertAsSubviewWithEdges(to view: Constrainable, aboveSubview subview: View) {
+        insertAsSubview(withEdges: [.top, .bottom, .leading, .trailing], to: view, aboveSubview: subview)
+    }
+    
+    
+    func addSubview(withEdges directions: [ConstraintDirection], view: Constrainable) {
+        guard let view = view as? UIView else {return}
+        addSubview(view)
+        view.edges(directions, to: self)
+    }
+    
+    func addSubviewWithEdges(_ view: Constrainable) {
+        addSubview(withEdges: [.top, .bottom, .leading, .trailing], view: view)
+    }
+    
+    func insertSubview(withEdges directions: [ConstraintDirection], view: Constrainable, at index: Int) {
+        guard let view = view as? UIView else {return}
+        insertSubview(view, at: index)
+        view.edges(directions, to: self)
+    }
+    
+    func insertSubviewWithEdges(_ view: Constrainable, at index: Int) {
+        insertSubview(withEdges: [.top, .bottom, .leading, .trailing], view: view, at: index)
+    }
+    
+    func insertSubview(withEdges directions: [ConstraintDirection], view: Constrainable,  belowSubview subview: UIView) {
+        guard let view = view as? UIView else {return}
+        insertSubview(view, belowSubview: subview)
+        edges(directions, to: view)
+    }
+    
+    func insertSubviewWithEdges(_ view: Constrainable, belowSubview subview: UIView) {
+        insertSubview(withEdges: [.top, .bottom, .leading, .trailing], view: view, belowSubview: subview)
+    }
+    
+    func insertSubview(withEdges directions: [ConstraintDirection], view: Constrainable,  aboveSubview subview: UIView) {
+        guard let view = view as? UIView else {return}
+        insertSubview(view, aboveSubview: subview)
+        edges(directions, to: view)
+    }
+    
+    func insertSubviewWithEdges(_ view: Constrainable, aboveSubview subview: UIView) {
+        insertSubview(withEdges: [.top, .bottom, .leading, .trailing], view: view, aboveSubview: subview)
+    }
+}
 
 
 extension LayoutGuide: Constrainable {
@@ -62,6 +147,6 @@ public protocol Constrainable {
     
     var widthAnchor: NSLayoutDimension { get }
     var heightAnchor: NSLayoutDimension { get }
-
+    
     func prepareForLayoutIfNeeded()
 }
