@@ -233,8 +233,12 @@ public extension Constrainable {
                 constraints.append(centerY(to: view, offset: offset, priority: priority, isActive: true))
             case .heightConstraint(let heightPoints, let relation, let priority):
                 constraints.append(height(heightPoints, relation: relation, priority: priority, isActive: true))
+            case .heightConstraintToView(let view, let relation, let priority):
+                constraints.append(height(to: view, multiplier: 1, offset: 0, relation: relation, priority: priority, isActive: true))
             case .widthConstraint(let heightPoints, let relation, let priority):
                 constraints.append(width(heightPoints, relation: relation, priority: priority, isActive: true))
+            case .widthConstraintToView(let view, let relation, let priority):
+                constraints.append(width(to: view, multiplier: 1, offset: 0, relation: relation, priority: priority, isActive: true))
             }
         }
         return constraints
