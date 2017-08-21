@@ -61,7 +61,7 @@ class Collections: UIView {
                     subview.top(to: container, offset: 20, isActive: false),
                     subview.bottom(to: container, offset: -20, isActive: false),
                     subview.right(to: container, offset: -20, isActive: false),
-                    subview.width(100, priority: .high, isActive: false)
+                    subview.width(100, priority: .defaultHigh, isActive: false)
                 ]
             }
         }

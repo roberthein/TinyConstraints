@@ -37,17 +37,6 @@ public enum ConstraintRelation: Int {
     case equalOrGreater = 1
 }
 
-public enum ConstraintPriority: LayoutPriority {
-    case required = 1000
-    case high = 750
-    case low = 250
-    case fittingSize = 50
-    
-    public var value: LayoutPriority {
-        return rawValue
-    }
-}
-
 public extension Collection where Iterator.Element == Constraint {
     
     func activate() {
@@ -67,8 +56,8 @@ public extension Collection where Iterator.Element == Constraint {
 
 public extension Constraint {
     
-    func with(_ p: ConstraintPriority) -> Self {
-        priority = p.value
+    func with(_ p: LayoutPriority) -> Self {
+        priority = p
         return self
     }
 }
