@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'TinyConstraints'
-  s.version      = '2.1.1'
+  s.version      = '2.1.2'
   s.ios.deployment_target = '9.0'
   s.tvos.deployment_target = '9.0'
   s.summary      = 'Nothing but sugar.'
