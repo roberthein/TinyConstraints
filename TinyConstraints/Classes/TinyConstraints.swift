@@ -53,8 +53,8 @@ public extension Constrainable {
         let constraints = [
             topAnchor.constraint(equalTo: view.topAnchor, constant: insets.top).with(priority),
             leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: insets.left).with(priority),
-            bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: insets.bottom).with(priority),
-            trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: insets.right).with(priority)
+            bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -insets.bottom).with(priority),
+            trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -insets.right).with(priority)
         ]
         
         if isActive {
