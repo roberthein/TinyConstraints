@@ -53,7 +53,7 @@ extension EnumCollection {
     }
     
     static var allCases: [Self] {
-        return Array(self.cases())
+        return Array(cases())
     }
 }
 
