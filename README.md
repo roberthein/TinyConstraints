@@ -149,4 +149,4 @@ github "roberthein/TinyConstraints"
 
 ## Suggestions or feedback?
 
-Feel free to create a pull request, open an issue or find me [on Twitter](https://twitter.com/roberthein).
+Feel free to create a pull request, open an issue or find [me on Twitter](https://twitter.com/roberthein).
