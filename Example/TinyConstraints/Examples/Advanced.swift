@@ -19,23 +19,23 @@ class Advanced: UIView {
         addSubview(container)
         container.width(310)
         container.height(min: 310)
-        container.height(310, priority: .low)
+        container.height(310, priority: .defaultLow)
         container.center(in: self)
     }
     
     func appendSubview() {
         
         let arrow = ArrowView(color: UIColor.gradient[safe: counter], orientation: .vertical)
-        arrow.setHugging(.low, for: .vertical)
-        arrow.setCompressionResistance(.high, for: .vertical)
+        arrow.setHugging(.defaultLow, for: .vertical)
+        arrow.setCompressionResistance(.defaultHigh, for: .vertical)
         container.addSubview(arrow)
         
         arrow.top(to: lastSubview ?? container, lastSubview?.bottomAnchor ?? container.topAnchor, offset: margin)
         arrow.left(to: container, offset: margin)
         arrow.right(to: container, offset: -margin)
         layoutIfNeeded()
-        heights.append(arrow.height(to: lastSubview ?? container, priority: .low))
-        heights.append(contentsOf: arrow.height(min: 100, max: 220, priority: .high))
+        heights.append(arrow.height(to: lastSubview ?? container, priority: .defaultLow))
+        heights.append(contentsOf: arrow.height(min: 100, max: 220, priority: .defaultHigh))
         
         lastBottomConstraint?.isActive = false
         lastBottomConstraint = arrow.bottom(to: container, offset: -margin, relation: .equalOrLess)
