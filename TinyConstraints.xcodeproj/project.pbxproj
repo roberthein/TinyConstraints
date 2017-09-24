@@ -38,10 +38,10 @@
 		2DD9870A1E4DBB6A002F80D6 /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		2DD9870B1E4DBB6A002F80D6 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinyConstraints.swift; sourceTree = "<group>"; };
-		746BBE7D1E5D7C9D007BE10D /* TinyConstraints_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyConstraints_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		746BBE7D1E5D7C9D007BE10D /* TinyConstraints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyConstraints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		746BBE7F1E5D7C9D007BE10D /* TinyConstraints_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinyConstraints_macOS.h; sourceTree = "<group>"; };
 		746BBE801E5D7C9D007BE10D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8410D8EC1E5078C3003AEA65 /* TinyConstraints_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyConstraints_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8410D8EC1E5078C3003AEA65 /* TinyConstraints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyConstraints_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		845D705A1F7535A400581159 /* TinySuperConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinySuperConstraints.swift; sourceTree = "<group>"; };
 		A9D467D01E6777CA00C331FA /* Abstraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Abstraction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,7 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				2DD986FB1E4DB973002F80D6 /* TinyConstraints.framework */,
-				8410D8EC1E5078C3003AEA65 /* TinyConstraints_tvOS.framework */,
+				8410D8EC1E5078C3003AEA65 /* TinyConstraints.framework */,
 				746BBE7D1E5D7C9D007BE10D /* TinyConstraints.framework */,
 			);
 			name = Products;
@@ -186,7 +186,7 @@
 			);
 			name = TinyConstraints_macOS;
 			productName = TinyConstraints_macOS;
-			productReference = 746BBE7D1E5D7C9D007BE10D /* TinyConstraints_macOS.framework */;
+			productReference = 746BBE7D1E5D7C9D007BE10D /* TinyConstraints.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		8410D8EB1E5078C3003AEA65 /* TinyConstraints_tvOS */ = {
@@ -204,7 +204,7 @@
 			);
 			name = TinyConstraints_tvOS;
 			productName = "TinyConstraints-tvOS";
-			productReference = 8410D8EC1E5078C3003AEA65 /* TinyConstraints_tvOS.framework */;
+			productReference = 8410D8EC1E5078C3003AEA65 /* TinyConstraints.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -469,7 +469,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.devian.TinyConstraints-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TinyConstraints;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -492,7 +492,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.devian.TinyConstraints-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TinyConstraints;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -512,7 +512,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.roberthein.TinyConstraints;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TinyConstraints;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -534,7 +534,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.roberthein.TinyConstraints;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TinyConstraints;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
