@@ -9,9 +9,9 @@ protocol Updatable {
 class ViewController: UIViewController {
     
     let examples: [UIView] = [
+        Example.collections.view(),
         Example.basic.view(),
-        Example.advanced.view(),
-        Example.collections.view()
+        Example.advanced.view()
     ]
     
     lazy var scrollView: UIScrollView = {
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = 20
         view.clipsToBounds = true
         
         scrollView.delegate = self

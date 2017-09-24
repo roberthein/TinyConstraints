@@ -21,7 +21,7 @@ class PageIndicator: UIView {
                 let view = UIView()
                 view.backgroundColor = .rgb(240, 240, 240)
                 view.clipsToBounds = true
-                view.layer.cornerRadius = 5
+                view.layer.cornerRadius = 10
                 return view
                 }()
             )
@@ -33,7 +33,7 @@ class PageIndicator: UIView {
     var selected: Int = 0 {
         didSet {
             indicatorViews.forEach { $0.backgroundColor = .rgb(240, 240, 240) }
-            indicatorViews[safe: selected]?.backgroundColor = UIColor.gradient[safe: 3]
+            indicatorViews[safe: selected]?.backgroundColor = UIColor.gradient[safe: selected]
         }
     }
 }

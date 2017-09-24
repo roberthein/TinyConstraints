@@ -8,7 +8,7 @@ extension UIColor {
     }
     
     static var gradient: [UIColor] {
-        return [.rgb(54, 245, 138), .rgb(48, 217, 171), .rgb(43, 194, 204), .rgb(41, 168, 237)]
+        return [.rgb(71, 111, 241), .rgb(31, 187, 225), .rgb(6, 236, 193)]
     }
 }
 

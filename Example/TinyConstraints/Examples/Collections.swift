@@ -56,7 +56,7 @@ class Collections: UIView {
                 stateColor[state.rawValue] = UIColor.gradient[safe: 2]
                 states[state.rawValue] = subview.edges(to: container, insets: UIEdgeInsets(top: 20, left: 20, bottom: -20, right: -20), isActive: false)
             case .fourth:
-                stateColor[state.rawValue] = UIColor.gradient[safe: 3]
+                stateColor[state.rawValue] = UIColor.gradient[safe: 0]
                 states[state.rawValue] = [
                     subview.top(to: container, offset: 20, isActive: false),
                     subview.bottom(to: container, offset: -20, isActive: false),

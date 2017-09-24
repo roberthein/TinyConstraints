@@ -15,12 +15,11 @@ class Basic: UIView {
         
         addSubview(container)
         container.width(320)
-        container.height(min: 420)
-        container.height(440, priority: .defaultLow)
+        container.height(min: 320, priority: .defaultHigh)
         container.center(in: self)
         
         var row = -1
-        for i in 0..<12 {
+        for i in 0..<9 {
             let column = i % 3
             if column == 0 {
                 row = row + 1
@@ -31,7 +30,7 @@ class Basic: UIView {
             
             sizes.append(contentsOf: arrow.size(CGSize(width: 60, height: 60)))
             arrow.centerX(to: container, offset: (CGFloat(column) * 100) - 150 + (100 / 2))
-            arrow.centerY(to: container, offset: (CGFloat(row) * 100) - 200 + (100 / 2))
+            arrow.centerY(to: container, offset: (CGFloat(row) * 100) - 150 + (100 / 2))
         }
     }
 }

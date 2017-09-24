@@ -7,7 +7,7 @@ class ArrowView: UIView {
         self.init(frame: .zero)
         
         backgroundColor = color
-        layer.cornerRadius = 10
+        layer.cornerRadius = 20
         clipsToBounds = true
         
         let arrow = Arrow(for: orientation)
@@ -27,7 +27,7 @@ class ArrowView: UIView {
             arrow.centerX(to: self)
             arrow.width(arrow.size.width)
         case .diagonal:
-            let margin: CGFloat = 8
+            let margin: CGFloat = 12
             arrow.top(to: self, offset: margin)
             arrow.left(to: self, offset: margin)
             arrow.bottom(to: self, offset: -margin)
