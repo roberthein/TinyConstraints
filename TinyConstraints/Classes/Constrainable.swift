@@ -29,14 +29,16 @@
 
 extension View: Constrainable {
     
-    public func prepareForLayout() {
-        
+    @discardableResult
+    public func prepareForLayout() -> Self {
         translatesAutoresizingMaskIntoConstraints = false
+        return self
     }
 }
 
 extension LayoutGuide: Constrainable {
-    public func prepareForLayout() {}
+    @discardableResult
+    public func prepareForLayout() -> Self { return self }
 }
 
 public protocol Constrainable {
@@ -53,5 +55,6 @@ public protocol Constrainable {
     var widthAnchor: NSLayoutDimension { get }
     var heightAnchor: NSLayoutDimension { get }
 
-    func prepareForLayout()
+    @discardableResult
+    func prepareForLayout() -> Self
 }
