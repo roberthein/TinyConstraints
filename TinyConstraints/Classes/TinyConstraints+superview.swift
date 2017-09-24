@@ -74,7 +74,7 @@ public extension View {
     }
     
     @discardableResult
-    public func centerInSuperview(offset: CGPoint = .zero, priority: LayoutPriority = LayoutPriority.required, isActive: Bool = true) -> Constraints {
+    public func centerInSuperview(offset: CGPoint = .zero, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
         guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
         return center(in: superview, offset: offset, priority: priority, isActive: isActive)
     }
