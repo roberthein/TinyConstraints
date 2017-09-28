@@ -22,6 +22,8 @@
 		8410D8F51E507931003AEA65 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870B1E4DBB6A002F80D6 /* Stack.swift */; };
 		8410D8F61E507931003AEA65 /* TinyConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */; };
 		8410D8F71E50793D003AEA65 /* TinyConstraints.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DD986FE1E4DB973002F80D6 /* TinyConstraints.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84FACFDE1F7C0C28006A102E /* TinyConstraints+superviewUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACFDD1F7C0C28006A102E /* TinyConstraints+superviewUIKit.swift */; };
+		84FACFDF1F7C0C28006A102E /* TinyConstraints+superviewUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACFDD1F7C0C28006A102E /* TinyConstraints+superviewUIKit.swift */; };
 		A932CB751F78081B00401861 /* TinyConstraints+superview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932CB741F78081B00401861 /* TinyConstraints+superview.swift */; };
 		A932CB761F78099600401861 /* TinyConstraints+superview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932CB741F78081B00401861 /* TinyConstraints+superview.swift */; };
 		A932CB771F78099700401861 /* TinyConstraints+superview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932CB741F78081B00401861 /* TinyConstraints+superview.swift */; };
@@ -43,6 +45,7 @@
 		746BBE7F1E5D7C9D007BE10D /* TinyConstraints_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinyConstraints_macOS.h; sourceTree = "<group>"; };
 		746BBE801E5D7C9D007BE10D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8410D8EC1E5078C3003AEA65 /* TinyConstraints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyConstraints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84FACFDD1F7C0C28006A102E /* TinyConstraints+superviewUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TinyConstraints+superviewUIKit.swift"; sourceTree = "<group>"; };
 		A932CB741F78081B00401861 /* TinyConstraints+superview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TinyConstraints+superview.swift"; sourceTree = "<group>"; };
 		A9D467D01E6777CA00C331FA /* Abstraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Abstraction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +114,7 @@
 				2DD9870B1E4DBB6A002F80D6 /* Stack.swift */,
 				2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */,
 				A932CB741F78081B00401861 /* TinyConstraints+superview.swift */,
+				84FACFDD1F7C0C28006A102E /* TinyConstraints+superviewUIKit.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -283,6 +287,7 @@
 				2DD987111E4DBB6A002F80D6 /* TinyConstraints.swift in Sources */,
 				A932CB751F78081B00401861 /* TinyConstraints+superview.swift in Sources */,
 				2DD987101E4DBB6A002F80D6 /* Stack.swift in Sources */,
+				84FACFDE1F7C0C28006A102E /* TinyConstraints+superviewUIKit.swift in Sources */,
 				2DD9870F1E4DBB6A002F80D6 /* Constraints.swift in Sources */,
 				2DD7AA441E599FD800509EBC /* Constrainable.swift in Sources */,
 				A9D467D11E6777CA00C331FA /* Abstraction.swift in Sources */,
@@ -309,6 +314,7 @@
 				8410D8F41E507931003AEA65 /* Constraints.swift in Sources */,
 				A932CB761F78099600401861 /* TinyConstraints+superview.swift in Sources */,
 				8410D8F51E507931003AEA65 /* Stack.swift in Sources */,
+				84FACFDF1F7C0C28006A102E /* TinyConstraints+superviewUIKit.swift in Sources */,
 				8410D8F61E507931003AEA65 /* TinyConstraints.swift in Sources */,
 				2DD7AA451E59A08100509EBC /* Constrainable.swift in Sources */,
 				A9D467D21E6777DB00C331FA /* Abstraction.swift in Sources */,
