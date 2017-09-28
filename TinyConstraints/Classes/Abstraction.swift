@@ -28,10 +28,11 @@ import Foundation
     
     public typealias View = NSView
     public typealias LayoutGuide = NSLayoutGuide
-    public typealias ConstraintAxis = NSLayoutConstraintOrientation
-    public typealias LayoutPriority = NSLayoutPriority
+    public typealias ConstraintAxis = NSLayoutConstraint.Orientation
+    public typealias LayoutPriority = NSLayoutConstraint.Priority
+    public typealias TinyEdgeInsets = NSEdgeInsets
     
-    extension EdgeInsets {
+    public extension NSEdgeInsets {
         static var zero = NSEdgeInsetsZero
     }
 #else
@@ -42,5 +43,6 @@ import Foundation
     public typealias ConstraintAxis = UILayoutConstraintAxis
     public typealias LayoutPriority = UILayoutPriority
     
-    public typealias EdgeInsets = UIEdgeInsets
+    public typealias TinyEdgeInsets = UIEdgeInsets
 #endif
+

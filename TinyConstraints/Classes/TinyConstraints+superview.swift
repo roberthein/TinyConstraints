@@ -50,7 +50,7 @@ public extension View {
     }
     
     @discardableResult
-    public func edgesToSuperview(insets: EdgeInsets = .zero, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
+    public func edgesToSuperview(insets: TinyEdgeInsets = .zero, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
         guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
         return edges(to: superview, insets: insets, priority: priority, isActive: isActive)
     }
