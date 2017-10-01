@@ -20,29 +20,34 @@
 //    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //    THE SOFTWARE.
+//
 
-import Foundation
+import AppKit
 
-#if os(OSX)
-    import AppKit
+public extension View {
     
-    public typealias View = NSView
-    public typealias LayoutGuide = NSLayoutGuide
-    public typealias ConstraintAxis = NSLayoutConstraint.Orientation
-    public typealias LayoutPriority = NSLayoutConstraint.Priority
-    public typealias TinyEdgeInsets = NSEdgeInsets
-    
-    public extension NSEdgeInsets {
-        static var zero = NSEdgeInsetsZero
+    @discardableResult
+    func edgesToSuperview(excluding excludedEdge: LayoutEdge = .none, inset: CGFloat = 0) -> Constraints {
+        var constraints = Constraints()
+        
+        if excludedEdge != .top {
+            constraints.append(topToSuperview(offset: inset))
+        }
+        
+        if excludedEdge != .left {
+            constraints.append(leftToSuperview(inset: inset))
+        }
+            
+        if excludedEdge != .right {
+                constraints.append(rightToSuperview(inset: inset))
+        }
+        
+        if excludedEdge != .bottom {
+            constraints.append(bottomToSuperview(offset: -inset))
+        }
+        
+        return constraints
     }
-#else
-    import UIKit
-    
-    public typealias View = UIView
-    public typealias LayoutGuide = UILayoutGuide
-    public typealias ConstraintAxis = UILayoutConstraintAxis
-    public typealias LayoutPriority = UILayoutPriority
-    
-    public typealias TinyEdgeInsets = UIEdgeInsets
-#endif
+}
+
 
