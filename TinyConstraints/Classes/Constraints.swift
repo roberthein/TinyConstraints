@@ -54,18 +54,31 @@ public extension Collection where Iterator.Element == Constraint {
     }
 }
 
+#if os(OSX)
 public extension Constraint {
-    
-    func with(_ p: LayoutPriority) -> Self {
+    @objc
+    func with(_ p: Constraint.Priority) -> Self {
         priority = p
         return self
     }
-}
 
-public extension Constraint {
-    
     func set(active: Bool) -> Self {
         isActive = active
         return self
     }
 }
+#else
+    public extension Constraint {
+        @objc
+        func with(_ p: LayoutPriority) -> Self {
+            priority = p
+            return self
+        }
+        
+        func set(active: Bool) -> Self {
+            isActive = active
+            return self
+        }
+}
+#endif
+

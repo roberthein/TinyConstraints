@@ -14,20 +14,23 @@
 		2DD987101E4DBB6A002F80D6 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870B1E4DBB6A002F80D6 /* Stack.swift */; };
 		2DD987111E4DBB6A002F80D6 /* TinyConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */; };
 		746BBE811E5D7C9D007BE10D /* TinyConstraints_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 746BBE7F1E5D7C9D007BE10D /* TinyConstraints_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		746BBE851E5D7CA7007BE10D /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870A1E4DBB6A002F80D6 /* Constraints.swift */; };
-		746BBE861E5D7CAB007BE10D /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870B1E4DBB6A002F80D6 /* Stack.swift */; };
-		746BBE871E5D7CAE007BE10D /* Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD7AA431E599FD800509EBC /* Constrainable.swift */; };
-		746BBE881E5D7CB3007BE10D /* TinyConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */; };
 		8410D8F41E507931003AEA65 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870A1E4DBB6A002F80D6 /* Constraints.swift */; };
 		8410D8F51E507931003AEA65 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870B1E4DBB6A002F80D6 /* Stack.swift */; };
 		8410D8F61E507931003AEA65 /* TinyConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */; };
 		8410D8F71E50793D003AEA65 /* TinyConstraints.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DD986FE1E4DB973002F80D6 /* TinyConstraints.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8468DA2F1F7D736800FBB86A /* TinyConstraints+superviewAppKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8468DA2E1F7D736800FBB86A /* TinyConstraints+superviewAppKit.swift */; };
+		84FACFDE1F7C0C28006A102E /* TinyConstraints+superviewUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACFDD1F7C0C28006A102E /* TinyConstraints+superviewUIKit.swift */; };
+		84FACFDF1F7C0C28006A102E /* TinyConstraints+superviewUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACFDD1F7C0C28006A102E /* TinyConstraints+superviewUIKit.swift */; };
+		84FACFED1F7C11E4006A102E /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870A1E4DBB6A002F80D6 /* Constraints.swift */; };
+		84FACFEE1F7C1253006A102E /* Abstraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D467D01E6777CA00C331FA /* Abstraction.swift */; };
+		84FACFEF1F7C1253006A102E /* Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD7AA431E599FD800509EBC /* Constrainable.swift */; };
+		84FACFF01F7C1269006A102E /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870B1E4DBB6A002F80D6 /* Stack.swift */; };
+		84FACFF11F7C1269006A102E /* TinyConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */; };
+		84FACFF21F7C1269006A102E /* TinyConstraints+superview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932CB741F78081B00401861 /* TinyConstraints+superview.swift */; };
 		A932CB751F78081B00401861 /* TinyConstraints+superview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932CB741F78081B00401861 /* TinyConstraints+superview.swift */; };
 		A932CB761F78099600401861 /* TinyConstraints+superview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932CB741F78081B00401861 /* TinyConstraints+superview.swift */; };
-		A932CB771F78099700401861 /* TinyConstraints+superview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932CB741F78081B00401861 /* TinyConstraints+superview.swift */; };
 		A9D467D11E6777CA00C331FA /* Abstraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D467D01E6777CA00C331FA /* Abstraction.swift */; };
 		A9D467D21E6777DB00C331FA /* Abstraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D467D01E6777CA00C331FA /* Abstraction.swift */; };
-		A9D467D31E6777DC00C331FA /* Abstraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D467D01E6777CA00C331FA /* Abstraction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,8 @@
 		746BBE7F1E5D7C9D007BE10D /* TinyConstraints_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinyConstraints_macOS.h; sourceTree = "<group>"; };
 		746BBE801E5D7C9D007BE10D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8410D8EC1E5078C3003AEA65 /* TinyConstraints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyConstraints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8468DA2E1F7D736800FBB86A /* TinyConstraints+superviewAppKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TinyConstraints+superviewAppKit.swift"; sourceTree = "<group>"; };
+		84FACFDD1F7C0C28006A102E /* TinyConstraints+superviewUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TinyConstraints+superviewUIKit.swift"; sourceTree = "<group>"; };
 		A932CB741F78081B00401861 /* TinyConstraints+superview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TinyConstraints+superview.swift"; sourceTree = "<group>"; };
 		A9D467D01E6777CA00C331FA /* Abstraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Abstraction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +116,8 @@
 				2DD9870B1E4DBB6A002F80D6 /* Stack.swift */,
 				2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */,
 				A932CB741F78081B00401861 /* TinyConstraints+superview.swift */,
+				84FACFDD1F7C0C28006A102E /* TinyConstraints+superviewUIKit.swift */,
+				8468DA2E1F7D736800FBB86A /* TinyConstraints+superviewAppKit.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -283,6 +290,7 @@
 				2DD987111E4DBB6A002F80D6 /* TinyConstraints.swift in Sources */,
 				A932CB751F78081B00401861 /* TinyConstraints+superview.swift in Sources */,
 				2DD987101E4DBB6A002F80D6 /* Stack.swift in Sources */,
+				84FACFDE1F7C0C28006A102E /* TinyConstraints+superviewUIKit.swift in Sources */,
 				2DD9870F1E4DBB6A002F80D6 /* Constraints.swift in Sources */,
 				2DD7AA441E599FD800509EBC /* Constrainable.swift in Sources */,
 				A9D467D11E6777CA00C331FA /* Abstraction.swift in Sources */,
@@ -293,12 +301,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				746BBE881E5D7CB3007BE10D /* TinyConstraints.swift in Sources */,
-				A932CB771F78099700401861 /* TinyConstraints+superview.swift in Sources */,
-				746BBE871E5D7CAE007BE10D /* Constrainable.swift in Sources */,
-				746BBE861E5D7CAB007BE10D /* Stack.swift in Sources */,
-				746BBE851E5D7CA7007BE10D /* Constraints.swift in Sources */,
-				A9D467D31E6777DC00C331FA /* Abstraction.swift in Sources */,
+				84FACFF01F7C1269006A102E /* Stack.swift in Sources */,
+				84FACFF21F7C1269006A102E /* TinyConstraints+superview.swift in Sources */,
+				84FACFF11F7C1269006A102E /* TinyConstraints.swift in Sources */,
+				84FACFEF1F7C1253006A102E /* Constrainable.swift in Sources */,
+				8468DA2F1F7D736800FBB86A /* TinyConstraints+superviewAppKit.swift in Sources */,
+				84FACFEE1F7C1253006A102E /* Abstraction.swift in Sources */,
+				84FACFED1F7C11E4006A102E /* Constraints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +318,7 @@
 				8410D8F41E507931003AEA65 /* Constraints.swift in Sources */,
 				A932CB761F78099600401861 /* TinyConstraints+superview.swift in Sources */,
 				8410D8F51E507931003AEA65 /* Stack.swift in Sources */,
+				84FACFDF1F7C0C28006A102E /* TinyConstraints+superviewUIKit.swift in Sources */,
 				8410D8F61E507931003AEA65 /* TinyConstraints.swift in Sources */,
 				2DD7AA451E59A08100509EBC /* Constrainable.swift in Sources */,
 				A9D467D21E6777DB00C331FA /* Abstraction.swift in Sources */,
@@ -447,7 +457,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.roberthein.TinyConstraints;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -468,7 +477,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.roberthein.TinyConstraints;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -489,7 +497,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.devian.TinyConstraints-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.devian.TinyConstraints;
 				PRODUCT_NAME = TinyConstraints;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -513,7 +521,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.devian.TinyConstraints-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.devian.TinyConstraints;
 				PRODUCT_NAME = TinyConstraints;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
