@@ -28,23 +28,23 @@
     public extension View {
         
         @discardableResult
-        func edgesToSuperview(excluding excludedEdge: LayoutEdge = .none, inset: CGFloat = 0) -> Constraints {
+        func edgesToSuperview(excluding excludedEdge: LayoutEdge = .none, insets: TinyEdgeInsets = .zero) -> Constraints {
             var constraints = Constraints()
             
             if excludedEdge != .top {
-                constraints.append(topToSuperview(offset: inset))
+                constraints.append(topToSuperview(offset: insets.top))
             }
             
             if excludedEdge != .left {
-                constraints.append(leftToSuperview(inset: inset))
+                constraints.append(leftToSuperview(offset: insets.left))
             }
             
             if excludedEdge != .right {
-                constraints.append(rightToSuperview(inset: inset))
+                constraints.append(rightToSuperview(offset: -insets.right))
             }
             
             if excludedEdge != .bottom {
-                constraints.append(bottomToSuperview(offset: -inset))
+                constraints.append(bottomToSuperview(offset: -insets.bottom))
             }
             
             return constraints
@@ -58,35 +58,35 @@
         @available(tvOS 10.0, *)
         @available(iOS 10.0, *)
         @discardableResult
-        func edgesToSuperview(excluding excludedEdge: LayoutEdge = .none, inset: CGFloat = 0) -> Constraints {
+        func edgesToSuperview(excluding excludedEdge: LayoutEdge = .none, insets: TinyEdgeInsets = .zero) -> Constraints {
             var constraints = Constraints()
             
             if excludedEdge != .top {
-                constraints.append(topToSuperview(offset: inset))
+                constraints.append(topToSuperview(offset: insets.top))
             }
             
             if effectiveUserInterfaceLayoutDirection == .leftToRight {
                 
                 if !(excludedEdge == .leading || excludedEdge == .left) {
-                    constraints.append(leftToSuperview(inset: inset))
+                    constraints.append(leftToSuperview(offset: insets.left))
                 }
                 
                 if !(excludedEdge == .trailing || excludedEdge == .right) {
-                    constraints.append(rightToSuperview(inset: inset))
+                    constraints.append(rightToSuperview(offset: -insets.right))
                 }
             } else {
                 
                 if !(excludedEdge == .leading || excludedEdge == .right) {
-                    constraints.append(rightToSuperview(inset: inset))
+                    constraints.append(rightToSuperview(offset: -insets.right))
                 }
                 
                 if !(excludedEdge == .trailing || excludedEdge == .left) {
-                    constraints.append(leftToSuperview(inset: inset))
+                    constraints.append(leftToSuperview(offset: insets.left))
                 }
             }
             
             if excludedEdge != .bottom {
-                constraints.append(bottomToSuperview(offset: -inset))
+                constraints.append(bottomToSuperview(offset: -insets.bottom))
             }
             
             return constraints
@@ -95,26 +95,26 @@
         @available(tvOS 10.0, *)
         @available(iOS 10.0, *)
         @discardableResult
-        public func leadingToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, inset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
+        public func leadingToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
             guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
             
             if effectiveUserInterfaceLayoutDirection == .rightToLeft {
-                return leading(to: superview, anchor, offset: -inset, relation: relation, priority: priority, isActive: isActive)
+                return leading(to: superview, anchor, offset: -offset, relation: relation, priority: priority, isActive: isActive)
             } else {
-                return leading(to: superview, anchor, offset: inset, relation: relation, priority: priority, isActive: isActive)
+                return leading(to: superview, anchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
             }
         }
         
         @available(tvOS 10.0, *)
         @available(iOS 10.0, *)
         @discardableResult
-        public func trailingToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, inset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
+        public func trailingToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
             guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
             
             if effectiveUserInterfaceLayoutDirection == .rightToLeft {
-                return trailing(to: superview, anchor, offset: inset, relation: relation, priority: priority, isActive: isActive)
+                return trailing(to: superview, anchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
             } else {
-                return trailing(to: superview, anchor, offset: -inset, relation: relation, priority: priority, isActive: isActive)
+                return trailing(to: superview, anchor, offset: -offset, relation: relation, priority: priority, isActive: isActive)
             }
         }
     }
@@ -164,15 +164,15 @@ public extension View {
     }
     
     @discardableResult
-    public func leftToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, inset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
+    public func leftToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
         guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
-        return left(to: superview, anchor, offset: inset, relation: relation, priority: priority, isActive: isActive)
+        return left(to: superview, anchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
     }
     
     @discardableResult
-    public func rightToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, inset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
+    public func rightToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
         guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
-        return right(to: superview, anchor, offset: -inset, relation: relation, priority: priority, isActive: isActive)
+        return right(to: superview, anchor, offset: -offset, relation: relation, priority: priority, isActive: isActive)
     }
     
     @discardableResult
