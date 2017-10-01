@@ -22,13 +22,103 @@
 //    THE SOFTWARE.
 //
 
-
 #if os(OSX)
     import AppKit
+    
+    public extension View {
+        
+        @discardableResult
+        func edgesToSuperview(excluding excludedEdge: LayoutEdge = .none, inset: CGFloat = 0) -> Constraints {
+            var constraints = Constraints()
+            
+            if excludedEdge != .top {
+                constraints.append(topToSuperview(offset: inset))
+            }
+            
+            if excludedEdge != .left {
+                constraints.append(leftToSuperview(inset: inset))
+            }
+            
+            if excludedEdge != .right {
+                constraints.append(rightToSuperview(inset: inset))
+            }
+            
+            if excludedEdge != .bottom {
+                constraints.append(bottomToSuperview(offset: -inset))
+            }
+            
+            return constraints
+        }
+    }
 #else
     import UIKit
+    
+    public extension View {
+        
+        @available(tvOS 10.0, *)
+        @available(iOS 10.0, *)
+        @discardableResult
+        func edgesToSuperview(excluding excludedEdge: LayoutEdge = .none, inset: CGFloat = 0) -> Constraints {
+            var constraints = Constraints()
+            
+            if excludedEdge != .top {
+                constraints.append(topToSuperview(offset: inset))
+            }
+            
+            if effectiveUserInterfaceLayoutDirection == .leftToRight {
+                
+                if !(excludedEdge == .leading || excludedEdge == .left) {
+                    constraints.append(leftToSuperview(inset: inset))
+                }
+                
+                if !(excludedEdge == .trailing || excludedEdge == .right) {
+                    constraints.append(rightToSuperview(inset: inset))
+                }
+            } else {
+                
+                if !(excludedEdge == .leading || excludedEdge == .right) {
+                    constraints.append(rightToSuperview(inset: inset))
+                }
+                
+                if !(excludedEdge == .trailing || excludedEdge == .left) {
+                    constraints.append(leftToSuperview(inset: inset))
+                }
+            }
+            
+            if excludedEdge != .bottom {
+                constraints.append(bottomToSuperview(offset: -inset))
+            }
+            
+            return constraints
+        }
+        
+        @available(tvOS 10.0, *)
+        @available(iOS 10.0, *)
+        @discardableResult
+        public func leadingToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, inset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
+            guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
+            
+            if effectiveUserInterfaceLayoutDirection == .rightToLeft {
+                return leading(to: superview, anchor, offset: -inset, relation: relation, priority: priority, isActive: isActive)
+            } else {
+                return leading(to: superview, anchor, offset: inset, relation: relation, priority: priority, isActive: isActive)
+            }
+        }
+        
+        @available(tvOS 10.0, *)
+        @available(iOS 10.0, *)
+        @discardableResult
+        public func trailingToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, inset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
+            guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
+            
+            if effectiveUserInterfaceLayoutDirection == .rightToLeft {
+                return trailing(to: superview, anchor, offset: inset, relation: relation, priority: priority, isActive: isActive)
+            } else {
+                return trailing(to: superview, anchor, offset: -inset, relation: relation, priority: priority, isActive: isActive)
+            }
+        }
+    }
 #endif
-
 
 public extension View {
     
