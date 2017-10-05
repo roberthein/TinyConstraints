@@ -135,11 +135,14 @@ public extension View {
     }
     
     private func getConstrainable(from view: View) -> Constrainable {
-        if #available(iOS 11, tvOS 11, *) {
-            return view.safeAreaLayoutGuide
-        } else {
-            return view
-        }
+        
+        #if os(iOS) || os(tvOS)
+            if #available(iOS 11, tvOS 11, *) {
+                return view.safeAreaLayoutGuide
+            }
+        #endif
+        
+        return view
     }
     
     @discardableResult
