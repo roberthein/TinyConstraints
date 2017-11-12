@@ -95,9 +95,8 @@
         @available(tvOS 10.0, *)
         @available(iOS 10.0, *)
         @discardableResult
-        public func leadingToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
-            guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
-            let constrainable = getConstrainable(from: superview)
+        public func leadingToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
+            let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
             
             if effectiveUserInterfaceLayoutDirection == .rightToLeft {
                 return leading(to: constrainable, anchor, offset: -offset, relation: relation, priority: priority, isActive: isActive)
@@ -109,9 +108,8 @@
         @available(tvOS 10.0, *)
         @available(iOS 10.0, *)
         @discardableResult
-        public func trailingToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
-            guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
-            let constrainable = getConstrainable(from: superview)
+        public func trailingToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
+            let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
             
             if effectiveUserInterfaceLayoutDirection == .rightToLeft {
                 return trailing(to: constrainable, anchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
@@ -138,92 +136,85 @@ public struct LayoutEdge: OptionSet {
 
 public extension View {
     
-    private func getConstrainable(from view: View) -> Constrainable {
+    private func safeConstrainable(for superview: View?, usingSafeArea: Bool) -> Constrainable {
+        guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
+        prepareForLayout()
         
         #if os(iOS) || os(tvOS)
-            if #available(iOS 11, tvOS 11, *) {
-                return view.safeAreaLayoutGuide
+            if #available(iOS 11, tvOS 11, *){
+                if usingSafeArea {
+                    return superview.safeAreaLayoutGuide
+                }
             }
         #endif
         
-        return view
+        return superview
     }
     
 
     @discardableResult
-    public func centerInSuperview(offset: CGPoint = .zero, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
-        guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
-        let constrainable = getConstrainable(from: superview)
+    public func centerInSuperview(offset: CGPoint = .zero, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraints {
+        let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
         return center(in: constrainable, offset: offset, priority: priority, isActive: isActive)
     }
     
     @discardableResult
-    public func edgesToSuperview(insets: TinyEdgeInsets = .zero, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
-        guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
-        let constrainable = getConstrainable(from: superview)
+    public func edgesToSuperview(insets: TinyEdgeInsets = .zero, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraints {
+        let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
         return edges(to: constrainable, insets: insets, priority: priority, isActive: isActive)
     }
     
     @discardableResult
-    public func originToSuperview(insets: CGVector = .zero, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
-        guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
-        let constrainable = getConstrainable(from: superview)
+    public func originToSuperview(insets: CGVector = .zero, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraints {
+        let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
         return origin(to: constrainable, insets: insets, priority: priority, isActive: isActive)
     }
     
     @discardableResult
-    public func widthToSuperview( _ dimension: NSLayoutDimension? = nil, multiplier: CGFloat = 1, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
-        guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
-        let constrainable = getConstrainable(from: superview)
+    public func widthToSuperview( _ dimension: NSLayoutDimension? = nil, multiplier: CGFloat = 1, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
+        let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
         return width(to: constrainable, dimension, multiplier: multiplier, offset: offset, priority: priority, isActive: isActive)
     }
     
     @discardableResult
-    public func heightToSuperview( _ dimension: NSLayoutDimension? = nil, multiplier: CGFloat = 1, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
-        guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
-        let constrainable = getConstrainable(from: superview)
+    public func heightToSuperview( _ dimension: NSLayoutDimension? = nil, multiplier: CGFloat = 1, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
+        let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
         return height(to: constrainable, dimension, multiplier: multiplier, offset: offset, priority: priority, isActive: isActive)
     }
     
     @discardableResult
-    public func leftToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
-        guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
-        let constrainable = getConstrainable(from: superview)
+    public func leftToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
+        let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
         return left(to: constrainable, anchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
     }
     
     @discardableResult
-    public func rightToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
-        guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
-        let constrainable = getConstrainable(from: superview)
+    public func rightToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
+        let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
         return right(to: constrainable, anchor, offset: -offset, relation: relation, priority: priority, isActive: isActive)
     }
     
     @discardableResult
-    public func topToSuperview( _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
-        guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
-        let constrainable = getConstrainable(from: superview)
+    public func topToSuperview( _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
+        let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
         return top(to: constrainable, anchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
     }
     
     @discardableResult
-    public func bottomToSuperview( _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
-        guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
-        let constrainable = getConstrainable(from: superview)
+    public func bottomToSuperview( _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
+        let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
         return bottom(to: constrainable, anchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
     }
     
     @discardableResult
-    public func centerXToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
-        guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
-        let constrainable = getConstrainable(from: superview)
+    public func centerXToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
+        let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
         return centerX(to: constrainable, anchor, offset: offset, priority: priority, isActive: isActive)
     }
     
     @discardableResult
-    public func centerYToSuperview( _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
-        guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
-        let constrainable = getConstrainable(from: superview)
+    public func centerYToSuperview( _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
+        let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
         return centerY(to: constrainable, anchor, offset: offset, priority: priority, isActive: isActive)
     }
 }
