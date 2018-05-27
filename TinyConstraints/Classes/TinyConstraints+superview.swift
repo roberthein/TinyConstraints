@@ -55,6 +55,7 @@
     
     public extension View {
         
+        // MARK: Edges
         @available(tvOS 10.0, *)
         @available(iOS 10.0, *)
         @discardableResult
@@ -95,6 +96,14 @@
         @available(tvOS 10.0, *)
         @available(iOS 10.0, *)
         @discardableResult
+        func edgesToSuperview(insets: TinyEdgeInsets) -> Constraints {
+            return edgesToSuperview(excluding: .none, insets: insets)
+        }
+        
+        // MARK: Leading
+        @available(tvOS 10.0, *)
+        @available(iOS 10.0, *)
+        @discardableResult
         public func leadingToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
             let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
             
@@ -108,6 +117,14 @@
         @available(tvOS 10.0, *)
         @available(iOS 10.0, *)
         @discardableResult
+        public func leadingToSuperview(offset: CGFloat) -> Constraint {
+            return leadingToSuperview(nil, offset: offset, relation: .equal, priority: .required, isActive: true, usingSafeArea: false)
+        }
+        
+        // MARK: Trailing
+        @available(tvOS 10.0, *)
+        @available(iOS 10.0, *)
+        @discardableResult
         public func trailingToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
             let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
             
@@ -116,6 +133,13 @@
             } else {
                 return trailing(to: constrainable, anchor, offset: -offset, relation: relation, priority: priority, isActive: isActive)
             }
+        }
+        
+        @available(tvOS 10.0, *)
+        @available(iOS 10.0, *)
+        @discardableResult
+        public func trailingToSuperview(offset: CGFloat) -> Constraint {
+            return trailingToSuperview(nil, offset: offset, relation: .equal, priority: .required, isActive: true, usingSafeArea: false)
         }
     }
 #endif
@@ -152,6 +176,7 @@ public extension View {
     }
     
 
+    // MARK: Center
     @discardableResult
     public func centerInSuperview(offset: CGPoint = .zero, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraints {
         let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
@@ -159,11 +184,19 @@ public extension View {
     }
     
     @discardableResult
+    public func centerInSuperview(offset: CGPoint) -> Constraints {
+        return centerInSuperview(offset: offset, priority: .required, isActive: true, usingSafeArea: false)
+    }
+    
+    // MARK: Edges
+    @discardableResult
     public func edgesToSuperview(insets: TinyEdgeInsets = .zero, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraints {
         let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
         return edges(to: constrainable, insets: insets, priority: priority, isActive: isActive)
     }
     
+
+    // MARK: Origin
     @discardableResult
     public func originToSuperview(insets: CGVector = .zero, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraints {
         let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
@@ -171,11 +204,23 @@ public extension View {
     }
     
     @discardableResult
+    public func originToSuperview(insets: CGVector) -> Constraints {
+        return originToSuperview(insets: insets, priority: .required, isActive: true, usingSafeArea: false)
+    }
+    
+    // MARK: Width
+    @discardableResult
     public func widthToSuperview( _ dimension: NSLayoutDimension? = nil, multiplier: CGFloat = 1, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
         let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
         return width(to: constrainable, dimension, multiplier: multiplier, offset: offset, priority: priority, isActive: isActive)
     }
     
+    @discardableResult
+    public func widthToSuperview(offset: CGFloat) -> Constraint {
+        return widthToSuperview(nil, multiplier: 1, offset: offset, relation: .equal, priority: .required, isActive: true, usingSafeArea: false)
+    }
+    
+    // MARK: Height
     @discardableResult
     public func heightToSuperview( _ dimension: NSLayoutDimension? = nil, multiplier: CGFloat = 1, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
         let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
@@ -183,11 +228,23 @@ public extension View {
     }
     
     @discardableResult
+    public func heightToSuperview(offset: CGFloat = 0) -> Constraint {
+        return heightToSuperview(nil, multiplier: 1, offset: offset, relation: .equal, priority: .required, isActive: true, usingSafeArea: false)
+    }
+    
+    // MARK: Left
+    @discardableResult
     public func leftToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
         let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
         return left(to: constrainable, anchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
     }
     
+    @discardableResult
+    public func leftToSuperview(offset: CGFloat) -> Constraint {
+        return leftToSuperview(nil, offset: offset, relation: .equal, priority: .required, isActive: true, usingSafeArea: false)
+    }
+    
+    // MARK: Right
     @discardableResult
     public func rightToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
         let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
@@ -195,11 +252,23 @@ public extension View {
     }
     
     @discardableResult
+    public func rightToSuperview(offset: CGFloat = 0) -> Constraint {
+        return rightToSuperview(nil, offset: offset, relation: .equal, priority: .required, isActive: true, usingSafeArea: false)
+    }
+    
+    // MARK: Top
+    @discardableResult
     public func topToSuperview( _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
         let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
         return top(to: constrainable, anchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
     }
     
+    @discardableResult
+    public func topToSuperview(offset: CGFloat) -> Constraint {
+        return topToSuperview(nil, offset: offset, relation: .equal, priority: .required, isActive: true, usingSafeArea: false)
+    }
+    
+    // MARK: Bottom
     @discardableResult
     public func bottomToSuperview( _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
         let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
@@ -207,14 +276,31 @@ public extension View {
     }
     
     @discardableResult
+    public func bottomToSuperview(offset: CGFloat) -> Constraint {
+        return bottomToSuperview(nil, offset: offset, relation: .equal, priority: .required, isActive: true, usingSafeArea: false)
+    }
+    
+    // MARK: Center X
+    @discardableResult
     public func centerXToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
         let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
         return centerX(to: constrainable, anchor, offset: offset, priority: priority, isActive: isActive)
     }
     
     @discardableResult
+    public func centerXToSuperview(offset: CGFloat) -> Constraint {
+        return centerXToSuperview(nil, offset: offset, priority: .required, isActive: true, usingSafeArea: false)
+    }
+    
+    // MARK: Center Y
+    @discardableResult
     public func centerYToSuperview( _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
         let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
         return centerY(to: constrainable, anchor, offset: offset, priority: priority, isActive: isActive)
+    }
+    
+    @discardableResult
+    public func centerYToSuperview(offset: CGFloat) -> Constraint {
+        return centerYToSuperview(nil, offset: offset, priority: .required, isActive: true, usingSafeArea: false)
     }
 }

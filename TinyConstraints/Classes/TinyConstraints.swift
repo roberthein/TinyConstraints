@@ -30,6 +30,7 @@
 
 public extension Constrainable {
     
+    // MARK: Center
     @discardableResult
     public func center(in view: Constrainable, offset: CGPoint = .zero, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
         prepareForLayout()
@@ -46,6 +47,12 @@ public extension Constrainable {
         return constraints
     }
     
+    @discardableResult
+    public func center(in view: Constrainable, offset: CGPoint) -> Constraints {
+        return center(in: view, offset: offset, priority: .required, isActive: true)
+    }
+    
+    // MARK: Edges
     @discardableResult
     public func edges(to view: Constrainable, insets: TinyEdgeInsets = .zero, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
         prepareForLayout()
@@ -64,6 +71,12 @@ public extension Constrainable {
         return constraints
     }
     
+    @discardableResult
+    public func edges(to view: Constrainable, insets: TinyEdgeInsets) -> Constraints {
+        return edges(to: view, insets: insets, priority: .required, isActive: true)
+    }
+    
+    // MARK: Size
     @discardableResult
     public func size(_ size: CGSize, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
         prepareForLayout()
@@ -97,6 +110,12 @@ public extension Constrainable {
     }
     
     @discardableResult
+    public func size(to view: Constrainable, offset: CGFloat) -> Constraints {
+        return size(to: view, multiplier: 1, offset: offset, priority: .required, isActive: true)
+    }
+    
+    // MARK: Origin
+    @discardableResult
     public func origin(to view: Constrainable, insets: CGVector = .zero, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
         prepareForLayout()
         
@@ -112,6 +131,12 @@ public extension Constrainable {
         return constraints
     }
     
+    @discardableResult
+    public func origin(to view: Constrainable, insets: CGVector) -> Constraints {
+        return origin(to: view, insets: insets, priority: .required, isActive: true)
+    }
+    
+    // MARK: Width
     @discardableResult
     public func width(_ width: CGFloat, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
         prepareForLayout()
@@ -135,6 +160,11 @@ public extension Constrainable {
     }
     
     @discardableResult
+    public func width(to view: Constrainable, offset: CGFloat) -> Constraint {
+        return width(to: view, multiplier: 1, offset: offset, relation: .equal, priority: .required, isActive: true)
+    }
+    
+    @discardableResult
     public func width(min: CGFloat? = nil, max: CGFloat? = nil, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
         prepareForLayout()
         
@@ -155,6 +185,7 @@ public extension Constrainable {
         return constraints
     }
     
+    // MARK: Height
     @discardableResult
     public func height(_ height: CGFloat, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
         prepareForLayout()
@@ -178,6 +209,11 @@ public extension Constrainable {
     }
     
     @discardableResult
+    public func height(to view: Constrainable, offset: CGFloat) -> Constraint {
+        return height(to: view, nil, multiplier: 1, offset: offset, relation: .equal, priority: .required, isActive: true)
+    }
+    
+    @discardableResult
     public func height(min: CGFloat? = nil, max: CGFloat? = nil, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
         prepareForLayout()
         
@@ -198,10 +234,16 @@ public extension Constrainable {
         return constraints
     }
     
+    // MARK: Leading
     @discardableResult
     public func leadingToTrailing(of view: Constrainable, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
         prepareForLayout()
         return leading(to: view, view.trailingAnchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
+    }
+    
+    @discardableResult
+    public func leadingToTrailing(of view: Constrainable, offset: CGFloat) -> Constraint {
+        return leadingToTrailing(of: view, offset: offset, relation: .equal, priority: .required, isActive: true)
     }
     
     @discardableResult
@@ -216,9 +258,20 @@ public extension Constrainable {
     }
     
     @discardableResult
+    public func leading(to view: Constrainable, offset: CGFloat) -> Constraint {
+        return leading(to: view, nil, offset: offset, relation: .equal, priority: .required, isActive: true)
+    }
+    
+    // MARK: Left
+    @discardableResult
     public func leftToRight(of view: Constrainable, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
         prepareForLayout()
         return left(to: view, view.rightAnchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
+    }
+    
+    @discardableResult
+    public func leftToRight(of view: Constrainable, offset: CGFloat) -> Constraint {
+        return leftToRight(of: view, offset: offset, relation: .equal, priority: .required, isActive: true)
     }
     
     @discardableResult
@@ -233,9 +286,20 @@ public extension Constrainable {
     }
     
     @discardableResult
+    public func left(to view: Constrainable, offset: CGFloat) -> Constraint {
+        return left(to: view, nil, offset: offset, relation: .equal, priority: .required, isActive: true)
+    }
+    
+    // MARK: Trailing
+    @discardableResult
     public func trailingToLeading(of view: Constrainable, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
         prepareForLayout()
         return trailing(to: view, view.leadingAnchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
+    }
+    
+    @discardableResult
+    public func trailingToLeading(of view: Constrainable, offset: CGFloat) -> Constraint {
+        return trailingToLeading(of: view, offset: offset, relation: .equal, priority: .required, isActive: true)
     }
     
     @discardableResult
@@ -250,9 +314,20 @@ public extension Constrainable {
     }
     
     @discardableResult
+    public func trailing(to view: Constrainable, offset: CGFloat) -> Constraint {
+        return trailing(to: view, nil, offset: offset, relation: .equal, priority: .required, isActive: true)
+    }
+    
+    // MARK: Right
+    @discardableResult
     public func rightToLeft(of view: Constrainable, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
         prepareForLayout()
         return right(to: view, view.leftAnchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
+    }
+    
+    @discardableResult
+    public func rightToLeft(of view: Constrainable, offset: CGFloat) -> Constraint {
+        return rightToLeft(of: view, offset: offset, relation: .equal, priority: .required, isActive: true)
     }
     
     @discardableResult
@@ -267,9 +342,20 @@ public extension Constrainable {
     }
     
     @discardableResult
+    public func right(to view: Constrainable, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat) -> Constraint {
+        return right(to: view, anchor, offset: offset, relation: .equal, priority: .required, isActive: true)
+    }
+    
+    // MARK: Top
+    @discardableResult
     public func topToBottom(of view: Constrainable, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
         prepareForLayout()
         return top(to: view, view.bottomAnchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
+    }
+    
+    @discardableResult
+    public func topToBottom(of view: Constrainable, offset: CGFloat) -> Constraint {
+        return topToBottom(of: view, offset: offset, relation: .equal, priority: .required, isActive: true)
     }
     
     @discardableResult
@@ -284,11 +370,22 @@ public extension Constrainable {
     }
     
     @discardableResult
+    public func top(to view: Constrainable, offset: CGFloat) -> Constraint {
+        return top(to: view, nil, offset: offset, relation: .equal, priority: .required, isActive: true)
+    }
+    
+    // MARK: Bottom
+    @discardableResult
     public func bottomToTop(of view: Constrainable, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
         prepareForLayout()
         return bottom(to: view, view.topAnchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
     }
     
+    @discardableResult
+    public func bottomToTop(of view: Constrainable, offset: CGFloat) -> Constraint {
+        return bottomToTop(of: view, offset: offset, relation: .equal, priority: .required, isActive: true)
+    }
+
     @discardableResult
     public func bottom(to view: Constrainable, _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
         prepareForLayout()
@@ -301,6 +398,12 @@ public extension Constrainable {
     }
     
     @discardableResult
+    public func bottom(to view: Constrainable, offset: CGFloat) -> Constraint {
+        return bottom(to: view, nil, offset: offset, relation: .equal, priority: .required, isActive: true)
+    }
+    
+    // MARK: Center X
+    @discardableResult
     public func centerX(to view: Constrainable, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
         prepareForLayout()
         
@@ -310,12 +413,23 @@ public extension Constrainable {
     }
     
     @discardableResult
+    public func centerX(to view: Constrainable, offset: CGFloat) -> Constraint {
+        return centerX(to: view, nil, offset: offset, priority: .required, isActive: true)
+    }
+    
+    // MARK: Center Y
+    @discardableResult
     public func centerY(to view: Constrainable, _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
         prepareForLayout()
         
         let constraint = centerYAnchor.constraint(equalTo: anchor ?? view.centerYAnchor, constant: offset).with(priority)
         constraint.isActive = isActive
         return constraint
+    }
+    
+    @discardableResult
+    public func centerY(to view: Constrainable, offset: CGFloat) -> Constraint {
+        return centerY(to: view, nil, offset: offset, priority: .required, isActive: true)
     }
 }
 
