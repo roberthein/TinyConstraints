@@ -61,7 +61,7 @@ class ViewController: UIViewController {
     var index: Int? = nil {
         didSet {
             guard let index = index, index != oldValue else { return }
-            examples.flatMap { $0 as? Updatable }.forEach { $0.reset() }
+            examples.compactMap { $0 as? Updatable }.forEach { $0.reset() }
             indicator.selected = index
         }
     }
