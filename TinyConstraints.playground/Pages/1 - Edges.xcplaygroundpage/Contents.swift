@@ -2,33 +2,32 @@ import UIKit
 import PlaygroundSupport
 import TinyConstraints
 
-//: Edges
+/*: Edges
 
-//: First we set up our ViewController and the UIView that we want to add the constraints to.
+First we set up our ViewController and the UIView that we want to add the constraints to. */
 let viewController = UIViewController()
 viewController.view.backgroundColor = TinyTheme.backgroundColor
 
 let containerView = UIView()
 containerView.backgroundColor = TinyTheme.otherViewColor
-
 viewController.view.addSubview(containerView)
-
-containerView.height(100)
-containerView.width(100)
+containerView.size(CGSize(width: 100, height: 100))
 
 let edgesView = UIView()
 edgesView.backgroundColor = TinyTheme.constraintViewColor
-
 containerView.addSubview(edgesView)
 
-//: Attaching a view to its superview with NSLayoutConstraint:
-//: `view.topAnchor.constraint(equalTo: superview.topAnchor, constant: 0).isActive = true`
-//: `view.leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: 0).isActive = true`
-//: `view.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: 0).isActive = true`
-//: `view.trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: 0).isActive = true`
-//: with TinyConstraints:
+/*:
+ Attaching a view to its superview with NSLayoutConstraint:
 
-//edgesView.edges(to: superview)
-edgesView.edges(to: containerView, insets: UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 0))
+    view.topAnchor.constraint(equalTo: superview.topAnchor, constant: 0).isActive = true
+    view.leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: 0).isActive = true
+    view.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: 0).isActive = true
+    view.trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: 0).isActive = true
+ And doing it with tinyConstraints: */
+//edgesView.edges(to: containerView)
+
+//: you can also attach the view with insets, if you comment the line above and uncomment this line you can play with the values and see what happens:
+edgesView.edges(to: containerView, insets: UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 0))
 
 PlaygroundPage.current.liveView = viewController

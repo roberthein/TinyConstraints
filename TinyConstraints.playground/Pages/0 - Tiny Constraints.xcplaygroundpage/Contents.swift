@@ -28,6 +28,9 @@ viewController.view.addSubview(constraintView)
 constraintView.height(100)
 constraintView.width(100)
 
+//: or even shorter, both at once:
+constraintView.size(CGSize(width: 100, height: 100))
+
 //: Center
 //: Constraining the center of a view to its superview with NSLayoutConstraint:
 
