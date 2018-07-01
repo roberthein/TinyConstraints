@@ -1,6 +1,7 @@
 import UIKit
 import PlaygroundSupport
 import TinyConstraints
+
 //:# TinyConstraints
 //: tl;dr Nothing but sugar.
 //:
@@ -9,7 +10,9 @@ import TinyConstraints
 //: First we set up our ViewController and the UIView that we want to add the constraints to.
 let viewController = UIViewController()
 let constraintView = UIView()
-constraintView.backgroundColor = .red
+let ding = TinyTheme.backgroundColor
+viewController.view.backgroundColor = TinyTheme.backgroundColor
+constraintView.backgroundColor = TinyTheme.constraintViewColor
 //: Always remember to add the view as a subview before you add constraints, otherwise your app will crash 💥
 viewController.view.addSubview(constraintView)
 
@@ -25,15 +28,11 @@ viewController.view.addSubview(constraintView)
 constraintView.height(100)
 constraintView.width(100)
 
-PlaygroundPage.current.liveView = viewController
-
-//: Edges
-//: Attaching a view to its superview with NSLayoutConstraint:
-
-//: with TinyConstraints:
-
 //: Center
 //: Constraining the center of a view to its superview with NSLayoutConstraint:
 
 //: with TinyConstraints:
 
+//: [Edges](@next)
+
+PlaygroundPage.current.liveView = viewController
