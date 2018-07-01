@@ -7,6 +7,10 @@ extension NSLayoutConstraint: CustomPlaygroundDisplayConvertible {
             return onlyOneAttributeView
         }
 
+        if let firstView = firstItem as? UIView, let secondView = secondItem as? UIView, secondView == firstView.superview {
+            return nestedView
+        }
+
         let superView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
         superView.backgroundColor = .red
 
@@ -14,7 +18,7 @@ extension NSLayoutConstraint: CustomPlaygroundDisplayConvertible {
         return "lalala"
     }
 
-    var onlyOneAttributeView: Any {
+    var onlyOneAttributeView: UIView {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 203, height: 203))
         let imageView = UIImageView(image: UIImage(named: "height&width.png")!)
 
@@ -31,5 +35,9 @@ extension NSLayoutConstraint: CustomPlaygroundDisplayConvertible {
         }
 
         return view
+    }
+
+    var nestedView: UIView {
+
     }
 }
