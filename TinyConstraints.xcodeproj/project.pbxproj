@@ -29,7 +29,7 @@
 		90CB57981FB3C77700379457 /* Universal-Target-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Universal-Target-Base.xcconfig"; sourceTree = "<group>"; };
 		A932CB741F78081B00401861 /* TinyConstraints+superview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TinyConstraints+superview.swift"; sourceTree = "<group>"; };
 		A9D467D01E6777CA00C331FA /* Abstraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Abstraction.swift; sourceTree = "<group>"; };
-		E602799920D8326700814DD3 /* TinyConstraints.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TinyConstraints.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		E6EC324020E9FFD0002FA678 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +46,7 @@
 		2DD986F11E4DB973002F80D6 = {
 			isa = PBXGroup;
 			children = (
-				E602799920D8326700814DD3 /* TinyConstraints.playground */,
+				E6EC324020E9FFD0002FA678 /* MyPlayground.playground */,
 				2DD986FD1E4DB973002F80D6 /* TinyConstraints */,
 				2DD986FC1E4DB973002F80D6 /* Products */,
 			);

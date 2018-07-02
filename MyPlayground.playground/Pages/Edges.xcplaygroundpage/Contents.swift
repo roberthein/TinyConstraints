@@ -3,7 +3,7 @@ import PlaygroundSupport
 import TinyConstraints
 /*: Edges
 
-First we set up our ViewController and the UIView that we want to add the constraints to. */
+ First we set up our ViewController and the UIView that we want to add the constraints to. */
 let viewController = UIViewController()
 viewController.view.backgroundColor = TinyTheme.backgroundColor
 
@@ -19,10 +19,10 @@ containerView.addSubview(edgesView)
 /*:
  Attaching a view to its superview with NSLayoutConstraint:
 
-    view.topAnchor.constraint(equalTo: superview.topAnchor, constant: 0).isActive = true
-    view.leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: 0).isActive = true
-    view.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: 0).isActive = true
-    view.trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: 0).isActive = true
+ view.topAnchor.constraint(equalTo: superview.topAnchor, constant: 0).isActive = true
+ view.leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: 0).isActive = true
+ view.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: 0).isActive = true
+ view.trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: 0).isActive = true
  And doing it with tinyConstraints: */
 //edgesView.edges(to: containerView)
 
