@@ -4,6 +4,9 @@ import UIKit
 import PlaygroundSupport
 import TinyConstraints
 
+//:# Aligning Views
+//: First we set up our ViewController and the UIViews that we want to add the constraints to.
+
 let viewController = UIViewController()
 viewController.view.backgroundColor = TinyTheme.backgroundColor
 
@@ -17,10 +20,10 @@ viewController.view.addSubview(firstView)
 viewController.view.addSubview(secondView)
 
 firstView.size(CGSize(width: 50, height: 100))
-
 secondView.size(CGSize(width: 50, height: 100))
-secondView.leftToRight(of: firstView, offset: 10)
+
+//: Now we can align the left side of the secondView to the right size of the firstView like this:
+
+secondView.bottomToTop(of: firstView, offset: 10)
 
 PlaygroundPage.current.liveView = viewController
-
-//: [Next](@next)

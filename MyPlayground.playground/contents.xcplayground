@@ -4,6 +4,6 @@
         <page name='Tiny Constraints'/>
         <page name='Sizes'/>
         <page name='Edges'/>
-        <page name='Relative Constraints'/>
+        <page name='Aligning Views'/>
     </pages>
 </playground>

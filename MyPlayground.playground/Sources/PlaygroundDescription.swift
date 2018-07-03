@@ -57,6 +57,27 @@ extension NSLayoutConstraint: CustomPlaygroundDisplayConvertible {
     }
 
     var toOtherView: UIView {
-        return UIView()
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 203, height: 203))
+        let imageView = UIImageView(image: UIImage(named: "toOtherView")!)
+
+        let label = UILabel(frame: CGRect(x: 100, y: 90, width: 100, height: 20))
+        label.textColor = .white
+        label.textAlignment = .center
+        label.text = "\(constant)"
+
+        view.addSubview(imageView)
+        imageView.addSubview(label)
+
+        if firstAttribute == .top && secondAttribute == .bottom {
+            imageView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi * 0.5))
+        } else if firstAttribute == .bottom && secondAttribute == .top {
+            imageView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi * 1.5))
+        } else if firstAttribute == .right && secondAttribute == .left {
+            imageView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi * 1.0))
+        } else {
+            return UIView()
+        }
+
+        return view
     }
 }

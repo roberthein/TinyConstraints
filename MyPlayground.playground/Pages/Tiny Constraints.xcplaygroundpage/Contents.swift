@@ -12,6 +12,6 @@
  ## Table of Contents:
  1. [Sizes](Sizes)
  1. [Edges](Edges)
- 1. [Aligning](Aligning)
+ 1. [Aligning Views](Aligning Views)
  */
 //: [Next](@next)
