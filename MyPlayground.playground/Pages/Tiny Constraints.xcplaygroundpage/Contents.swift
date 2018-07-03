@@ -1,35 +1,17 @@
-import UIKit
-import PlaygroundSupport
-import TinyConstraints
+/*:
+ # TinyConstraints
+ tl;dr Nothing but sugar.
 
-//:# TinyConstraints
-//: tl;dr Nothing but sugar.
-//:
-//: TinyConstraints is the syntactic sugar that makes Auto Layout sweeter for human use.
+ TinyConstraints is the syntactic sugar that makes Auto Layout sweeter for human use.
 
-//: First we set up our ViewController and the UIView that we want to add the constraints to.
-let viewController = UIViewController()
-let constraintView = UIView()
-viewController.view.backgroundColor = TinyTheme.backgroundColor
-constraintView.backgroundColor = TinyTheme.constraintViewColor
-//: Always remember to add the view as a subview before you add constraints, otherwise your app will crash 💥
-viewController.view.addSubview(constraintView)
-
-//: Size
-//: Setting width and height with NSLayoutConstraint:
-//:
-//:`constraintView.heightAnchor.constraint(equalToConstant: 100).isActive = true`
-//:
-//:`constraintView.widthAnchor.constraint(equalToConstant: 100).isActive = true`
-
-//: with TinyConstraints:
-
-constraintView.height(100)
-constraintView.width(100)
-
-//: or even shorter, both at once:
-constraintView.size(CGSize(width: 100, height: 100))
-
-PlaygroundPage.current.liveView = viewController
-
-//: [Edges](@next)
+ > # To use **TinyConstraint.playground**:
+ 1. Open **TinyConstraint.xcodeproj**.
+ 1. Build the **TinyConstraint-macOS** scheme (**Product** → **Build**).
+ 1. Show the Live View (**View** → **Assistant Editor** → **Show DShow Assistant Editor**).
+ ----
+ ## Table of Contents:
+ 1. [Sizes](Sizes)
+ 1. [Edges](Edges)
+ 1. [Aligning](Aligning)
+ */
+//: [Next](@next)

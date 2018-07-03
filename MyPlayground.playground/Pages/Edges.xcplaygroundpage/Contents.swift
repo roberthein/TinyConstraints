@@ -27,6 +27,6 @@ containerView.addSubview(edgesView)
 //edgesView.edges(to: containerView)
 
 //: you can also attach the view with insets, if you comment the line above and uncomment this line you can play with the values and see what happens:
-edgesView.edges(to: containerView, insets: UIEdgeInsets(top: 20, left: 10, bottom: 5, right: 0))
+edgesView.edges(to: containerView, insets: UIEdgeInsets(top: 20, left: 10, bottom: -5, right: 0))
 
 PlaygroundPage.current.liveView = viewController
