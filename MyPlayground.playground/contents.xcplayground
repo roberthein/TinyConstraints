@@ -3,5 +3,6 @@
     <pages>
         <page name='Tiny Constraints'/>
         <page name='Edges'/>
+        <page name='Relative Constraints'/>
     </pages>
 </playground>
