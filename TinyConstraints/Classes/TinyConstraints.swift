@@ -207,6 +207,11 @@ public extension Constrainable {
         
         return constraints
     }
+
+    @discardableResult
+    public func aspectRatio(_ ratio: CGFloat, relation: ConstraintRelation = .equal, priotity: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
+        return widthToHeight(of: self, multiplier: ratio, offset: 0, relation: relation, priority: priotity, isActive: isActive)
+    }
     
     @discardableResult
     public func leadingToTrailing(of view: Constrainable, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
