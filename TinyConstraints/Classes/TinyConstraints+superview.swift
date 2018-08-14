@@ -191,7 +191,7 @@ public extension View {
     @discardableResult
     public func rightToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
         let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
-        return right(to: constrainable, anchor, offset: -offset, relation: relation, priority: priority, isActive: isActive)
+        return right(to: constrainable, anchor, offset: offset, relation: relation, priority: priority, isActive: isActive)
     }
     
     @discardableResult
