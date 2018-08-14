@@ -301,6 +301,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 90CB57961FB3C77700379457 /* Universal-Framework-Target.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_CODE_COVERAGE = NO;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -322,6 +323,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 90CB57961FB3C77700379457 /* Universal-Framework-Target.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_CODE_COVERAGE = NO;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
