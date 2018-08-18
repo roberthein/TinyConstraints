@@ -46,19 +46,19 @@ public extension View {
             switch axis {
             case .vertical:
                 constraints.append(view.top(to: previous ?? self, previous?.bottomAnchor ?? topAnchor, offset: offset))
-                constraints.append(view.left(to: self))
-                constraints.append(view.right(to: self))
+                constraints.append(view.leftToSuperview())
+                constraints.append(view.rightToSuperview())
                 
                 if let lastView = views.last, view == lastView {
-                    constraints.append(view.bottom(to: self))
+                    constraints.append(view.bottomToSuperview())
                 }
             case .horizontal:
-                constraints.append(view.top(to: self))
-                constraints.append(view.bottom(to: self))
+                constraints.append(view.topToSuperview())
+                constraints.append(view.bottomToSuperview())
                 constraints.append(view.left(to: previous ?? self, previous?.rightAnchor ?? leftAnchor, offset: offset))
                 
                 if let lastView = views.last, view == lastView {
-                    constraints.append(view.right(to: self))
+                    constraints.append(view.rightToSuperview())
                 }
             }
             
