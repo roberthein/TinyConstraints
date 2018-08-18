@@ -13,6 +13,7 @@
 		2DD987101E4DBB6A002F80D6 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870B1E4DBB6A002F80D6 /* Stack.swift */; };
 		2DD987111E4DBB6A002F80D6 /* TinyConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */; };
 		A932CB751F78081B00401861 /* TinyConstraints+superview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932CB741F78081B00401861 /* TinyConstraints+superview.swift */; };
+		A97552CE2128478300C1EC7E /* TinyEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97552CD2128478300C1EC7E /* TinyEdgeInsets.swift */; };
 		A9D467D11E6777CA00C331FA /* Abstraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D467D01E6777CA00C331FA /* Abstraction.swift */; };
 /* End PBXBuildFile section */
 
@@ -21,13 +22,13 @@
 		2DD986FB1E4DB973002F80D6 /* TinyConstraints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyConstraints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DD986FE1E4DB973002F80D6 /* TinyConstraints.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinyConstraints.h; sourceTree = "<group>"; };
 		2DD986FF1E4DB973002F80D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2DD987091E4DBB6A002F80D6 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		2DD9870A1E4DBB6A002F80D6 /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		2DD9870B1E4DBB6A002F80D6 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinyConstraints.swift; sourceTree = "<group>"; };
 		90CB57961FB3C77700379457 /* Universal-Framework-Target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Universal-Framework-Target.xcconfig"; sourceTree = "<group>"; };
 		90CB57981FB3C77700379457 /* Universal-Target-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Universal-Target-Base.xcconfig"; sourceTree = "<group>"; };
 		A932CB741F78081B00401861 /* TinyConstraints+superview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TinyConstraints+superview.swift"; sourceTree = "<group>"; };
+		A97552CD2128478300C1EC7E /* TinyEdgeInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinyEdgeInsets.swift; sourceTree = "<group>"; };
 		A9D467D01E6777CA00C331FA /* Abstraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Abstraction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,13 +73,13 @@
 		2DD987081E4DBB6A002F80D6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2DD987091E4DBB6A002F80D6 /* .gitkeep */,
 				A9D467D01E6777CA00C331FA /* Abstraction.swift */,
 				2DD7AA431E599FD800509EBC /* Constrainable.swift */,
 				2DD9870A1E4DBB6A002F80D6 /* Constraints.swift */,
 				2DD9870B1E4DBB6A002F80D6 /* Stack.swift */,
 				2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */,
 				A932CB741F78081B00401861 /* TinyConstraints+superview.swift */,
+				A97552CD2128478300C1EC7E /* TinyEdgeInsets.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -172,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A97552CE2128478300C1EC7E /* TinyEdgeInsets.swift in Sources */,
 				2DD987111E4DBB6A002F80D6 /* TinyConstraints.swift in Sources */,
 				A932CB751F78081B00401861 /* TinyConstraints+superview.swift in Sources */,
 				2DD987101E4DBB6A002F80D6 /* Stack.swift in Sources */,
