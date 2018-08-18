@@ -47,15 +47,26 @@ public extension Constrainable {
     }
     
     @discardableResult
-    public func edges(to view: Constrainable, insets: TinyEdgeInsets = .zero, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
+    public func edges(to view: Constrainable, excluding excludedEdge: LayoutEdge = .none, insets: TinyEdgeInsets = .zero, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
         prepareForLayout()
         
-        let constraints = [
-            topAnchor.constraint(equalTo: view.topAnchor, constant: insets.top).with(priority),
-            leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: insets.left).with(priority),
-            bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: insets.bottom).with(priority),
-            trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: insets.right).with(priority)
-        ]
+        var constraints = Constraints()
+        
+        if !excludedEdge.contains(.top) {
+            constraints.append(topAnchor.constraint(equalTo: view.topAnchor, constant: insets.top).with(priority))
+        }
+        
+        if !excludedEdge.contains(.left) {
+            constraints.append(leftAnchor.constraint(equalTo: view.leftAnchor, constant: insets.left).with(priority))
+        }
+        
+        if !excludedEdge.contains(.bottom) {
+            constraints.append(bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: insets.bottom).with(priority))
+        }
+        
+        if !excludedEdge.contains(.right) {
+            constraints.append(rightAnchor.constraint(equalTo: view.rightAnchor, constant: insets.right).with(priority))
+        }
         
         if isActive {
             Constraint.activate(constraints)
