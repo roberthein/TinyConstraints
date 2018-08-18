@@ -36,13 +36,13 @@ NSLayoutConstraint.activate([
 with `TinyConstraints`:
 
 ```swift
-view.edges(to: superview)
+view.edgesToSuperView()
 ```
 
 or:
 
 ```swift
-view.edges(to: superview, insets: UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 0))
+view.edgesToSuperView(insets: .top(10) + .left(10))
 ```
 ### Center
 Constraining the center of a view to its superview with `NSLayoutConstraint`:
