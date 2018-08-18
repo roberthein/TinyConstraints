@@ -137,7 +137,10 @@ public struct LayoutEdge: OptionSet {
 public extension View {
     
     private func safeConstrainable(for superview: View?, usingSafeArea: Bool) -> Constrainable {
-        guard let superview = superview else { fatalError("Unable to create this constraint to it's superview, because it has no superview.") }
+        guard let superview = superview else {
+            fatalError("Unable to create this constraint to it's superview, because it has no superview.")
+        }
+        
         prepareForLayout()
         
         #if os(iOS) || os(tvOS)
