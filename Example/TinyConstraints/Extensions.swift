@@ -1,4 +1,4 @@
-
+import Foundation
 import UIKit
 
 extension UIColor {
@@ -60,7 +60,6 @@ extension EnumCollection {
 extension CALayer {
     
     func drawLine(from start: CGPoint, to end: CGPoint, color: UIColor, dashed: Bool = false) {
-        
         let path = UIBezierPath()
         path.move(to: start)
         path.addLine(to: end)

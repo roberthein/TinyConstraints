@@ -1,17 +1,20 @@
-
+import Foundation
 import TinyConstraints
 
 typealias StateConstraints = [String: Constraints]
 typealias StateColor = [String: UIColor]
 
 enum State: String, EnumCollection {
-    case first = "first"
-    case second = "second"
-    case third = "third"
-    case fourth = "fourth"
+    case first
+    case second
+    case third
+    case fourth
     
     func next() -> State? {
-        guard let index = State.allCases.index(of: self) else { return nil }
+        guard let index = State.allCases.index(of: self) else {
+            return nil
+        }
+        
         var next = index + 1
         
         if next >= State.allCases.count {
@@ -22,7 +25,10 @@ enum State: String, EnumCollection {
     }
     
     func previous() -> State? {
-        guard let index = State.allCases.index(of: self) else { return nil }
+        guard let index = State.allCases.index(of: self) else {
+            return nil
+        }
+        
         var previous = index - 1
         
         if previous < 0 {

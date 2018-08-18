@@ -1,19 +1,19 @@
-
+import Foundation
+import UIKit
 import TinyConstraints
 
 class Basic: UIView {
-    var sizes: Constraints = []
-    var counter = 1
     
-    lazy var container: Container = {
-        let container = Container()
-        return container
-    }()
+    private var sizes: Constraints = []
+    private var counter = 1
     
-    convenience init() {
-        self.init(frame: .zero)
+    private lazy var container = Container()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         addSubview(container)
+        
         container.width(320)
         container.height(min: 320, priority: .defaultHigh)
         container.center(in: self)
@@ -33,6 +33,10 @@ class Basic: UIView {
             arrow.centerY(to: container, offset: (CGFloat(row) * 100) - 150 + (100 / 2))
         }
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 extension Basic: Updatable {
@@ -48,7 +52,10 @@ extension Basic: Updatable {
         counter += 1
         
         let shouldZoomIn: Bool? = counter % 2 == 0 ? false : counter % 3 == 0 ? true : nil
-        guard let zoom = shouldZoomIn else { return }
+        
+        guard let zoom = shouldZoomIn else {
+            return
+        }
         
         for (i, constraint) in sizes.enumerated() {
             let same = i % 2 == 0

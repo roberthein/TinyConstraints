@@ -1,8 +1,10 @@
-
+import Foundation
+import UIKit
 import TinyConstraints
 
 class Collections: UIView {
-    var state: State = .first {
+    
+    private var state: State = .first {
         didSet {
             if let previousState = state.previous() {
                 states[previousState.rawValue]?.deActivate()
@@ -11,28 +13,21 @@ class Collections: UIView {
         }
     }
     
-    lazy var container: Container = {
-        let container = Container()
-        return container
-    }()
+    private lazy var container = Container()
+    private lazy var subview = ArrowView(color: UIColor.gradient[safe: 0], orientation: .horizontal)
     
-    lazy var subview: UIView = {
-        let arrow = ArrowView(color: UIColor.gradient[safe: 0], orientation: .horizontal)
-        return arrow
-    }()
+    private var states: StateConstraints = [:]
+    private var stateColor: StateColor = [:]
+    private var counter = 0
     
-    var states: StateConstraints = [:]
-    var stateColor: StateColor = [:]
-    var counter = 0
-    
-    convenience init() {
-        self.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         addSubview(container)
+        container.addSubview(subview)
+        
         container.size(CGSize(width: 320, height: 320))
         container.center(in: self)
-        
-        container.addSubview(subview)
         
         for state in State.allCases {
             switch state {
@@ -68,6 +63,10 @@ class Collections: UIView {
         
         state = .first
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 extension Collections: Updatable {
@@ -83,7 +82,10 @@ extension Collections: Updatable {
         counter += 1
         
         if counter % 2 == 0 {
-            guard let nextState = state.next() else { return }
+            guard let nextState = state.next() else {
+                return
+            }
+            
             state = nextState
             
             let animator = UIViewPropertyAnimator(duration: 0, timingParameters: UISpringTimingParameters(mass: 0.3, stiffness: 15, damping: 3.5, initialVelocity: CGVector(dx: 2, dy: 2)))

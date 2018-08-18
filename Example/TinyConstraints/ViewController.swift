@@ -1,4 +1,5 @@
-
+import Foundation
+import UIKit
 import TinyConstraints
 
 protocol Updatable {
@@ -8,45 +9,43 @@ protocol Updatable {
 
 class ViewController: UIViewController {
     
-    let examples: [UIView] = [
+    private let examples: [UIView] = [
         Example.collections.view(),
         Example.basic.view(),
         Example.advanced.view()
     ]
     
-    lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.alwaysBounceHorizontal = true
-        scrollView.isPagingEnabled = true
-        scrollView.showsHorizontalScrollIndicator = false
-        return scrollView
+    private lazy var scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.alwaysBounceHorizontal = true
+        view.isPagingEnabled = true
+        view.showsHorizontalScrollIndicator = false
+        view.delegate = self
+        
+        return view
     }()
     
-    lazy var contentView: UIView = {
-        let contentView = UIView()
-        return contentView
-    }()
+    private lazy var contentView = UIView()
+    private lazy var indicator = PageIndicator(count: examples.count)
     
-    var indicator: PageIndicator!
-    var timer: Timer!
+    private var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .white
         view.layer.cornerRadius = 20
         view.clipsToBounds = true
         
-        scrollView.delegate = self
         view.addSubview(scrollView)
-        scrollView.edges(to: view)
-        
+        view.addSubview(indicator)
         scrollView.addSubview(contentView)
-        contentView.edges(to: scrollView)
+        
+        scrollView.edgesToSuperview()
+        
+        contentView.edgesToSuperview()
         contentView.height(to: scrollView, priority: .defaultHigh)
         contentView.stack(examples, axis: .horizontal, width: UIScreen.main.bounds.width)
-        
-        indicator = PageIndicator(count: examples.count)
-        view.addSubview(indicator)
         
         indicator.centerX(to: view)
         indicator.bottom(to: view, offset: -20)
@@ -60,7 +59,10 @@ class ViewController: UIViewController {
     
     var index: Int? = nil {
         didSet {
-            guard let index = index, index != oldValue else { return }
+            guard let index = index, index != oldValue else {
+                return
+            }
+            
             examples.compactMap { $0 as? Updatable }.forEach { $0.reset() }
             indicator.selected = index
         }

@@ -1,37 +1,44 @@
-
+import Foundation
 import UIKit
 
 class ArrowView: UIView {
     
-    convenience init(color: UIColor?, orientation: Orientation) {
-        self.init(frame: .zero)
+    private lazy var arrow = Arrow(for: orientation)
+    private let orientation: Orientation
+    
+    required init(color: UIColor?, orientation: Orientation) {
+        self.orientation = orientation
+        super.init(frame: .zero)
         
         backgroundColor = color
         layer.cornerRadius = 20
         clipsToBounds = true
         
-        let arrow = Arrow(for: orientation)
         addSubview(arrow)
         
         switch orientation {
         case .horizontal:
             let margin: CGFloat = 5
-            arrow.left(to: self, offset: margin)
-            arrow.right(to: self, offset: -margin)
-            arrow.centerY(to: self)
+            arrow.leftToSuperview(offset: margin)
+            arrow.rightToSuperview(offset: -margin)
+            arrow.centerYToSuperview()
             arrow.height(arrow.size.height)
         case .vertical:
             let margin: CGFloat = 5
-            arrow.top(to: self, offset: margin)
-            arrow.bottom(to: self, offset: -margin)
-            arrow.centerX(to: self)
+            arrow.topToSuperview(offset: margin)
+            arrow.bottomToSuperview(offset: -margin)
+            arrow.centerXToSuperview()
             arrow.width(arrow.size.width)
         case .diagonal:
             let margin: CGFloat = 12
-            arrow.top(to: self, offset: margin)
-            arrow.left(to: self, offset: margin)
-            arrow.bottom(to: self, offset: -margin)
-            arrow.right(to: self, offset: -margin)
+            arrow.topToSuperview(offset: margin)
+            arrow.leftToSuperview(offset: margin)
+            arrow.bottomToSuperview(offset: -margin)
+            arrow.rightToSuperview(offset: -margin)
         }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
