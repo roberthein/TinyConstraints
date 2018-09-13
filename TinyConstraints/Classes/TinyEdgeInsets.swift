@@ -22,7 +22,11 @@
 //    THE SOFTWARE.
 //
 
-import Foundation
+#if os(OSX)
+    import AppKit
+#else
+    import UIKit
+#endif
 
 #if os(OSX)
     import AppKit
