@@ -321,7 +321,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.roberthein.TinyConstraints;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -343,7 +343,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.roberthein.TinyConstraints;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

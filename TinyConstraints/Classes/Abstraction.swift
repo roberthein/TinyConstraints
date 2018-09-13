@@ -40,7 +40,7 @@ import Foundation
     
     public typealias View = UIView
     public typealias LayoutGuide = UILayoutGuide
-    public typealias ConstraintAxis = UILayoutConstraintAxis
+    public typealias ConstraintAxis = NSLayoutConstraint.Axis
     public typealias LayoutPriority = UILayoutPriority
     
     public typealias TinyEdgeInsets = UIEdgeInsets
