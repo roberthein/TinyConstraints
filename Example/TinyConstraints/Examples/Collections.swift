@@ -33,12 +33,7 @@ class Collections: UIView {
             switch state {
             case .first:
                 stateColor[state.rawValue] = UIColor.gradient[safe: 0]
-                states[state.rawValue] = [
-                    subview.left(to: container, offset: 20, isActive: false),
-                    subview.top(to: container, offset: 20, isActive: false),
-                    subview.width(100, isActive: false),
-                    subview.height(100, isActive: false)
-                ]
+                states[state.rawValue] = subview.origin(to: container, insets: CGVector(dx: 20, dy: 20)) + subview.size(CGSize(width: 100, height: 100))
             case .second:
                 stateColor[state.rawValue] = UIColor.gradient[safe: 1]
                 states[state.rawValue] = [
@@ -60,8 +55,6 @@ class Collections: UIView {
                 ]
             }
         }
-        
-        state = .first
     }
     
     required init?(coder aDecoder: NSCoder) {

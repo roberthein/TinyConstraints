@@ -33,30 +33,6 @@ extension Collection {
     }
 }
 
-protocol EnumCollection: Hashable {
-    static var allCases: [Self] { get }
-}
-
-extension EnumCollection {
-    
-    static func cases() -> AnySequence<Self> {
-        typealias S = Self
-        return AnySequence { () -> AnyIterator<S> in
-            var raw = 0
-            return AnyIterator {
-                let current: Self = withUnsafePointer(to: &raw) { $0.withMemoryRebound(to: S.self, capacity: 1) { $0.pointee } }
-                guard current.hashValue == raw else { return nil }
-                raw += 1
-                return current
-            }
-        }
-    }
-    
-    static var allCases: [Self] {
-        return Array(cases())
-    }
-}
-
 extension CALayer {
     
     func drawLine(from start: CGPoint, to end: CGPoint, color: UIColor, dashed: Bool = false) {
@@ -69,7 +45,7 @@ extension CALayer {
         line.fillColor = nil
         line.opacity = 1.0
         line.strokeColor = color.cgColor
-        line.lineCap = kCALineCapRound
+        line.lineCap = .round
         line.lineWidth = 4
         
         if dashed {

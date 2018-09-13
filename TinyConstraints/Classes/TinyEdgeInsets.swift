@@ -28,12 +28,6 @@
     import UIKit
 #endif
 
-#if os(OSX)
-    import AppKit
-#else
-    import UIKit
-#endif
-
 extension TinyEdgeInsets {
     
     public static func uniform(_ value: CGFloat) -> TinyEdgeInsets {

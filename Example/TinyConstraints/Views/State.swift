@@ -4,37 +4,27 @@ import TinyConstraints
 typealias StateConstraints = [String: Constraints]
 typealias StateColor = [String: UIColor]
 
-enum State: String, EnumCollection {
+enum State: String, CaseIterable {
     case first
     case second
     case third
     case fourth
     
     func next() -> State? {
-        guard let index = State.allCases.index(of: self) else {
-            return nil
+        switch self {
+        case .first: return .second
+        case .second: return .third
+        case .third: return .fourth
+        case .fourth: return .first
         }
-        
-        var next = index + 1
-        
-        if next >= State.allCases.count {
-            next = 0
-        }
-        
-        return State.allCases[safe: next]
     }
     
     func previous() -> State? {
-        guard let index = State.allCases.index(of: self) else {
-            return nil
+        switch self {
+        case .first: return .fourth
+        case .second: return .first
+        case .third: return .second
+        case .fourth: return .third
         }
-        
-        var previous = index - 1
-        
-        if previous < 0 {
-            previous = State.allCases.count - 1
-        }
-        
-        return State.allCases[safe: previous]
     }
 }
