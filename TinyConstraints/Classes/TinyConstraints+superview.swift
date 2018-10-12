@@ -117,6 +117,36 @@
                 return trailing(to: constrainable, anchor, offset: -offset, relation: relation, priority: priority, isActive: isActive)
             }
         }
+        
+        @available(tvOS 10.0, *)
+        @available(iOS 10.0, *)
+        @discardableResult
+        func horizontalEdgesToSuperview(insets: TinyEdgeInsets = .zero) -> Constraints {
+            
+            var constraints = Constraints()
+            
+            if effectiveUserInterfaceLayoutDirection == .leftToRight {
+                constraints.append(leftToSuperview(offset: insets.left))
+                constraints.append(rightToSuperview(offset: -insets.right))
+            } else {
+                constraints.append(rightToSuperview(offset: -insets.right))
+                constraints.append(leftToSuperview(offset: insets.left))
+            }
+            
+            return constraints
+        }
+        
+        @available(tvOS 10.0, *)
+        @available(iOS 10.0, *)
+        @discardableResult
+        func verticalEdgesToSuperview(insets: TinyEdgeInsets = .zero) -> Constraints {
+            
+            let constraints = Constraints(arrayLiteral:
+                topToSuperview(offset: insets.top),
+                bottomToSuperview(offset: -insets.bottom)
+            )
+            return constraints
+        }
     }
 #endif
 
