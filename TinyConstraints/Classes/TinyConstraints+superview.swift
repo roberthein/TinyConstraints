@@ -121,7 +121,7 @@
         @available(tvOS 10.0, *)
         @available(iOS 10.0, *)
         @discardableResult
-        func horizontalEdgesToSuperview(insets: TinyEdgeInsets = .zero) -> Constraints {
+        func horizontalToSuperview(insets: TinyEdgeInsets = .zero) -> Constraints {
             
             var constraints = Constraints()
             
@@ -139,7 +139,7 @@
         @available(tvOS 10.0, *)
         @available(iOS 10.0, *)
         @discardableResult
-        func verticalEdgesToSuperview(insets: TinyEdgeInsets = .zero) -> Constraints {
+        func verticalToSuperview(insets: TinyEdgeInsets = .zero) -> Constraints {
             
             let constraints = Constraints(arrayLiteral:
                 topToSuperview(offset: insets.top),
