@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name = 'TinyConstraints'
-    s.version = '3.3.0'
+    s.version = '3.3.1'
     s.summary = 'Nothing but sugar.'
     s.description = <<-DESC
 Tiny Constraints is the syntactic sugar that makes NSLayoutConstraint sweeter for human use.
