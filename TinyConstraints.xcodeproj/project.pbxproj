@@ -12,6 +12,8 @@
 		2DD9870F1E4DBB6A002F80D6 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870A1E4DBB6A002F80D6 /* Constraints.swift */; };
 		2DD987101E4DBB6A002F80D6 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870B1E4DBB6A002F80D6 /* Stack.swift */; };
 		2DD987111E4DBB6A002F80D6 /* TinyConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */; };
+		6337505D218E2C0F003224BE /* TinyConstraints+override.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6337505B218E2C0F003224BE /* TinyConstraints+override.swift */; };
+		6337505E218E2C0F003224BE /* TinyConstraints+superview+override.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6337505C218E2C0F003224BE /* TinyConstraints+superview+override.swift */; };
 		A932CB751F78081B00401861 /* TinyConstraints+superview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932CB741F78081B00401861 /* TinyConstraints+superview.swift */; };
 		A97552CE2128478300C1EC7E /* TinyEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97552CD2128478300C1EC7E /* TinyEdgeInsets.swift */; };
 		A9D467D11E6777CA00C331FA /* Abstraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D467D01E6777CA00C331FA /* Abstraction.swift */; };
@@ -25,6 +27,8 @@
 		2DD9870A1E4DBB6A002F80D6 /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		2DD9870B1E4DBB6A002F80D6 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinyConstraints.swift; sourceTree = "<group>"; };
+		6337505B218E2C0F003224BE /* TinyConstraints+override.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TinyConstraints+override.swift"; sourceTree = "<group>"; };
+		6337505C218E2C0F003224BE /* TinyConstraints+superview+override.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TinyConstraints+superview+override.swift"; sourceTree = "<group>"; };
 		90CB57961FB3C77700379457 /* Universal-Framework-Target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Universal-Framework-Target.xcconfig"; sourceTree = "<group>"; };
 		90CB57981FB3C77700379457 /* Universal-Target-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Universal-Target-Base.xcconfig"; sourceTree = "<group>"; };
 		A932CB741F78081B00401861 /* TinyConstraints+superview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TinyConstraints+superview.swift"; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 		2DD987081E4DBB6A002F80D6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6337505B218E2C0F003224BE /* TinyConstraints+override.swift */,
+				6337505C218E2C0F003224BE /* TinyConstraints+superview+override.swift */,
 				A9D467D01E6777CA00C331FA /* Abstraction.swift */,
 				2DD7AA431E599FD800509EBC /* Constrainable.swift */,
 				2DD9870A1E4DBB6A002F80D6 /* Constraints.swift */,
@@ -173,6 +179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6337505D218E2C0F003224BE /* TinyConstraints+override.swift in Sources */,
 				A97552CE2128478300C1EC7E /* TinyEdgeInsets.swift in Sources */,
 				2DD987111E4DBB6A002F80D6 /* TinyConstraints.swift in Sources */,
 				A932CB751F78081B00401861 /* TinyConstraints+superview.swift in Sources */,
@@ -180,6 +187,7 @@
 				2DD9870F1E4DBB6A002F80D6 /* Constraints.swift in Sources */,
 				2DD7AA441E599FD800509EBC /* Constrainable.swift in Sources */,
 				A9D467D11E6777CA00C331FA /* Abstraction.swift in Sources */,
+				6337505E218E2C0F003224BE /* TinyConstraints+superview+override.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
