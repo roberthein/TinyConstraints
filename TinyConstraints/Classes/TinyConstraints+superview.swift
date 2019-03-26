@@ -240,14 +240,14 @@ public extension View {
     }
     
     @discardableResult
-    func centerXToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
+    func centerXToSuperview( _ anchor: NSLayoutXAxisAnchor? = nil, multiplier: CGFloat = 1, offset: CGFloat = 0, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
         let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
-        return centerX(to: constrainable, anchor, offset: offset, priority: priority, isActive: isActive)
+        return centerX(to: constrainable, anchor, multiplier: multiplier, offset: offset, priority: priority, isActive: isActive)
     }
     
     @discardableResult
-    func centerYToSuperview( _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
+    func centerYToSuperview( _ anchor: NSLayoutYAxisAnchor? = nil, multiplier: CGFloat = 1, offset: CGFloat = 0, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraint {
         let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
-        return centerY(to: constrainable, anchor, offset: offset, priority: priority, isActive: isActive)
+        return centerY(to: constrainable, anchor, multiplier: multiplier, offset: offset, priority: priority, isActive: isActive)
     }
 }

@@ -327,19 +327,33 @@ public extension Constrainable {
     }
     
     @discardableResult
-    func centerX(to view: Constrainable, _ anchor: NSLayoutXAxisAnchor? = nil, offset: CGFloat = 0, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
+    func centerX(to view: Constrainable, _ anchor: NSLayoutXAxisAnchor? = nil, multiplier: CGFloat = 1, offset: CGFloat = 0, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
         prepareForLayout()
         
-        let constraint = centerXAnchor.constraint(equalTo: anchor ?? view.centerXAnchor, constant: offset).with(priority)
+        let constraint: Constraint
+
+        if let anchor = anchor {
+            constraint = centerXAnchor.constraint(equalTo: anchor, constant: offset).with(priority)
+        } else {
+            constraint = NSLayoutConstraint(item: self, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: multiplier, constant: offset).with(priority)
+        }
+
         constraint.isActive = isActive
         return constraint
     }
     
     @discardableResult
-    func centerY(to view: Constrainable, _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
+    func centerY(to view: Constrainable, _ anchor: NSLayoutYAxisAnchor? = nil, multiplier: CGFloat = 1, offset: CGFloat = 0, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
         prepareForLayout()
-        
-        let constraint = centerYAnchor.constraint(equalTo: anchor ?? view.centerYAnchor, constant: offset).with(priority)
+
+        let constraint: Constraint
+
+        if let anchor = anchor {
+            constraint = centerYAnchor.constraint(equalTo: anchor, constant: offset).with(priority)
+        } else {
+            constraint = NSLayoutConstraint(item: self, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: multiplier, constant: offset).with(priority)
+        }
+
         constraint.isActive = isActive
         return constraint
     }
