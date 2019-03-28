@@ -178,6 +178,11 @@ it, simply add the following line to your Cartfile:
 github "roberthein/TinyConstraints"
 ```
 
+## Tutorials
+
+Here are some [video tutorials](https://www.youtube.com/playlist?list=PL_csAAO9PQ8ZDbGk57RlBRnNpxBGBAEOc) made by [Alex Nagy](https://github.com/rebeloper).
+
+
 ## Suggestions or feedback?
 
 Feel free to create a pull request, open an issue or find [me on Twitter](https://twitter.com/roberthein).
