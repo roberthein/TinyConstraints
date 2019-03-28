@@ -1,6 +1,6 @@
 <p align="center">
-    <img src="Art/header.png" width="790" alt="TinyConstraints"/>
-    <img src="Art/header.gif" width="880" alt="TinyConstraints"/>
+    <img src="Art/header.png" width="890" alt="TinyConstraints"/>
+    <img src="Art/header.gif" width="890" alt="TinyConstraints"/>
 </p>
 
 **TinyConstraints** is the syntactic sugar that makes Auto Layout sweeter for human use.

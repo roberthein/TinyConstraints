@@ -14,17 +14,17 @@ public extension UIColor {
         return UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1)
     }
     
-    class var tinyRed: UIColor {
-        return .rgb(249, 77, 146)
-    }
-    
     class var tinyBlue: UIColor {
         return .rgb(1, 120, 255)
     }
     
+    class var tinyGreen: UIColor {
+        return .rgb(1, 246, 187)
+    }
+    
     class func blend(ratio: CGFloat) -> UIColor {
         let first: UIColor = .tinyBlue
-        let second: UIColor = .tinyRed
+        let second: UIColor = .tinyGreen
         
         func blendComponent(from firstValue: CGFloat, to secondValue: CGFloat) -> CGFloat {
             let diff = secondValue - firstValue
