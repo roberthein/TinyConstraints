@@ -22,7 +22,7 @@ class DemoView: GradientView {
         
         locations = [0, 1]
         colors = [.tinyBlue, .tinyBlue]
-        widthMetricView.arrowColor = .tinyBlue
+        widthMetricView.arrowColor = .white
         
         clipsToBounds = true
         layer.cornerRadius = 4
@@ -62,7 +62,5 @@ class DemoView: GradientView {
             .blend(ratio: presentation.frame.minX.map(from: leftPosition ... rightPosition, to: 0 ... 1)),
             .blend(ratio: presentation.frame.maxX.map(from: leftPosition ... rightPosition, to: 0 ... 1))
         ]
-
-        widthMetricView.arrowColor = .blend(ratio: presentation.frame.midX.map(from: leftPosition ... rightPosition, to: 0 ... 1))
     }
 }
