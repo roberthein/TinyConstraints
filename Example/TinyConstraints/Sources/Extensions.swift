@@ -4,7 +4,7 @@ import UIKit
 extension String {
     
     static func valueString(for value: CGFloat) -> String {
-        return String(format: "%.0f", value)
+        return String(format: "%.0f", ceil(value))
     }
 }
 
@@ -73,10 +73,10 @@ extension CALayer {
         line.strokeColor = color.cgColor
         line.lineCap = .round
         line.lineJoin = .round
-        line.lineWidth = 1
+        line.lineWidth = 4
         
         if dashed {
-            line.lineDashPattern = [0, 5]
+            line.lineDashPattern = [0, 10]
         }
         
         addSublayer(line)

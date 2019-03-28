@@ -74,16 +74,17 @@ class ExampleViewController: UIViewController {
     func createHorizontalConstraints() -> Constraints {
         var constraints = Constraints()
         var previous: Constrainable = layoutGuide
+        let offset: CGFloat = 4
         
         constraints.append(layoutGuide.left(to: view.safeAreaLayoutGuide, offset: layoutMargin, isActive: false))
         constraints.append(layoutGuide.right(to: view.safeAreaLayoutGuide, offset: -layoutMargin, isActive: false))
-        constraints.append(layoutGuide.centerY(to: view, view.safeAreaLayoutGuide.centerYAnchor, isActive: false))
+        constraints.append(layoutGuide.centerY(to: view.safeAreaLayoutGuide, isActive: false))
         
         demoViews.enumerated().forEach { i, demoView in
             if i == 0 {
                 constraints.append(demoView.left(to: previous, isActive: false))
             } else {
-                constraints.append(demoView.leftToRight(of: previous, offset: 2, isActive: false))
+                constraints.append(demoView.leftToRight(of: previous, offset: offset, isActive: false))
                 constraints.append(demoView.width(to: previous, isActive: false))
             }
             
@@ -103,7 +104,7 @@ class ExampleViewController: UIViewController {
     
     func createVerticalConstraints() -> Constraints {
         let width: CGFloat = 75
-        let offset: CGFloat = 2
+        let offset: CGFloat = 4
         
         var constraints: Constraints = [
             demoView1.topToBottom(of: demoView2, offset: offset, isActive: false),
@@ -140,15 +141,17 @@ class ExampleViewController: UIViewController {
         constraints.append(contentsOf: demoView2.origin(to: demoView1, insets: .top(layoutMargin) + .left(layoutMargin), isActive: false))
         constraints.append(contentsOf: demoView2.size(to: demoView1, multiplier: 0.5, insets: CGSize(width: -layoutMargin * 1.5, height: -layoutMargin * 2), isActive: false))
         
-        constraints.append(contentsOf: [
-            demoView3.top(to: demoView1, offset: layoutMargin, isActive: false),
-            demoView3.right(to: demoView1, offset: -layoutMargin, isActive: false)
-            ])
-        constraints.append(contentsOf: demoView3.size(to: demoView2))
+        constraints.append(demoView4.top(to: demoView1, offset: layoutMargin, isActive: false))
+        constraints.append(demoView4.right(to: demoView1, offset: -layoutMargin, isActive: false))
+        constraints.append(contentsOf: demoView4.size(to: demoView2))
         
-        constraints.append(contentsOf: demoView4.edges(to: demoView1, excluding: .top, insets: .uniform(layoutMargin), isActive: false))
-        constraints.append(demoView4.height(to: demoView1, multiplier: 0.5, offset: -layoutMargin * 2, isActive: false))
+        constraints.append(contentsOf: demoView3.edges(to: demoView1, excluding: .top, insets: .uniform(layoutMargin), isActive: false))
+        constraints.append(demoView3.height(to: demoView1, multiplier: 0.5, offset: -layoutMargin * 2, isActive: false))
         
         return constraints
+    }
+    
+    override var prefersHomeIndicatorAutoHidden: Bool {
+        return false
     }
 }

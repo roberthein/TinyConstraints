@@ -10,9 +10,9 @@ class DemoView: GradientView {
     
     lazy var overlay: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+        view.backgroundColor = UIColor.white.withAlphaComponent(0.3)
         view.clipsToBounds = true
-        view.layer.cornerRadius = 3
+        view.layer.cornerRadius = 4
         
         return view
     }()
@@ -25,12 +25,12 @@ class DemoView: GradientView {
         widthMetricView.arrowColor = .white
         
         clipsToBounds = true
-        layer.cornerRadius = 4
+        layer.cornerRadius = 5
         
         addSubview(overlay)
         addSubview(widthMetricView)
         
-        overlay.edgesToSuperview(insets: .uniform(1))
+        overlay.edgesToSuperview(insets: .uniform(3))
         
         widthMetricView.leftToSuperview()
         widthMetricView.rightToSuperview()

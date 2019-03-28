@@ -62,7 +62,7 @@ public extension Constraint {
         return self
     }
 
-    func set(active: Bool) -> Self {
+    func set(_ active: Bool) -> Self {
         isActive = active
         return self
     }

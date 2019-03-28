@@ -20,12 +20,12 @@ class MetricView: UIView {
     lazy var label: UILabel = {
         let view = UILabel()
         view.textColor = arrowColor
-        view.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        view.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         
         return view
     }()
     
-    let imageSize: CGFloat = 5
+    let imageSize = CGSize(width: 8, height: 10)
     
     required init() {
         super.init(frame: .zero)
@@ -37,11 +37,11 @@ class MetricView: UIView {
         leftArrow.tintColor = arrowColor
         
         let lineLeft = UIView()
-        lineLeft.layer.drawLine(from: CGPoint(x: 0, y: imageSize / 2), to: CGPoint(x: 2000, y: imageSize / 2), color: arrowColor)
+        lineLeft.layer.drawLine(from: CGPoint(x: 0, y: imageSize.height / 2), to: CGPoint(x: 2000, y: imageSize.height / 2), color: arrowColor, dashed: true)
         lineLeft.clipsToBounds = true
         
         let lineRight = UIView()
-        lineRight.layer.drawLine(from: CGPoint(x: 0, y: imageSize / 2), to: CGPoint(x: 2000, y: imageSize / 2), color: arrowColor)
+        lineRight.layer.drawLine(from: CGPoint(x: 0, y: imageSize.height / 2), to: CGPoint(x: 2000, y: imageSize.height / 2), color: arrowColor, dashed: true)
         lineRight.clipsToBounds = true
         
         addSubview(rightArrow)
@@ -51,22 +51,22 @@ class MetricView: UIView {
         addSubview(lineRight)
         addSubview(label)
         
-        rightArrow.size(CGSize(width: imageSize, height: imageSize))
+        rightArrow.size(imageSize)
         rightArrow.rightToSuperview(offset: -2)
         rightArrow.centerYToSuperview()
         
-        leftArrow.size(CGSize(width: imageSize, height: imageSize))
+        leftArrow.size(imageSize)
         leftArrow.leftToSuperview(offset: 2)
         leftArrow.centerYToSuperview()
         
         lineLeft.leftToRight(of: leftArrow)
         lineLeft.rightToLeft(of: label, offset: -2)
-        lineLeft.height(imageSize)
+        lineLeft.height(imageSize.height)
         lineLeft.centerYToSuperview()
         
         lineRight.leftToRight(of: label, offset: 2)
         lineRight.rightToLeft(of: rightArrow)
-        lineRight.height(imageSize)
+        lineRight.height(imageSize.height)
         lineRight.centerYToSuperview()
         
         label.topToSuperview()
