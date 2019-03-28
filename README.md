@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="Art/header.png" width="795" alt="TinyConstraints"/>
+    <img src="Art/header.png" width="790" alt="TinyConstraints"/>
     <img src="Art/header.gif" width="880" alt="TinyConstraints"/>
 </p>
 
