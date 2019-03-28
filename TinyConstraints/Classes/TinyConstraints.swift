@@ -35,90 +35,70 @@ public extension Constrainable {
         prepareForLayout()
         
         let constraints = [
-            centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: offset.x).with(priority),
-            centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: offset.y).with(priority)
+            centerX(to: view, offset: offset.x, priority: priority, isActive: isActive),
+            centerY(to: view, offset: offset.y, priority: priority, isActive: isActive)
         ]
-        
-        if isActive {
-            Constraint.activate(constraints)
-        }
         
         return constraints
     }
     
     @discardableResult
-    func edges(to view: Constrainable, excluding excludedEdge: LayoutEdge = .none, insets: TinyEdgeInsets = .zero, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
+    func edges(to view: Constrainable, excluding excludedEdge: LayoutEdge = .none, insets: TinyEdgeInsets = .zero, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
         prepareForLayout()
         
         var constraints = Constraints()
         
         if !excludedEdge.contains(.top) {
-            constraints.append(topAnchor.constraint(equalTo: view.topAnchor, constant: insets.top).with(priority))
+            constraints.append(top(to: view, offset: insets.top, relation: relation, priority: priority, isActive: isActive))
         }
         
         if !excludedEdge.contains(.left) {
-            constraints.append(leftAnchor.constraint(equalTo: view.leftAnchor, constant: insets.left).with(priority))
+            constraints.append(left(to: view, offset: insets.left, relation: relation, priority: priority, isActive: isActive))
         }
         
         if !excludedEdge.contains(.bottom) {
-            constraints.append(bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: insets.bottom).with(priority))
+            constraints.append(bottom(to: view, offset: -insets.bottom, relation: relation, priority: priority, isActive: isActive))
         }
         
         if !excludedEdge.contains(.right) {
-            constraints.append(rightAnchor.constraint(equalTo: view.rightAnchor, constant: insets.right).with(priority))
-        }
-        
-        if isActive {
-            Constraint.activate(constraints)
+            constraints.append(right(to: view, offset: -insets.right, relation: relation, priority: priority, isActive: isActive))
         }
         
         return constraints
     }
     
     @discardableResult
-    func size(_ size: CGSize, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
+    func size(_ size: CGSize, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
         prepareForLayout()
         
         let constraints = [
-            widthAnchor.constraint(equalToConstant: size.width).with(priority),
-            heightAnchor.constraint(equalToConstant: size.height).with(priority)
+            width(size.width, relation: relation, priority: priority, isActive: isActive),
+            height(size.height, relation: relation, priority: priority, isActive: isActive)
         ]
-        
-        if isActive {
-            Constraint.activate(constraints)
-        }
         
         return constraints
     }
     
     @discardableResult
-    func size(to view: Constrainable, multiplier: CGFloat = 1, offset: CGFloat = 0, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
+    func size(to view: Constrainable, multiplier: CGFloat = 1, insets: CGSize = .zero, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
         prepareForLayout()
         
         let constraints = [
-            widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: multiplier, constant: offset).with(priority),
-            heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: multiplier, constant: offset).with(priority)
+            width(to: view, multiplier: multiplier, offset: insets.width, relation: relation, priority: priority, isActive: isActive),
+            height(to: view, multiplier: multiplier, offset: insets.height, relation: relation, priority: priority, isActive: isActive)
         ]
-        
-        if isActive {
-            Constraint.activate(constraints)
-        }
         
         return constraints
     }
     
     @discardableResult
-    func origin(to view: Constrainable, insets: CGVector = .zero, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
+    func origin(to view: Constrainable, insets: TinyEdgeInsets = .zero, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraints {
         prepareForLayout()
         
         let constraints = [
-            leftAnchor.constraint(equalTo: view.leftAnchor, constant: insets.dx).with(priority),
-            topAnchor.constraint(equalTo: view.topAnchor, constant: insets.dy).with(priority)
+            left(to: view, offset: insets.left, relation: relation, priority: priority, isActive: isActive),
+            top(to: view, offset: insets.top, relation: relation, priority: priority, isActive: isActive)
         ]
-        
-        if isActive {
-            Constraint.activate(constraints)
-        }
         
         return constraints
     }
@@ -128,9 +108,9 @@ public extension Constrainable {
         prepareForLayout()
         
         switch relation {
-        case .equal: return widthAnchor.constraint(equalToConstant: width).with(priority).set(active: isActive)
-        case .equalOrLess: return widthAnchor.constraint(lessThanOrEqualToConstant: width).with(priority).set(active: isActive)
-        case .equalOrGreater: return widthAnchor.constraint(greaterThanOrEqualToConstant: width).with(priority).set(active: isActive)
+        case .equal: return widthAnchor.constraint(equalToConstant: width).with(priority).set(isActive)
+        case .equalOrLess: return widthAnchor.constraint(lessThanOrEqualToConstant: width).with(priority).set(isActive)
+        case .equalOrGreater: return widthAnchor.constraint(greaterThanOrEqualToConstant: width).with(priority).set(isActive)
         }
     }
     
@@ -139,9 +119,9 @@ public extension Constrainable {
         prepareForLayout()
         
         switch relation {
-        case .equal: return widthAnchor.constraint(equalTo: dimension ?? view.widthAnchor, multiplier: multiplier, constant: offset).with(priority).set(active: isActive)
-        case .equalOrLess: return widthAnchor.constraint(lessThanOrEqualTo: dimension ?? view.widthAnchor, multiplier: multiplier, constant: offset).with(priority).set(active: isActive)
-        case .equalOrGreater: return widthAnchor.constraint(greaterThanOrEqualTo: dimension ?? view.widthAnchor, multiplier: multiplier, constant: offset).with(priority).set(active: isActive)
+        case .equal: return widthAnchor.constraint(equalTo: dimension ?? view.widthAnchor, multiplier: multiplier, constant: offset).with(priority).set(isActive)
+        case .equalOrLess: return widthAnchor.constraint(lessThanOrEqualTo: dimension ?? view.widthAnchor, multiplier: multiplier, constant: offset).with(priority).set(isActive)
+        case .equalOrGreater: return widthAnchor.constraint(greaterThanOrEqualTo: dimension ?? view.widthAnchor, multiplier: multiplier, constant: offset).with(priority).set(isActive)
         }
     }
 
@@ -176,9 +156,9 @@ public extension Constrainable {
         prepareForLayout()
         
         switch relation {
-        case .equal: return heightAnchor.constraint(equalToConstant: height).with(priority).set(active: isActive)
-        case .equalOrLess: return heightAnchor.constraint(lessThanOrEqualToConstant: height).with(priority).set(active: isActive)
-        case .equalOrGreater: return heightAnchor.constraint(greaterThanOrEqualToConstant: height).with(priority).set(active: isActive)
+        case .equal: return heightAnchor.constraint(equalToConstant: height).with(priority).set(isActive)
+        case .equalOrLess: return heightAnchor.constraint(lessThanOrEqualToConstant: height).with(priority).set(isActive)
+        case .equalOrGreater: return heightAnchor.constraint(greaterThanOrEqualToConstant: height).with(priority).set(isActive)
         }
     }
     
@@ -187,9 +167,9 @@ public extension Constrainable {
         prepareForLayout()
         
         switch relation {
-        case .equal: return heightAnchor.constraint(equalTo: dimension ?? view.heightAnchor, multiplier: multiplier, constant: offset).with(priority).set(active: isActive)
-        case .equalOrLess: return heightAnchor.constraint(lessThanOrEqualTo: dimension ?? view.heightAnchor, multiplier: multiplier, constant: offset).with(priority).set(active: isActive)
-        case .equalOrGreater: return heightAnchor.constraint(greaterThanOrEqualTo: dimension ?? view.heightAnchor, multiplier: multiplier, constant: offset).with(priority).set(active: isActive)
+        case .equal: return heightAnchor.constraint(equalTo: dimension ?? view.heightAnchor, multiplier: multiplier, constant: offset).with(priority).set(isActive)
+        case .equalOrLess: return heightAnchor.constraint(lessThanOrEqualTo: dimension ?? view.heightAnchor, multiplier: multiplier, constant: offset).with(priority).set(isActive)
+        case .equalOrGreater: return heightAnchor.constraint(greaterThanOrEqualTo: dimension ?? view.heightAnchor, multiplier: multiplier, constant: offset).with(priority).set(isActive)
         }
     }
 
@@ -235,9 +215,9 @@ public extension Constrainable {
         prepareForLayout()
         
         switch relation {
-        case .equal: return leadingAnchor.constraint(equalTo: anchor ?? view.leadingAnchor, constant: offset).with(priority).set(active: isActive)
-        case .equalOrLess: return leadingAnchor.constraint(lessThanOrEqualTo: anchor ?? view.leadingAnchor, constant: offset).with(priority).set(active: isActive)
-        case .equalOrGreater: return leadingAnchor.constraint(greaterThanOrEqualTo: anchor ?? view.leadingAnchor, constant: offset).with(priority).set(active: isActive)
+        case .equal: return leadingAnchor.constraint(equalTo: anchor ?? view.leadingAnchor, constant: offset).with(priority).set(isActive)
+        case .equalOrLess: return leadingAnchor.constraint(lessThanOrEqualTo: anchor ?? view.leadingAnchor, constant: offset).with(priority).set(isActive)
+        case .equalOrGreater: return leadingAnchor.constraint(greaterThanOrEqualTo: anchor ?? view.leadingAnchor, constant: offset).with(priority).set(isActive)
         }
     }
     
@@ -252,9 +232,9 @@ public extension Constrainable {
         prepareForLayout()
         
         switch relation {
-        case .equal: return leftAnchor.constraint(equalTo: anchor ?? view.leftAnchor, constant: offset).with(priority).set(active: isActive)
-        case .equalOrLess: return leftAnchor.constraint(lessThanOrEqualTo: anchor ?? view.leftAnchor, constant: offset).with(priority).set(active: isActive)
-        case .equalOrGreater: return leftAnchor.constraint(greaterThanOrEqualTo: anchor ?? view.leftAnchor, constant: offset).with(priority).set(active: isActive)
+        case .equal: return leftAnchor.constraint(equalTo: anchor ?? view.leftAnchor, constant: offset).with(priority).set(isActive)
+        case .equalOrLess: return leftAnchor.constraint(lessThanOrEqualTo: anchor ?? view.leftAnchor, constant: offset).with(priority).set(isActive)
+        case .equalOrGreater: return leftAnchor.constraint(greaterThanOrEqualTo: anchor ?? view.leftAnchor, constant: offset).with(priority).set(isActive)
         }
     }
     
@@ -269,9 +249,9 @@ public extension Constrainable {
         prepareForLayout()
         
         switch relation {
-        case .equal: return trailingAnchor.constraint(equalTo: anchor ?? view.trailingAnchor, constant: offset).with(priority).set(active: isActive)
-        case .equalOrLess: return trailingAnchor.constraint(lessThanOrEqualTo: anchor ?? view.trailingAnchor, constant: offset).with(priority).set(active: isActive)
-        case .equalOrGreater: return trailingAnchor.constraint(greaterThanOrEqualTo: anchor ?? view.trailingAnchor, constant: offset).with(priority).set(active: isActive)
+        case .equal: return trailingAnchor.constraint(equalTo: anchor ?? view.trailingAnchor, constant: offset).with(priority).set(isActive)
+        case .equalOrLess: return trailingAnchor.constraint(lessThanOrEqualTo: anchor ?? view.trailingAnchor, constant: offset).with(priority).set(isActive)
+        case .equalOrGreater: return trailingAnchor.constraint(greaterThanOrEqualTo: anchor ?? view.trailingAnchor, constant: offset).with(priority).set(isActive)
         }
     }
     
@@ -286,9 +266,9 @@ public extension Constrainable {
         prepareForLayout()
         
         switch relation {
-        case .equal: return rightAnchor.constraint(equalTo: anchor ?? view.rightAnchor, constant: offset).with(priority).set(active: isActive)
-        case .equalOrLess: return rightAnchor.constraint(lessThanOrEqualTo: anchor ?? view.rightAnchor, constant: offset).with(priority).set(active: isActive)
-        case .equalOrGreater: return rightAnchor.constraint(greaterThanOrEqualTo: anchor ?? view.rightAnchor, constant: offset).with(priority).set(active: isActive)
+        case .equal: return rightAnchor.constraint(equalTo: anchor ?? view.rightAnchor, constant: offset).with(priority).set(isActive)
+        case .equalOrLess: return rightAnchor.constraint(lessThanOrEqualTo: anchor ?? view.rightAnchor, constant: offset).with(priority).set(isActive)
+        case .equalOrGreater: return rightAnchor.constraint(greaterThanOrEqualTo: anchor ?? view.rightAnchor, constant: offset).with(priority).set(isActive)
         }
     }
     
@@ -303,9 +283,9 @@ public extension Constrainable {
         prepareForLayout()
         
         switch relation {
-        case .equal: return topAnchor.constraint(equalTo: anchor ?? view.topAnchor, constant: offset).with(priority).set(active: isActive)
-        case .equalOrLess: return topAnchor.constraint(lessThanOrEqualTo: anchor ?? view.topAnchor, constant: offset).with(priority).set(active: isActive)
-        case .equalOrGreater: return topAnchor.constraint(greaterThanOrEqualTo: anchor ?? view.topAnchor, constant: offset).with(priority).set(active: isActive)
+        case .equal: return topAnchor.constraint(equalTo: anchor ?? view.topAnchor, constant: offset).with(priority).set(isActive)
+        case .equalOrLess: return topAnchor.constraint(lessThanOrEqualTo: anchor ?? view.topAnchor, constant: offset).with(priority).set(isActive)
+        case .equalOrGreater: return topAnchor.constraint(greaterThanOrEqualTo: anchor ?? view.topAnchor, constant: offset).with(priority).set(isActive)
         }
     }
     
@@ -320,9 +300,9 @@ public extension Constrainable {
         prepareForLayout()
         
         switch relation {
-        case .equal: return bottomAnchor.constraint(equalTo: anchor ?? view.bottomAnchor, constant: offset).with(priority).set(active: isActive)
-        case .equalOrLess: return bottomAnchor.constraint(lessThanOrEqualTo: anchor ?? view.bottomAnchor, constant: offset).with(priority).set(active: isActive)
-        case .equalOrGreater: return bottomAnchor.constraint(greaterThanOrEqualTo: anchor ?? view.bottomAnchor, constant: offset).with(priority).set(active: isActive)
+        case .equal: return bottomAnchor.constraint(equalTo: anchor ?? view.bottomAnchor, constant: offset).with(priority).set(isActive)
+        case .equalOrLess: return bottomAnchor.constraint(lessThanOrEqualTo: anchor ?? view.bottomAnchor, constant: offset).with(priority).set(isActive)
+        case .equalOrGreater: return bottomAnchor.constraint(greaterThanOrEqualTo: anchor ?? view.bottomAnchor, constant: offset).with(priority).set(isActive)
         }
     }
     

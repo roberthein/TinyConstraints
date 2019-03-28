@@ -58,35 +58,35 @@
         @available(tvOS 10.0, *)
         @available(iOS 10.0, *)
         @discardableResult
-        func edgesToSuperview(excluding excludedEdge: LayoutEdge = .none, insets: TinyEdgeInsets = .zero, usingSafeArea: Bool = false) -> Constraints {
+        func edgesToSuperview(excluding excludedEdge: LayoutEdge = .none, insets: TinyEdgeInsets = .zero, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraints {
             var constraints = Constraints()
             
             if !excludedEdge.contains(.top) {
-                constraints.append(topToSuperview(offset: insets.top, usingSafeArea: usingSafeArea))
+                constraints.append(topToSuperview(offset: insets.top, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
             }
             
             if effectiveUserInterfaceLayoutDirection == .leftToRight {
                 
                 if !(excludedEdge.contains(.leading) || excludedEdge.contains(.left)) {
-                    constraints.append(leftToSuperview(offset: insets.left, usingSafeArea: usingSafeArea))
+                    constraints.append(leftToSuperview(offset: insets.left, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
                 }
                 
                 if !(excludedEdge.contains(.trailing) || excludedEdge.contains(.right)) {
-                    constraints.append(rightToSuperview(offset: -insets.right, usingSafeArea: usingSafeArea))
+                    constraints.append(rightToSuperview(offset: -insets.right, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
                 }
             } else {
                 
                 if !(excludedEdge.contains(.leading) || excludedEdge.contains(.right)) {
-                    constraints.append(rightToSuperview(offset: -insets.right, usingSafeArea: usingSafeArea))
+                    constraints.append(rightToSuperview(offset: -insets.right, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
                 }
                 
                 if !(excludedEdge.contains(.trailing) || excludedEdge.contains(.left)) {
-                    constraints.append(leftToSuperview(offset: insets.left, usingSafeArea: usingSafeArea))
+                    constraints.append(leftToSuperview(offset: insets.left, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
                 }
             }
             
             if !excludedEdge.contains(.bottom) {
-                constraints.append(bottomToSuperview(offset: -insets.bottom, usingSafeArea: usingSafeArea))
+                constraints.append(bottomToSuperview(offset: -insets.bottom, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
             }
             
             return constraints
@@ -121,16 +121,16 @@
         @available(tvOS 10.0, *)
         @available(iOS 10.0, *)
         @discardableResult
-        func horizontalToSuperview(insets: TinyEdgeInsets = .zero, usingSafeArea: Bool = false) -> Constraints {
+        func horizontalToSuperview(insets: TinyEdgeInsets = .zero, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraints {
             
             var constraints = Constraints()
             
             if effectiveUserInterfaceLayoutDirection == .leftToRight {
-                constraints.append(leftToSuperview(offset: insets.left, usingSafeArea: usingSafeArea))
-                constraints.append(rightToSuperview(offset: -insets.right, usingSafeArea: usingSafeArea))
+                constraints.append(leftToSuperview(offset: insets.left, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
+                constraints.append(rightToSuperview(offset: -insets.right, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
             } else {
-                constraints.append(rightToSuperview(offset: -insets.right, usingSafeArea: usingSafeArea))
-                constraints.append(leftToSuperview(offset: insets.left, usingSafeArea: usingSafeArea))
+                constraints.append(rightToSuperview(offset: -insets.right, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
+                constraints.append(leftToSuperview(offset: insets.left, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
             }
             
             return constraints
@@ -139,11 +139,11 @@
         @available(tvOS 10.0, *)
         @available(iOS 10.0, *)
         @discardableResult
-        func verticalToSuperview(insets: TinyEdgeInsets = .zero, usingSafeArea: Bool = false) -> Constraints {
+        func verticalToSuperview(insets: TinyEdgeInsets = .zero, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraints {
             
             let constraints = Constraints(arrayLiteral:
-                topToSuperview(offset: insets.top, usingSafeArea: usingSafeArea),
-                bottomToSuperview(offset: -insets.bottom, usingSafeArea: usingSafeArea)
+                topToSuperview(offset: insets.top, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea),
+                bottomToSuperview(offset: -insets.bottom, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea)
             )
             return constraints
         }
@@ -192,15 +192,9 @@ public extension View {
     }
     
     @discardableResult
-    func edgesToSuperview(insets: TinyEdgeInsets = .zero, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraints {
+    func originToSuperview(insets: TinyEdgeInsets = .zero, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraints {
         let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
-        return edges(to: constrainable, insets: insets, priority: priority, isActive: isActive)
-    }
-    
-    @discardableResult
-    func originToSuperview(insets: CGVector = .zero, priority: LayoutPriority = .required, isActive: Bool = true, usingSafeArea: Bool = false) -> Constraints {
-        let constrainable = safeConstrainable(for: superview, usingSafeArea: usingSafeArea)
-        return origin(to: constrainable, insets: insets, priority: priority, isActive: isActive)
+        return origin(to: constrainable, insets: insets, relation: relation, priority: priority, isActive: isActive)
     }
     
     @discardableResult

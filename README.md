@@ -1,16 +1,13 @@
 <p align="center">
-    <img src="Art/logo.png" width="890" alt="TinyConstraints"/>
+    <img src="Art/header.png" width="765" alt="TinyConstraints"/>
+    <img src="Art/header.gif" width="880" alt="TinyConstraints"/>
 </p>
-
-**tl;dr** *Nothing but sugar.*
 
 **TinyConstraints** is the syntactic sugar that makes Auto Layout sweeter for human use.
 
-![](Art/gifs/tc_01.gif)![](Art/gifs/tc_02.gif)![](Art/gifs/tc_03.gif)
-
 ## Features
 
-- [X] Pure Swift 4 sweetness.
+- [X] Pure Swift 5 sweetness.
 - [X] Shortest possible syntax for creating layout constraints.
 - [X] Constraints are active by default.
 - [X] 100% compatible with Auto Layout.
