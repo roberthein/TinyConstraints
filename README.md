@@ -10,7 +10,7 @@
 - [X] Pure Swift 5 sweetness.
 - [X] Everything you can do with Auto Layout, but shorter.
 - [X] Constraints are active by default.
-- [X] 100% compatible with Auto Layout.
+- [X] 100% compatible with other Auto Layout code.
 - [X] Optionally store your constraints.
 - [X] Set constraint priorities upon creation.
 - [X] Constrain directly to the superview.
