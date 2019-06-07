@@ -1,6 +1,7 @@
 Pod::Spec.new do |s|
     s.name = 'TinyConstraints'
-    s.version = '4.0.0'
+    s.version = '4.0.1'
+    s.swift_version = '5.0'
     s.summary = 'Nothing but sugar.'
     s.description = <<-DESC
 TinyConstraints is the syntactic sugar that makes Auto Layout sweeter for human use.
