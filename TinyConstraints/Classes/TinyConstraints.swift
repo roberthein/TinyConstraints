@@ -154,23 +154,13 @@ public extension Constrainable {
     @discardableResult
     func height(_ height: CGFloat, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
         prepareForLayout()
-        
-        switch relation {
-        case .equal: return heightAnchor.constraint(equalToConstant: height).with(priority).set(isActive)
-        case .equalOrLess: return heightAnchor.constraint(lessThanOrEqualToConstant: height).with(priority).set(isActive)
-        case .equalOrGreater: return heightAnchor.constraint(greaterThanOrEqualToConstant: height).with(priority).set(isActive)
-        }
+        return heightAnchor.constraint(toConstant: height, relation: relation).with(priority).set(isActive)
     }
     
     @discardableResult
     func height(to view: Constrainable, _ dimension: NSLayoutDimension? = nil, multiplier: CGFloat = 1, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
         prepareForLayout()
-        
-        switch relation {
-        case .equal: return heightAnchor.constraint(equalTo: dimension ?? view.heightAnchor, multiplier: multiplier, constant: offset).with(priority).set(isActive)
-        case .equalOrLess: return heightAnchor.constraint(lessThanOrEqualTo: dimension ?? view.heightAnchor, multiplier: multiplier, constant: offset).with(priority).set(isActive)
-        case .equalOrGreater: return heightAnchor.constraint(greaterThanOrEqualTo: dimension ?? view.heightAnchor, multiplier: multiplier, constant: offset).with(priority).set(isActive)
-        }
+        return heightAnchor.constraint(to: dimension ?? view.heightAnchor, multiplier: multiplier, relation: relation).with(priority).set(isActive)
     }
 
     @discardableResult
