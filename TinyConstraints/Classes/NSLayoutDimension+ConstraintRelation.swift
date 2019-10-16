@@ -19,21 +19,22 @@ internal extension NSLayoutDimension {
     func constraint(
         to dimension: NSLayoutDimension,
         multiplier: CGFloat,
-        relation: ConstraintRelation = .equal
+        offset: CGFloat,
+        relation: ConstraintRelation
         ) -> NSLayoutConstraint {
         switch relation {
         case .equal:
-            return constraint(equalTo: dimension, multiplier: multiplier)
+            return constraint(equalTo: dimension, multiplier: multiplier, constant: offset)
         case .equalOrLess:
-            return constraint(lessThanOrEqualTo: dimension, multiplier: multiplier)
+            return constraint(lessThanOrEqualTo: dimension, multiplier: multiplier, constant: offset)
         case .equalOrGreater:
-            return constraint(greaterThanOrEqualTo: dimension, multiplier: multiplier)
+            return constraint(greaterThanOrEqualTo: dimension, multiplier: multiplier, constant: offset)
         }
     }
 
     func constraint(
         toConstant constant: CGFloat,
-        relation: ConstraintRelation = .equal
+        relation: ConstraintRelation
         ) -> NSLayoutConstraint {
         switch relation {
         case .equal:

@@ -160,7 +160,7 @@ public extension Constrainable {
     @discardableResult
     func height(to view: Constrainable, _ dimension: NSLayoutDimension? = nil, multiplier: CGFloat = 1, offset: CGFloat = 0, relation: ConstraintRelation = .equal, priority: LayoutPriority = .required, isActive: Bool = true) -> Constraint {
         prepareForLayout()
-        return heightAnchor.constraint(to: dimension ?? view.heightAnchor, multiplier: multiplier, relation: relation).with(priority).set(isActive)
+        return heightAnchor.constraint(to: dimension ?? view.heightAnchor, multiplier: multiplier, offset: offset, relation: relation).with(priority).set(isActive)
     }
 
     @discardableResult
