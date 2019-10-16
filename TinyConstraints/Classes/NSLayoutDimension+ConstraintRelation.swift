@@ -15,37 +15,19 @@ import Foundation
 #endif
 
 internal extension NSLayoutDimension {
-
-    func constraint(
-        to dimension: NSLayoutDimension,
-        multiplier: CGFloat,
-        offset: CGFloat,
-        relation: ConstraintRelation
-        ) -> NSLayoutConstraint {
+    func constraint(to dimension: NSLayoutDimension, multiplier: CGFloat, offset: CGFloat, relation: ConstraintRelation) -> NSLayoutConstraint {
         switch relation {
-        case .equal:
-            return constraint(equalTo: dimension, multiplier: multiplier, constant: offset)
-        case .equalOrLess:
-            return constraint(lessThanOrEqualTo: dimension, multiplier: multiplier, constant: offset)
-        case .equalOrGreater:
-            return constraint(greaterThanOrEqualTo: dimension, multiplier: multiplier, constant: offset)
+        case .equal: return constraint(equalTo: dimension, multiplier: multiplier, constant: offset)
+        case .equalOrLess: return constraint(lessThanOrEqualTo: dimension, multiplier: multiplier, constant: offset)
+        case .equalOrGreater: return constraint(greaterThanOrEqualTo: dimension, multiplier: multiplier, constant: offset)
         }
     }
 
-    func constraint(
-        toConstant constant: CGFloat,
-        relation: ConstraintRelation
-        ) -> NSLayoutConstraint {
+    func constraint(toConstant constant: CGFloat, relation: ConstraintRelation) -> NSLayoutConstraint {
         switch relation {
-        case .equal:
-            return constraint(equalToConstant: constant)
-        case .equalOrLess:
-            return constraint(lessThanOrEqualToConstant: constant)
-        case .equalOrGreater:
-            return constraint(greaterThanOrEqualToConstant: constant)
+        case .equal: return constraint(equalToConstant: constant)
+        case .equalOrLess: return constraint(lessThanOrEqualToConstant: constant)
+        case .equalOrGreater: return constraint(greaterThanOrEqualToConstant: constant)
         }
     }
 }
-
-
-
