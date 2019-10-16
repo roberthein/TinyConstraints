@@ -15,6 +15,7 @@
 		A932CB751F78081B00401861 /* TinyConstraints+superview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932CB741F78081B00401861 /* TinyConstraints+superview.swift */; };
 		A97552CE2128478300C1EC7E /* TinyEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97552CD2128478300C1EC7E /* TinyEdgeInsets.swift */; };
 		A9D467D11E6777CA00C331FA /* Abstraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D467D01E6777CA00C331FA /* Abstraction.swift */; };
+		C0ED0A912357405000A20B2B /* NSLayoutDimension+ConstraintRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ED0A902357405000A20B2B /* NSLayoutDimension+ConstraintRelation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		A932CB741F78081B00401861 /* TinyConstraints+superview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TinyConstraints+superview.swift"; sourceTree = "<group>"; };
 		A97552CD2128478300C1EC7E /* TinyEdgeInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinyEdgeInsets.swift; sourceTree = "<group>"; };
 		A9D467D01E6777CA00C331FA /* Abstraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Abstraction.swift; sourceTree = "<group>"; };
+		C0ED0A902357405000A20B2B /* NSLayoutDimension+ConstraintRelation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutDimension+ConstraintRelation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				2DD9870C1E4DBB6A002F80D6 /* TinyConstraints.swift */,
 				A932CB741F78081B00401861 /* TinyConstraints+superview.swift */,
 				A97552CD2128478300C1EC7E /* TinyEdgeInsets.swift */,
+				C0ED0A902357405000A20B2B /* NSLayoutDimension+ConstraintRelation.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0ED0A912357405000A20B2B /* NSLayoutDimension+ConstraintRelation.swift in Sources */,
 				A97552CE2128478300C1EC7E /* TinyEdgeInsets.swift in Sources */,
 				2DD987111E4DBB6A002F80D6 /* TinyConstraints.swift in Sources */,
 				A932CB751F78081B00401861 /* TinyConstraints+superview.swift in Sources */,
