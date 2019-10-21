@@ -178,6 +178,19 @@ it, simply add the following line to your Cartfile:
 github "roberthein/TinyConstraints"
 ```
 
+### Swift Package Manager
+
+TinyConstraints is available through [Swift Package Manager](https://github.com/apple/swift-package-manager)
+To install it, simply add the following line to your Package.swift file:
+
+```
+dependencies: [
+    .package(url: "https://github.com/MengTo/Spring.git", from: "1.0.6")
+]
+```
+
+Alternatively from inside your project in Xcode go to File -> Swift Packages -> Add Package Dependency and in the first prompt paste 'https://github.com/MengTo/Spring.git' 
+
 ## Tutorials
 
 Here are some [video tutorials](https://www.youtube.com/playlist?list=PL_csAAO9PQ8ZDbGk57RlBRnNpxBGBAEOc) made by [Alex Nagy](https://github.com/rebeloper).
