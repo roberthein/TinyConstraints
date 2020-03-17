@@ -178,6 +178,14 @@ it, simply add the following line to your Cartfile:
 github "roberthein/TinyConstraints"
 ```
 
+### Swift Package Manager
+
+TinyConstraints is available through [Swift Package Manager](https://swift.org/package-manager/). To install
+it, in Xcode 11.0 or later select `File` > `Swift Packages` > `Add Package Dependency...` and add TinyConstraints repository URL:
+```
+https://github.com/roberthein/TinyConstraints.git
+```
+
 ## Tutorials
 
 Here are some [video tutorials](https://www.youtube.com/playlist?list=PL_csAAO9PQ8ZDbGk57RlBRnNpxBGBAEOc) made by [Alex Nagy](https://github.com/rebeloper).
