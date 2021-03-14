@@ -28,15 +28,15 @@
     import UIKit
 #endif
 
-public extension View {
+public extension TinyView {
     
     @discardableResult
-    func stack(_ views: [View], axis: ConstraintAxis = .vertical, width: CGFloat? = nil, height: CGFloat? = nil, spacing: CGFloat = 0) -> Constraints {
+    func stack(_ views: [TinyView], axis: ConstraintAxis = .vertical, width: CGFloat? = nil, height: CGFloat? = nil, spacing: CGFloat = 0) -> Constraints {
         
         translatesAutoresizingMaskIntoConstraints = false
         
         var offset: CGFloat = 0
-        var previous: View?
+        var previous: TinyView?
         var constraints: Constraints = []
         
         for view in views {
