@@ -339,7 +339,7 @@ public extension Constrainable {
     }
 }
 
-public extension View {
+public extension TinyView {
     
     func setHugging(_ priority: LayoutPriority, for axis: ConstraintAxis) {
         setContentHuggingPriority(priority, for: axis)
