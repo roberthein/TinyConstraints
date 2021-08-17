@@ -37,6 +37,16 @@ public enum ConstraintRelation: Int {
     case equalOrGreater = 1
 }
 
+public extension Constraint {
+    func activate() {
+        Constraint.activate([self])
+    }
+
+    func deActivate() {
+        Constraint.deactivate([self])
+    }
+}
+
 public extension Collection where Iterator.Element == Constraint {
     
     func activate() {
