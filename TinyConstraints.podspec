@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name = 'TinyConstraints'
-    s.version = '4.0.1'
+    s.version = '4.0.2'
     s.swift_versions = [5.0]
     s.summary = 'Nothing but sugar.'
     s.description = <<-DESC
