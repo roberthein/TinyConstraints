@@ -2,7 +2,6 @@
 
 <p align="center">
     <img src="Art/header.png" width="890" alt="TinyConstraints"/>
-    <img src="Art/header.gif" width="890" alt="TinyConstraints"/>
 </p>
 
 ## Features
