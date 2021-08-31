@@ -27,7 +27,7 @@
     import UIKit
 #endif
 
-extension View: Constrainable {
+extension TinyView: Constrainable {
     
     @discardableResult
     public func prepareForLayout() -> Self {
