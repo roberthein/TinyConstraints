@@ -2,9 +2,9 @@ Pod::Spec.new do |s|
     s.name = 'TinyConstraints'
     s.version = '4.0.2'
     s.swift_versions = [5.0]
-    s.summary = 'Nothing but sugar.'
+    s.summary = 'TinyConstraints is the syntactic sugar that makes Auto Layout sweeter for human use.'
     s.description = <<-DESC
-TinyConstraints is the syntactic sugar that makes Auto Layout sweeter for human use.
+TinyConstraints is the syntactic sugar library that makes Auto Layout sweeter for human use.
     DESC
     s.homepage = 'https://github.com/roberthein/TinyConstraints'
     s.license = { :type => 'MIT', :file => 'LICENSE' }
