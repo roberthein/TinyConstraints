@@ -7,7 +7,8 @@ let package = Package(
         .macOS(.v10_11), .iOS(.v9), .tvOS(.v9)
     ],
     products: [
-        .library(name: "TinyConstraints", targets: ["TinyConstraints"])
+        .library(name: "TinyConstraints", targets: ["TinyConstraints"]),
+        .library(name: "TinyConstraintsDynamic", type: .dynamic, targets: ["TinyConstraints"])
     ],
     targets: [
         .target(
