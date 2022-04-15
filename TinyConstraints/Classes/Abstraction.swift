@@ -45,4 +45,3 @@ import Foundation
     
     public typealias TinyEdgeInsets = UIEdgeInsets
 #endif
-
