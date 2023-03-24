@@ -173,13 +173,11 @@ public extension TinyView {
         
         prepareForLayout()
         
-        #if os(iOS) || os(tvOS)
-            if #available(iOS 11, tvOS 11, *){
-                if usingSafeArea {
-                    return superview.safeAreaLayoutGuide
-                }
+        if #available(iOS 11, tvOS 11, macOS 11, *){
+            if usingSafeArea {
+                return superview.safeAreaLayoutGuide
             }
-        #endif
+        }
         
         return superview
     }
