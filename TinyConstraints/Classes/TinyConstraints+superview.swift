@@ -65,12 +65,20 @@
                 constraints.append(topToSuperview(offset: insets.top, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
             }
             
-            if !(excludedEdge.contains(.leading) || excludedEdge.contains(.left)) {
+            if !excludedEdge.contains(.left) {
+                constraints.append(leftToSuperview(offset: insets.left, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
+            }
+            
+            if !excludedEdge.contains(.leading) {
                 constraints.append(leadingToSuperview(offset: insets.left, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
             }
                 
-            if !(excludedEdge.contains(.trailing) || excludedEdge.contains(.right)) {
+            if !excludedEdge.contains(.trailing) {
                 constraints.append(trailingToSuperview(offset: insets.right, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
+            }
+            
+            if !excludedEdge.contains(.right) {
+                constraints.append(rightToSuperview(offset: insets.right, relation: relation, priority: priority, isActive: isActive, usingSafeArea: usingSafeArea))
             }
             
             if !excludedEdge.contains(.bottom) {
